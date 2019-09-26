@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿// Obsolete player controller
+
+
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,4 +21,4 @@ public class PlayerController : MonoBehaviour
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveDirection) * moveSpeed);  
     }
-}
+}*/
