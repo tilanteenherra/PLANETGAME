@@ -1,18 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class LoadControllerMain : MonoBehaviour
+namespace LoadOnAwake_Scripts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class LoadControllerMain : MonoBehaviour
     {
-        
-    }
+        private int thisScene;
+        // Start is called before the first frame update
+        void Start()
+        {
+            thisScene = SceneManager.GetActiveScene().buildIndex;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
+            if (Input.anyKeyDown)
+            {
+                Continue();
+            }
+        }
+
+        void Continue()
+        {
         
+            //Loading the next Scene
+            //SceneManager.LoadScene(thisScene + 1);
+            Debug.Log("Load the next scene");
+        }
     }
 }
