@@ -22,6 +22,10 @@ namespace MenuScripts
             graphicsButton = GameObject.Find("GraphicsButton").GetComponent<Button>();
             backButton = GameObject.Find("BackButton").GetComponent<Button>();
             
+            string[] names = QualitySettings.names;
+            graphicsButton.gameObject.GetComponentInChildren<Text>().text =
+                "Graphics: " + names[QualitySettings.GetQualityLevel()];
+            
             
             //add listeners for click
             audioButton.onClick.AddListener(AudioButton);
@@ -55,13 +59,13 @@ namespace MenuScripts
         {
             string[] names = QualitySettings.names;
 
-            if (QualitySettings.GetQualityLevel() >= names.Length)
+            if (QualitySettings.GetQualityLevel() >= names.Length -1)
             {
                 QualitySettings.SetQualityLevel(0, false);
             }
             else
             {
-                QualitySettings.SetQualityLevel(QualitySettings.GetQualityLevel() + 1, false);
+                QualitySettings.IncreaseLevel(false);
             }
 
             graphicsButton.gameObject.GetComponentInChildren<Text>().text =
