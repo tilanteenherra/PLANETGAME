@@ -1,46 +1,50 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuButtons : MonoBehaviour
+namespace MenuScripts
 {
-    public Button settingsButton;
-    public Button exitButton;
-    public Button startButton;   
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class MainMenuButtons : MonoBehaviour
     {
-        settingsButton.onClick.AddListener(SettingsButton);
-        exitButton.onClick.AddListener(ExitButton);
-        startButton.onClick.AddListener(StartButton);
-    }
+        private Button settingsButton;
+        private Button exitButton;
+        private Button startButton;   
 
-    // Update is called once per frame
-    void Update()
-    {
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            settingsButton = GameObject.Find("SettingsButton").GetComponent<Button>();
+            startButton = GameObject.Find("StartButton").GetComponent<Button>();
+            exitButton = GameObject.Find("ExitButton").GetComponent<Button>();
+            
+            settingsButton.onClick.AddListener(SettingsButton);
+            exitButton.onClick.AddListener(ExitButton);
+            startButton.onClick.AddListener(StartButton);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
+        }
 
-    private void StartButton()
-         {
-             //Please add the scene
-             SceneManager.LoadScene("Game");
-         }
+        private void StartButton()
+        {
+            //Please add the scene
+            SceneManager.LoadScene("Game");
+        }
 
-    private void SettingsButton()
-    {
-        //Please add the scene
-        SceneManager.LoadScene("Settings");
-    }
+        private void SettingsButton()
+        {
+            //Please add the scene
+            SceneManager.LoadScene("SettingsScene");
+        }
 
-    private void ExitButton()
-    {
-        //Quit the game
-        Application.Quit();
+        private void ExitButton()
+        {
+            //Quit the game
+            Application.Quit();
+        }
     }
 }

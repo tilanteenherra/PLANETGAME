@@ -5,11 +5,10 @@ namespace MenuScripts
 {
     public class LoadControllerMain : MonoBehaviour
     {
-        private int thisScene;
         // Start is called before the first frame update
         void Start()
         {
-            thisScene = SceneManager.GetActiveScene().buildIndex;
+            
         }
 
         // Update is called once per frame
@@ -25,8 +24,8 @@ namespace MenuScripts
         {
         
             //Loading the next Scene
-            //SceneManager.LoadScene(thisScene + 1);
-            Debug.Log("Load the next scene");
+            SceneManager.LoadScene("MainMenu");
+            
         }
     }
 }
