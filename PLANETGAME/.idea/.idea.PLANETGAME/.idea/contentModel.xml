@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Nike\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Nike\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_PLANETGAME.212913859.00" t="ExcludeRecursive" />
-    <e p="D:\UnityProjects\PlanetGame\PlanetGame\PlanetGame" t="IncludeRecursive">
+    <e p="C:\Users\joona\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\joona\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\joona\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_PLANETGAME.-576303037.00" t="ExcludeRecursive" />
+    <e p="C:\Users\joona\Documents\Unity\Planet Game\PlanetGame\PlanetGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
-          <e p="NewBehaviourScript.cs" t="Include" />
+          <e p="LoadOnAwake Scripts" t="Include">
+            <e p="LoadControllerMain.cs" t="Include" />
+          </e>
           <e p="PlayerController.cs" t="Include" />
           <e p="PlayerStats.cs" t="Include" />
           <e p="WeaponDamage.cs" t="Include" />
         </e>
       </e>
+      <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="PLANETGAME.sln" t="IncludeFlat" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
   </component>
 </project>
