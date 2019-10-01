@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 1737277792668710719}
   - component: {fileID: 1737277792668710718}
   - component: {fileID: 7234000434055965842}
+  - component: {fileID: 8080850000065184103}
   m_Layer: 0
   m_Name: DemonSlayer
   m_TagString: Untagged
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737277792105899429}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae, type: 3}
   m_Name: 
@@ -311,6 +312,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   curHp: 0
+--- !u!114 &8080850000065184103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737277792105899429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e70f69ffa196342bf9244040bd0b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
+  rotateSpeed: 0
 --- !u!1 &1737277792105899431
 GameObject:
   m_ObjectHideFlags: 0

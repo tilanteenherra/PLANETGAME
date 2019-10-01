@@ -14,10 +14,18 @@ public class PlayerControllerMovement : MonoBehaviour
     Vector3 playerMove;
     Vector3 playerRotate;
 
+    Transform playerCamera;
+
+    Animator animator;
+
     public float moveSpeed;
+    public float rotateSpeed;
 
     private void Awake()
     {
+        playerCamera = Camera.main.transform;
+        animator = GetComponent<Animator>();
+
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
 
@@ -36,14 +44,30 @@ public class PlayerControllerMovement : MonoBehaviour
     {
         //Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
         //playerMove = new Vector3(move.x, 0, move.y) * moveSpeed * Time.deltaTime;
+
+        // Player movement with controller
         playerMove = new Vector3(move.x, 0, move.y).normalized * moveSpeed * Time.deltaTime;
-        //playerRotate = new Vector3()
         transform.Translate(playerMove, Space.Self);
+
+        // Player rotation with controller
+
+        //playerRotate = new Vector3()
+
     }
 
     void Attack()
     {
         // Attack animation
+        StartCoroutine(AttackRoutine());
+    }
+
+    IEnumerator AttackRoutine()
+    {
+        animator.SetBool("attacking", true);
+        animator.SetInteger("condition", 2);
+        yield return new WaitForSeconds(1);
+        animator.SetInteger("condition", 0);
+        animator.SetBool("attacking", false);
     }
 
     private void OnEnable()
