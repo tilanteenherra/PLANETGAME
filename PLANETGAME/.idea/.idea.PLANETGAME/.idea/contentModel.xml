@@ -10,17 +10,25 @@
         <e p="Input" t="Include">
           <e p="PlayerControls.cs" t="Include" />
         </e>
+        <e p="knightController.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
           <e p="MenuScripts" t="Include">
+            <e p="CharacterSelect.cs" t="Include" />
             <e p="LoadControllerMain.cs" t="Include" />
             <e p="MainMenuButtons.cs" t="Include" />
             <e p="SettingsButtons.cs" t="Include" />
           </e>
           <e p="PlayerController.cs" t="Include" />
+          <e p="PlayerScripts" t="Include">
+            <e p="PlayerControllerMovement.cs" t="Include" />
+          </e>
           <e p="PlayerStats.cs" t="Include" />
+          <e p="StatsScripts" t="Include">
+            <e p="UIHealthChangeScript.cs" t="Include" />
+          </e>
           <e p="WeaponDamage.cs" t="Include" />
         </e>
       </e>
