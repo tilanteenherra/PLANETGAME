@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace LoadOnAwake_Scripts
+namespace MenuScripts
 {
     public class LoadControllerMain : MonoBehaviour
     {
