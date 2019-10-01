@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +22,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -35,8 +36,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/WeaponDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LoadOnAwake Scripts/LoadControllerMain.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" />
       </list>
     </option>
   </component>
@@ -101,7 +103,8 @@
       <workItem from="1569591368360" duration="5493000" />
       <workItem from="1569916039752" duration="192000" />
       <workItem from="1569916689406" duration="5133000" />
-      <workItem from="1569921907821" duration="1585000" />
+      <workItem from="1569921907821" duration="1754000" />
+      <workItem from="1569926829410" duration="679000" />
     </task>
     <servers />
   </component>
