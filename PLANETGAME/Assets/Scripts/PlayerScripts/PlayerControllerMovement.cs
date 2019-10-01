@@ -14,7 +14,7 @@ public class PlayerControllerMovement : MonoBehaviour
     Vector3 playerMove;
     Vector3 playerRotate;
 
-    Transform playerCamera;
+    //Transform playerCamera;
 
     Animator animator;
 
@@ -23,7 +23,7 @@ public class PlayerControllerMovement : MonoBehaviour
 
     private void Awake()
     {
-        playerCamera = Camera.main.transform;
+        //playerCamera = Camera.main.transform;
         animator = GetComponent<Animator>();
 
         move.x = Input.GetAxisRaw("Horizontal");
@@ -42,15 +42,14 @@ public class PlayerControllerMovement : MonoBehaviour
 
     private void Update()
     {
-        //Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
-        //playerMove = new Vector3(move.x, 0, move.y) * moveSpeed * Time.deltaTime;
 
         // Player movement with controller
         playerMove = new Vector3(move.x, 0, move.y).normalized * moveSpeed * Time.deltaTime;
         transform.Translate(playerMove, Space.Self);
 
         // Player rotation with controller
-
+        playerRotate = new Vector3(0, rotate.x, 0).normalized * rotateSpeed * Time.deltaTime;
+        transform.Rotate(playerRotate, Space.Self);
         //playerRotate = new Vector3()
 
     }
