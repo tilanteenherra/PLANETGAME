@@ -18,8 +18,8 @@ namespace StatsScripts
         // Update is called once per frame
         void Update()
         {
-            //image.transform.localScale = new Vector3(stats.maxHp / stats.curHp,1,1);
-            image.transform.localScale = new Vector3(asd,1,1);
+            image.transform.localScale = new Vector3(stats.maxHp / stats.curHp,1,1);
+            //image.transform.localScale = new Vector3(asd,1,1);
         }
 
     
