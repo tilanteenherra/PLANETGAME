@@ -4,8 +4,7 @@
     <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/knightstuff.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
