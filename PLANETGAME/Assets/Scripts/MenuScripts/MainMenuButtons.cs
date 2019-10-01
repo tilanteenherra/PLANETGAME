@@ -32,7 +32,7 @@ namespace MenuScripts
         private void StartButton()
         {
             //Please add the scene
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("CharacterSelect");
         }
 
         private void SettingsButton()
