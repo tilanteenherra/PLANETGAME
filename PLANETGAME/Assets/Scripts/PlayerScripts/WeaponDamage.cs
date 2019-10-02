@@ -7,6 +7,8 @@ public class WeaponDamage : MonoBehaviour
 {
 
     PlayerControllerMovement pcm;
+    // Only temporary fix to damage work with mouse
+    FirstPersonController fpc;
 
     public GameObject thisParent;
     
@@ -19,6 +21,7 @@ public class WeaponDamage : MonoBehaviour
     {
         thisParent = transform.root.gameObject;
         pcm = thisParent.GetComponent<PlayerControllerMovement>();
+        fpc = thisParent.GetComponent<FirstPersonController>();
     }
 
     // Update is called once per frame
@@ -30,7 +33,7 @@ public class WeaponDamage : MonoBehaviour
     // Damage doing script with trigger collider that detects who is using the weapon to not do damage to it but still can use "Player" tag.
     private void OnTriggerEnter(Collider other)
     {
-        if(pcm.attRoutineOn == true)
+        if(pcm.attRoutineOn == true || fpc.attRoutineOn == true)
         {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {

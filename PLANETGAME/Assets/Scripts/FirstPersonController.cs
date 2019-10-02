@@ -16,9 +16,14 @@ public class FirstPersonController : MonoBehaviour
 
     Animator anim;
 
+    public bool attRoutineOn = false;
+
+    WeaponDamage weaponDamage;
+
     // Start is called before the first frame update
     void Start()
     {
+        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
         cameraT = Camera.main.transform;
         anim = GetComponent<Animator>();
     }
@@ -86,6 +91,7 @@ public class FirstPersonController : MonoBehaviour
 
     void Attacking()
     {
+        attRoutineOn = true;
         StartCoroutine(AttackRoutine());
     }
 
@@ -96,5 +102,7 @@ public class FirstPersonController : MonoBehaviour
         yield return new WaitForSeconds(1);
         anim.SetInteger("condition", 0);
         anim.SetBool("attacking", false);
+        attRoutineOn = false;
+        weaponDamage.hitOnce = false;
     }
 }
