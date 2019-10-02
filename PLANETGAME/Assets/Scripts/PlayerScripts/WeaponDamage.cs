@@ -6,15 +6,19 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
+    PlayerControllerMovement pcm;
+
     public GameObject thisParent;
-    public GameObject otherPlayer;
     
     public int damage;
+
+    public bool hitOnce = false;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        thisParent = this.transform.parent.gameObject;
+        thisParent = transform.root.gameObject;
+        pcm = thisParent.GetComponent<PlayerControllerMovement>();
     }
 
     // Update is called once per frame
@@ -26,10 +30,16 @@ public class WeaponDamage : MonoBehaviour
     // Damage doing script with trigger collider that detects who is using the weapon to not do damage to it but still can use "Player" tag.
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+        if(pcm.attRoutineOn == true)
         {
-            otherPlayer = other.gameObject;
-            other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+            if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+            {
+                if(hitOnce == false)
+                {
+                    other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+                    hitOnce = true;
+                }
+            }
         }
     }
 }

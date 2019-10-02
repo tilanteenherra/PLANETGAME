@@ -7,6 +7,7 @@ public class PlayerControllerMovement : MonoBehaviour
 {
 
     PlayerControls controls;
+    WeaponDamage weaponDamage;
 
     Vector2 move;
     Vector2 rotate;
@@ -21,6 +22,8 @@ public class PlayerControllerMovement : MonoBehaviour
     public float moveSpeed;
     public float rotateSpeed;
 
+    public bool attRoutineOn = false;
+
     private void Awake()
     {
         //playerCamera = Camera.main.transform;
@@ -30,6 +33,7 @@ public class PlayerControllerMovement : MonoBehaviour
         move.y = Input.GetAxisRaw("Vertical");
 
         controls = new PlayerControls();
+        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
 
         controls.Gameplay.MeleeAttack.performed += ctz => Attack();
 
@@ -40,7 +44,7 @@ public class PlayerControllerMovement : MonoBehaviour
         controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
         // Player movement with controller
@@ -50,13 +54,11 @@ public class PlayerControllerMovement : MonoBehaviour
         // Player rotation with controller
         playerRotate = new Vector3(0, rotate.x, 0).normalized * rotateSpeed * Time.deltaTime;
         transform.Rotate(playerRotate, Space.Self);
-        //playerRotate = new Vector3()
-
     }
 
     void Attack()
     {
-        // Attack animation
+        attRoutineOn = true;
         StartCoroutine(AttackRoutine());
     }
 
@@ -67,6 +69,8 @@ public class PlayerControllerMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
         animator.SetInteger("condition", 0);
         animator.SetBool("attacking", false);
+        attRoutineOn = false;
+        weaponDamage.hitOnce = false;
     }
 
     private void OnEnable()
