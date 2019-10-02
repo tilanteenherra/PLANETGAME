@@ -56,6 +56,11 @@ public class PlayerControllerMovement : MonoBehaviour
         transform.Rotate(playerRotate, Space.Self);
     }
 
+    //void GetInput()
+    //{
+        
+    //}
+
     void Attack()
     {
         attRoutineOn = true;

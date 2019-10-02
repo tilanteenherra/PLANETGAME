@@ -15,6 +15,7 @@ public class WeaponDamage : MonoBehaviour
     public int damage;
 
     public bool hitOnce = false;
+    public bool inArea = false;
     
     // Start is called before the first frame update
     void Awake()
@@ -31,18 +32,51 @@ public class WeaponDamage : MonoBehaviour
     }
     
     // Damage doing script with trigger collider that detects who is using the weapon to not do damage to it but still can use "Player" tag.
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(pcm.attRoutineOn == true || fpc.attRoutineOn == true)
+    //    {
+    //        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+    //        {
+    //            Debug.Log("Found player to hit!");
+    //            if (hitOnce == false)
+    //            {
+    //                Debug.Log("Hit!");
+    //                other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+    //                hitOnce = true;
+    //            }
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerStay(Collider other)
     {
-        if(pcm.attRoutineOn == true || fpc.attRoutineOn == true)
+        if (pcm.attRoutineOn == true || fpc.attRoutineOn == true)
         {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {
-                if(hitOnce == false)
+                if (hitOnce == true)
                 {
+                    Debug.Log(":)");
+                }
+
+                Debug.Log("Found player to hit!");
+
+                if (hitOnce == false)
+                {
+                    Debug.Log("Hit!");
                     other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
                     hitOnce = true;
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+        {
+            inArea = false;
         }
     }
 }

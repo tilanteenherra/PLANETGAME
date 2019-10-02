@@ -6,6 +6,13 @@ public class FauxGravityAttractor : MonoBehaviour
 {
     public float gravity = -15;
 
+    Transform world;
+
+    private void Awake()
+    {
+        world = GameObject.FindGameObjectWithTag("World").GetComponent<Transform>();
+    }
+
     public void Attract(Transform body)
     {
         Vector3 gravityUp = (body.position - transform.position).normalized;
