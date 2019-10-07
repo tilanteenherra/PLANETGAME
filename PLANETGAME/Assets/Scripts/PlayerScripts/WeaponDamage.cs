@@ -11,7 +11,11 @@ public class WeaponDamage : MonoBehaviour
     FirstPersonController fpc;
 
     public GameObject thisParent;
-    
+    public GameObject damageBurst;
+
+    private float time = 3;
+    private GameObject instantiatedObj;
+
     public int damage;
 
     public bool hitOnce = false;
@@ -67,6 +71,8 @@ public class WeaponDamage : MonoBehaviour
                     Debug.Log("Hit!");
                     other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
                     hitOnce = true;
+                    instantiatedObj = (GameObject)Instantiate(damageBurst, other.transform.position, transform.rotation);
+                    Destroy(instantiatedObj, time);
                 }
             }
         }
