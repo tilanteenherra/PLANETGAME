@@ -6,7 +6,7 @@ namespace StatsScripts
     public class UIHealthChangeScript : MonoBehaviour
     {
         private PlayerStats stats;
-        private GameObject image;
+        public GameObject image;
         private float asd = 0;
     
         // Start is called before the first frame update

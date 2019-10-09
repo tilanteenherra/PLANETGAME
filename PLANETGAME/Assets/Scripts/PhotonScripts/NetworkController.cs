@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
 
 public class NetworkController : MonoBehaviourPunCallbacks
 {
@@ -9,6 +10,7 @@ public class NetworkController : MonoBehaviourPunCallbacks
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        Debug.Log("Starting");
     }
 
     public override void OnConnectedToMaster()
