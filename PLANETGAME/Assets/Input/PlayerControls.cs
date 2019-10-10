@@ -91,6 +91,17 @@ public class PlayerControls : IInputActionCollection
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6a3ec531-277d-4f80-952d-dfa20587edfb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""a5e0367e-d337-4c29-8580-cf30d51e5813"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
@@ -124,8 +135,30 @@ public class PlayerControls : IInputActionCollection
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9e7a6344-0b20-4399-a84a-97803fbf4c53"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interactive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""049d76c0-1a6a-4eb5-afc2-2ca5d4f12d9c"",
                     ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spell1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a748044-74b0-460d-a885-9985c178bc8b"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -143,6 +176,44 @@ public class PlayerControls : IInputActionCollection
                     ""action"": ""Spell2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c419e042-1dd1-4626-af6c-4f4aa0984ba5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spell2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""MouseGameplay"",
+            ""id"": ""b87225b3-a69e-4717-ad13-d39bde00f624"",
+            ""actions"": [
+                {
+                    ""name"": ""MeleeAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ac634af-d604-47dc-89f0-0fbdc021e064"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7c6bdcbb-f0b2-44de-88d4-94e9d419a567"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -157,6 +228,9 @@ public class PlayerControls : IInputActionCollection
         m_Gameplay_Interactive = m_Gameplay.FindAction("Interactive", throwIfNotFound: true);
         m_Gameplay_Spell1 = m_Gameplay.FindAction("Spell1", throwIfNotFound: true);
         m_Gameplay_Spell2 = m_Gameplay.FindAction("Spell2", throwIfNotFound: true);
+        // MouseGameplay
+        m_MouseGameplay = asset.FindActionMap("MouseGameplay", throwIfNotFound: true);
+        m_MouseGameplay_MeleeAttack = m_MouseGameplay.FindAction("MeleeAttack", throwIfNotFound: true);
     }
 
     ~PlayerControls()
@@ -275,6 +349,39 @@ public class PlayerControls : IInputActionCollection
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // MouseGameplay
+    private readonly InputActionMap m_MouseGameplay;
+    private IMouseGameplayActions m_MouseGameplayActionsCallbackInterface;
+    private readonly InputAction m_MouseGameplay_MeleeAttack;
+    public struct MouseGameplayActions
+    {
+        private PlayerControls m_Wrapper;
+        public MouseGameplayActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MeleeAttack => m_Wrapper.m_MouseGameplay_MeleeAttack;
+        public InputActionMap Get() { return m_Wrapper.m_MouseGameplay; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MouseGameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IMouseGameplayActions instance)
+        {
+            if (m_Wrapper.m_MouseGameplayActionsCallbackInterface != null)
+            {
+                MeleeAttack.started -= m_Wrapper.m_MouseGameplayActionsCallbackInterface.OnMeleeAttack;
+                MeleeAttack.performed -= m_Wrapper.m_MouseGameplayActionsCallbackInterface.OnMeleeAttack;
+                MeleeAttack.canceled -= m_Wrapper.m_MouseGameplayActionsCallbackInterface.OnMeleeAttack;
+            }
+            m_Wrapper.m_MouseGameplayActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                MeleeAttack.started += instance.OnMeleeAttack;
+                MeleeAttack.performed += instance.OnMeleeAttack;
+                MeleeAttack.canceled += instance.OnMeleeAttack;
+            }
+        }
+    }
+    public MouseGameplayActions @MouseGameplay => new MouseGameplayActions(this);
     public interface IGameplayActions
     {
         void OnMeleeAttack(InputAction.CallbackContext context);
@@ -283,5 +390,9 @@ public class PlayerControls : IInputActionCollection
         void OnInteractive(InputAction.CallbackContext context);
         void OnSpell1(InputAction.CallbackContext context);
         void OnSpell2(InputAction.CallbackContext context);
+    }
+    public interface IMouseGameplayActions
+    {
+        void OnMeleeAttack(InputAction.CallbackContext context);
     }
 }

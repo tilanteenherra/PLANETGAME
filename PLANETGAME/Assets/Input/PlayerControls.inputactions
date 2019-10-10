@@ -79,6 +79,17 @@
                 },
                 {
                     "name": "",
+                    "id": "6a3ec531-277d-4f80-952d-dfa20587edfb",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MeleeAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a5e0367e-d337-4c29-8580-cf30d51e5813",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
@@ -112,8 +123,30 @@
                 },
                 {
                     "name": "",
+                    "id": "9e7a6344-0b20-4399-a84a-97803fbf4c53",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interactive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "049d76c0-1a6a-4eb5-afc2-2ca5d4f12d9c",
                     "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a748044-74b0-460d-a885-9985c178bc8b",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -129,6 +162,44 @@
                     "processors": "",
                     "groups": "",
                     "action": "Spell2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c419e042-1dd1-4626-af6c-4f4aa0984ba5",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spell2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "MouseGameplay",
+            "id": "b87225b3-a69e-4717-ad13-d39bde00f624",
+            "actions": [
+                {
+                    "name": "MeleeAttack",
+                    "type": "Button",
+                    "id": "5ac634af-d604-47dc-89f0-0fbdc021e064",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7c6bdcbb-f0b2-44de-88d4-94e9d419a567",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MeleeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
