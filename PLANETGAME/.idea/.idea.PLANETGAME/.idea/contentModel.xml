@@ -355,6 +355,7 @@
         <e p="Scripts" t="Include">
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
+          <e p="FireRotateScript.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
           <e p="MenuScripts" t="Include">
             <e p="CharacterSelect.cs" t="Include" />
@@ -363,7 +364,10 @@
             <e p="SettingsButtons.cs" t="Include" />
           </e>
           <e p="PhotonScripts" t="Include">
+            <e p="GameSetupController.cs" t="Include" />
             <e p="NetworkController.cs" t="Include" />
+            <e p="QuickStartLobbyController.cs" t="Include" />
+            <e p="QuickStartRoomController.cs" t="Include" />
           </e>
           <e p="PlayerScripts" t="Include">
             <e p="PlayerController.cs" t="Include" />
