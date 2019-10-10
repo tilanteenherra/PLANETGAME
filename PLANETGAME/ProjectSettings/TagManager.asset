@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Weapon
   - World
+  - BloodEffect
+  - Fireplace
   layers:
   - Default
   - TransparentFX
