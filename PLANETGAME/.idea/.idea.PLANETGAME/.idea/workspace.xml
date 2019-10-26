@@ -15,18 +15,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+            <state relative-caret-position="112">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding>
-                <marker date="1572103452675" expanded="true" signature="6:92" ph="..." />
-                <marker date="1572103452675" expanded="true" signature="138:674" ph="{...}" />
-                <marker date="1572103452675" expanded="true" signature="282:370" ph="{...}" />
-                <marker date="1572103452675" expanded="true" signature="428:449" ph="{...}" />
-                <marker date="1572103452675" expanded="true" signature="497:672" ph="{...}" />
-                <marker date="1572103452675" expanded="true" signature="585:661" ph="{...}" />
+                <marker date="1572106623568" expanded="false" signature="6:78" ph="..." />
+                <marker date="1572106623568" expanded="true" signature="120:586" ph="{...}" />
+                <marker date="1572106623568" expanded="true" signature="244:279" ph="{...}" />
+                <marker date="1572106623568" expanded="true" signature="337:527" ph="{...}" />
+                <marker date="1572106623568" expanded="true" signature="402:449" ph="{...}" />
+                <marker date="1572106623568" expanded="true" signature="473:512" ph="{...}" />
+                <marker date="1572106623568" expanded="true" signature="543:584" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="23" />
+              <folding>
+                <marker date="1572107354954" expanded="true" signature="43:702" ph="{...}" />
+                <marker date="1572107354954" expanded="true" signature="89:700" ph="{...}" />
+                <marker date="1572107354954" expanded="true" signature="253:353" ph="{...}" />
+                <marker date="1572107354954" expanded="true" signature="419:448" ph="{...}" />
+                <marker date="1572107354954" expanded="true" signature="500:694" ph="{...}" />
+                <marker date="1572107354954" expanded="true" signature="596:679" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -59,7 +77,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" root0="FORCE_HIGHLIGHTING" />
@@ -81,7 +99,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FireRotateScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
       </list>
     </option>
   </component>
@@ -162,12 +182,12 @@
       <workItem from="1570439701797" duration="1015000" />
       <workItem from="1570442728749" duration="603000" />
       <workItem from="1570698535146" duration="4608000" />
-      <workItem from="1572103252938" duration="250000" />
+      <workItem from="1572103252938" duration="2129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250000" />
+    <option name="totallyTimeSpent" value="2129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -276,14 +296,37 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding>
-            <marker date="1572103452675" expanded="true" signature="6:92" ph="..." />
-            <marker date="1572103452675" expanded="true" signature="138:674" ph="{...}" />
-            <marker date="1572103452675" expanded="true" signature="282:370" ph="{...}" />
-            <marker date="1572103452675" expanded="true" signature="428:449" ph="{...}" />
-            <marker date="1572103452675" expanded="true" signature="497:672" ph="{...}" />
-            <marker date="1572103452675" expanded="true" signature="585:661" ph="{...}" />
+            <marker date="1572106623568" expanded="false" signature="6:78" ph="..." />
+            <marker date="1572106623568" expanded="true" signature="120:586" ph="{...}" />
+            <marker date="1572106623568" expanded="true" signature="244:279" ph="{...}" />
+            <marker date="1572106623568" expanded="true" signature="337:527" ph="{...}" />
+            <marker date="1572106623568" expanded="true" signature="402:449" ph="{...}" />
+            <marker date="1572106623568" expanded="true" signature="473:512" ph="{...}" />
+            <marker date="1572106623568" expanded="true" signature="543:584" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <marker date="1572107354954" expanded="true" signature="43:702" ph="{...}" />
+            <marker date="1572107354954" expanded="true" signature="89:700" ph="{...}" />
+            <marker date="1572107354954" expanded="true" signature="253:353" ph="{...}" />
+            <marker date="1572107354954" expanded="true" signature="419:448" ph="{...}" />
+            <marker date="1572107354954" expanded="true" signature="500:694" ph="{...}" />
+            <marker date="1572107354954" expanded="true" signature="596:679" ph="{...}" />
           </folding>
         </state>
       </provider>
