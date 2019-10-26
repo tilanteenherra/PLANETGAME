@@ -384,18 +384,6 @@ PrefabInstance:
       propertyPath: attractor
       value: 
       objectReference: {fileID: 1613932845}
-    - target: {fileID: 2004150027, guid: d97acc1c11a24ca4eaf0cc385dd6e472, type: 3}
-      propertyPath: curSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004150027, guid: d97acc1c11a24ca4eaf0cc385dd6e472, type: 3}
-      propertyPath: cactusPickUpMaxTime
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2004150027, guid: d97acc1c11a24ca4eaf0cc385dd6e472, type: 3}
-      propertyPath: cactusJuiceSpeed
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97acc1c11a24ca4eaf0cc385dd6e472, type: 3}
 --- !u!1001 &588909777
