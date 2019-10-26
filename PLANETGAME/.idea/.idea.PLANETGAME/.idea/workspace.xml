@@ -36,20 +36,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state relative-caret-position="153">
+              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
               <folding>
-                <marker date="1572109505203" expanded="true" signature="6:32" ph="..." />
-                <marker date="1572109505203" expanded="true" signature="57:2121" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="103:2119" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="606:1064" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1130:1548" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1170:1538" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1297:1524" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1600:1789" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1696:1779" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1842:2113" ph="{...}" />
-                <marker date="1572109505203" expanded="true" signature="1924:2103" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="6:32" ph="..." />
+                <marker date="1572109650086" expanded="true" signature="57:2240" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="103:2238" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="606:1064" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1130:1609" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1231:1599" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1358:1585" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1661:2159" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1757:1840" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="1970:2149" ph="{...}" />
+                <marker date="1572109650086" expanded="true" signature="2212:2232" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -212,12 +212,12 @@
       <workItem from="1570439701797" duration="1015000" />
       <workItem from="1570442728749" duration="603000" />
       <workItem from="1570698535146" duration="4608000" />
-      <workItem from="1572103252938" duration="3641000" />
+      <workItem from="1572103252938" duration="3947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3641000" />
+    <option name="totallyTimeSpent" value="3947000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -371,20 +371,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="10" column="8" lean-forward="true" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state relative-caret-position="153">
+          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
           <folding>
-            <marker date="1572109505203" expanded="true" signature="6:32" ph="..." />
-            <marker date="1572109505203" expanded="true" signature="57:2121" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="103:2119" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="606:1064" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1130:1548" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1170:1538" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1297:1524" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1600:1789" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1696:1779" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1842:2113" ph="{...}" />
-            <marker date="1572109505203" expanded="true" signature="1924:2103" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="6:32" ph="..." />
+            <marker date="1572109650086" expanded="true" signature="57:2240" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="103:2238" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="606:1064" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1130:1609" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1231:1599" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1358:1585" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1661:2159" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1757:1840" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="1970:2149" ph="{...}" />
+            <marker date="1572109650086" expanded="true" signature="2212:2232" ph="{...}" />
           </folding>
         </state>
       </provider>
