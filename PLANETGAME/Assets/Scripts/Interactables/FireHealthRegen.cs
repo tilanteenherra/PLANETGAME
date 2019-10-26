@@ -25,7 +25,7 @@ public class FireHealthRegen : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Campfire") && stats.curHp < stats.maxHp)
         {
-            stats.curHp += (int)healthMultiplier;
+            stats.curHp += (int)(1 * healthMultiplier);
         }
     
     }
