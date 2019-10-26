@@ -10,6 +10,7 @@ TagManager:
   - Fireplace
   - Bullet
   - Campfire
+  - Cactus
   layers:
   - Default
   - TransparentFX
