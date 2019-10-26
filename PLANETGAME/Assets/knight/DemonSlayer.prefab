@@ -406,6 +406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84f2763dc3e4e34a9e5319eec6944fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curSpeed: 0
+  cactusJuiceSpeed: 15
+  cactusPickUpMaxTime: 5
   healthMultiplier: 0.1
 --- !u!1 &1737277792105899431
 GameObject:
