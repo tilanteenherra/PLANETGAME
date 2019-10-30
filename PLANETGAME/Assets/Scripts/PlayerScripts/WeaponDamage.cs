@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
-    PlayerControllerMovement pcm;
+    PlayerController pcm;
     // Only temporary fix to damage work with mouse
     FirstPersonController fpc;
 
@@ -25,7 +25,7 @@ public class WeaponDamage : MonoBehaviour
     void Awake()
     {
         thisParent = transform.root.gameObject;
-        pcm = thisParent.GetComponent<PlayerControllerMovement>();
+        pcm = thisParent.GetComponent<PlayerController>();
         fpc = thisParent.GetComponent<FirstPersonController>();
         damageBurst = this.gameObject.transform.GetChild(0).gameObject;
     }
