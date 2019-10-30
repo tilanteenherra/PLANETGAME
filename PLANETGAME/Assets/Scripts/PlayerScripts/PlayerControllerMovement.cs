@@ -7,39 +7,57 @@ using UnityEngine.InputSystem.Interactions;
 public class PlayerControllerMovement : MonoBehaviour
 {
 
+    // Class usage variables
     PlayerControls controls;
     WeaponDamage weaponDamage;
 
-    //Transform playerCamera;
-
+    //Component variables
     Animator animator;
 
+    // Player variables
     public float moveSpeed;
     public float rotateSpeed;
 
     public bool attRoutineOn = false;
-    //private PlayerControls.IGameplayActions _gameplayActionsImplementation;
+    
+    // Move direction
+    Vector2 moveInput;
+    //Rotate direction
+    Vector2 rotateInput;
 
     private void Awake()
     {
-
-        animator = GetComponent<Animator>();
         
+        animator = GetComponent<Animator>();
         weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
+        
+        // Input Controller Related Things
+        controls = new PlayerControls();
 
-/*
-        controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
-        */
+        controls.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
+        
+        controls.Gameplay.Rotate.performed += ctx => rotateInput = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Rotate.canceled += ctx => moveInput = Vector2.zero;
+        
+        //controls.Gameplay.MeleeAttack
+            
     }
     
     private void FixedUpdate()
     {
 
         // Player movement
-        Move();
-
+        float hMovetInput = moveInput.x;
+        float vMoveInput = moveInput.y;
+        
+        var movement = new Vector3(hMovetInput, 0, vMoveInput);
+        movement.Normalize();
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+        
         // Player rotation
+        float hRotateInput = rotateInput.x;
+        float vRotateInput = rotateInput.y;
     }
 
     void ShowChannelUI()
@@ -54,10 +72,6 @@ public class PlayerControllerMovement : MonoBehaviour
 
     void OnEnable()
     {
-        if (controls == null)
-        {
-            controls = new PlayerControls();
-        }
         controls.Gameplay.Enable();
     }
 
@@ -83,22 +97,6 @@ public class PlayerControllerMovement : MonoBehaviour
         StartCoroutine(AttackRoutine());
     }
 
-    public void Move()
-    {
-        var movementInput = controls.Gameplay.Move.ReadValue<Vector2>();
-
-        var movement = new Vector3
-        {
-            x = movementInput.x,
-            z = movementInput.y
-        };
-
-        movement.Normalize();
-        
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
-
-    }
-
     public void Rotate()
     {
         var rotateInput = controls.Gameplay.Rotate.ReadValue<Vector2>();
@@ -117,7 +115,7 @@ public class PlayerControllerMovement : MonoBehaviour
 
     public void Interactive()
     {
-        
+        //Something
     }
 
     public void Spell1()
