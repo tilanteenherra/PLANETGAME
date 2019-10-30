@@ -2,69 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class PlayerControllerMovement : MonoBehaviour
 {
 
+    // Class usage variables
     PlayerControls controls;
     WeaponDamage weaponDamage;
 
-    Vector2 move;
-    Vector2 rotate;
-
-    Vector3 playerMove;
-    Vector3 playerRotate;
-
-    //Transform playerCamera;
-
+    //Component variables
     Animator animator;
 
+    // Player variables
     public float moveSpeed;
     public float rotateSpeed;
 
     public bool attRoutineOn = false;
+    
+    // Move direction
+    Vector2 moveInput;
+    //Rotate direction
+    Vector2 rotateInput;
 
     private void Awake()
     {
-        //playerCamera = Camera.main.transform;
+        
         animator = GetComponent<Animator>();
-
-        move.x = Input.GetAxisRaw("Horizontal");
-        move.y = Input.GetAxisRaw("Vertical");
-
+        weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
+        
+        // Input Controller Related Things
         controls = new PlayerControls();
-        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
 
-        controls.Gameplay.MeleeAttack.performed += ctz => Attack();
-
-        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
-
-        controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+        controls.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
+        
+        controls.Gameplay.Rotate.performed += ctx => rotateInput = ctx.ReadValue<Vector2>();
+        controls.Gameplay.Rotate.canceled += ctx => moveInput = Vector2.zero;
+        
+        //controls.Gameplay.MeleeAttack
+            
     }
-
+    
     private void FixedUpdate()
     {
 
-        // Player movement with controller
-        playerMove = new Vector3(move.x, 0, move.y).normalized * moveSpeed * Time.deltaTime;
-        transform.Translate(playerMove, Space.Self);
-
-        // Player rotation with controller
-        playerRotate = new Vector3(0, rotate.x, 0).normalized * rotateSpeed * Time.deltaTime;
-        transform.Rotate(playerRotate, Space.Self);
+        // Player movement
+        float hMovetInput = moveInput.x;
+        float vMoveInput = moveInput.y;
+        
+        var movement = new Vector3(hMovetInput, 0, vMoveInput);
+        movement.Normalize();
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+        
+        // Player rotation
+        float hRotateInput = rotateInput.x;
+        float vRotateInput = rotateInput.y;
     }
 
-    //void GetInput()
-    //{
-        
-    //}
-
-    void Attack()
+    void ShowChannelUI()
     {
-        attRoutineOn = true;
-        StartCoroutine(AttackRoutine());
+        //Code here :D
+    }
+
+    void HideChannelUI()
+    {
+        //Code here :D
+    }
+
+    void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
     }
 
     IEnumerator AttackRoutine()
@@ -78,13 +91,40 @@ public class PlayerControllerMovement : MonoBehaviour
         weaponDamage.hitOnce = false;
     }
 
-    private void OnEnable()
+    public void MeleeAttack()
     {
-        controls.Gameplay.Enable();
+        attRoutineOn = true;
+        StartCoroutine(AttackRoutine());
     }
 
-    private void OnDisable()
+    public void Rotate()
     {
-        controls.Gameplay.Disable();
+        var rotateInput = controls.Gameplay.Rotate.ReadValue<Vector2>();
+
+        var rotation = new Vector3
+        {
+          y = rotateInput.x,
+          x = rotateInput.y
+        };
+        
+        rotation.Normalize();
+
+        // controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+        // controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+    }
+
+    public void Interactive()
+    {
+        //Something
+    }
+
+    public void Spell1()
+    {
+        Debug.Log("Spell1 pressed");
+    }
+
+    public void OnSpell2()
+    {
+        Debug.Log("Spell2 pressed");
     }
 }

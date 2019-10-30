@@ -13,104 +13,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-              <folding>
-                <marker date="1572106623568" expanded="false" signature="6:78" ph="..." />
-                <marker date="1572106623568" expanded="true" signature="120:586" ph="{...}" />
-                <marker date="1572106623568" expanded="true" signature="244:279" ph="{...}" />
-                <marker date="1572106623568" expanded="true" signature="337:527" ph="{...}" />
-                <marker date="1572106623568" expanded="true" signature="402:449" ph="{...}" />
-                <marker date="1572106623568" expanded="true" signature="473:512" ph="{...}" />
-                <marker date="1572106623568" expanded="true" signature="543:584" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-              <folding>
-                <marker date="1572109650086" expanded="true" signature="6:32" ph="..." />
-                <marker date="1572109650086" expanded="true" signature="57:2240" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="103:2238" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="606:1064" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1130:1609" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1231:1599" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1358:1585" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1661:2159" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1757:1840" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="1970:2149" ph="{...}" />
-                <marker date="1572109650086" expanded="true" signature="2212:2232" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1572101417744" expanded="false" signature="6:78" ph="..." />
-                <marker date="1572101417744" expanded="true" signature="130:2922" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="526:716" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="774:1925" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="817:1122" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="878:930" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="987:1111" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="1161:1270" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="1949:2110" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2131:2494" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2180:2487" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2239:2364" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2420:2477" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2516:2598" ph="{...}" />
-                <marker date="1572101417744" expanded="true" signature="2631:2920" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1572101417746" expanded="true" signature="43:384" ph="{...}" />
-                <marker date="1572101417746" expanded="true" signature="95:382" ph="{...}" />
-                <marker date="1572101417746" expanded="true" signature="213:242" ph="{...}" />
-                <marker date="1572101417746" expanded="true" signature="308:376" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0-preview.1/InputSystem/Actions/InputActionState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerControllerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -132,6 +52,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerControllerMovement.cs" />
       </list>
     </option>
   </component>
@@ -142,12 +65,6 @@
   </component>
   <component name="ProjectId" id="1RQ3MPHbwMaMxrV1wxi8ODVU13B" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes />
-  </component>
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
@@ -213,50 +130,9 @@
       <workItem from="1570442728749" duration="603000" />
       <workItem from="1570698535146" duration="4608000" />
       <workItem from="1572103252938" duration="4385000" />
+      <workItem from="1572438658513" duration="5663000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4385000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="NuGet" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Unity" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Unit Tests" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Performance Profiler" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Errors In Solution" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Unit Tests Coverage" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -269,12 +145,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -308,85 +178,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1572101417746" expanded="true" signature="43:384" ph="{...}" />
-            <marker date="1572101417746" expanded="true" signature="95:382" ph="{...}" />
-            <marker date="1572101417746" expanded="true" signature="213:242" ph="{...}" />
-            <marker date="1572101417746" expanded="true" signature="308:376" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1572101417744" expanded="false" signature="6:78" ph="..." />
-            <marker date="1572101417744" expanded="true" signature="130:2922" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="526:716" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="774:1925" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="817:1122" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="878:930" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="987:1111" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="1161:1270" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="1949:2110" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2131:2494" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2180:2487" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2239:2364" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2420:2477" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2516:2598" ph="{...}" />
-            <marker date="1572101417744" expanded="true" signature="2631:2920" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-          <folding>
-            <marker date="1572106623568" expanded="false" signature="6:78" ph="..." />
-            <marker date="1572106623568" expanded="true" signature="120:586" ph="{...}" />
-            <marker date="1572106623568" expanded="true" signature="244:279" ph="{...}" />
-            <marker date="1572106623568" expanded="true" signature="337:527" ph="{...}" />
-            <marker date="1572106623568" expanded="true" signature="402:449" ph="{...}" />
-            <marker date="1572106623568" expanded="true" signature="473:512" ph="{...}" />
-            <marker date="1572106623568" expanded="true" signature="543:584" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="37" column="47" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding>
-            <marker date="1572109650086" expanded="true" signature="6:32" ph="..." />
-            <marker date="1572109650086" expanded="true" signature="57:2240" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="103:2238" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="606:1064" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1130:1609" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1231:1599" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1358:1585" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1661:2159" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1757:1840" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="1970:2149" ph="{...}" />
-            <marker date="1572109650086" expanded="true" signature="2212:2232" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
