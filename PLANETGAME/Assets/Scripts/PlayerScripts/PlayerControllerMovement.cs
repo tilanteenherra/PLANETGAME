@@ -2,18 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 public class PlayerControllerMovement : MonoBehaviour
 {
 
     PlayerControls controls;
     WeaponDamage weaponDamage;
-
-    Vector2 move;
-    Vector2 rotate;
-
-    Vector3 playerMove;
-    Vector3 playerRotate;
 
     //Transform playerCamera;
 
@@ -23,48 +18,52 @@ public class PlayerControllerMovement : MonoBehaviour
     public float rotateSpeed;
 
     public bool attRoutineOn = false;
+    //private PlayerControls.IGameplayActions _gameplayActionsImplementation;
 
     private void Awake()
     {
-        //playerCamera = Camera.main.transform;
+
         animator = GetComponent<Animator>();
+        
+        weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
 
-        move.x = Input.GetAxisRaw("Horizontal");
-        move.y = Input.GetAxisRaw("Vertical");
-
-        controls = new PlayerControls();
-        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
-
-        controls.Gameplay.MeleeAttack.performed += ctz => Attack();
-
-        controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
-
+/*
         controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
         controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+        */
     }
-
+    
     private void FixedUpdate()
     {
 
-        // Player movement with controller
-        playerMove = new Vector3(move.x, 0, move.y).normalized * moveSpeed * Time.deltaTime;
-        transform.Translate(playerMove, Space.Self);
+        // Player movement
+        Move();
 
-        // Player rotation with controller
-        playerRotate = new Vector3(0, rotate.x, 0).normalized * rotateSpeed * Time.deltaTime;
-        transform.Rotate(playerRotate, Space.Self);
+        // Player rotation
     }
 
-    //void GetInput()
-    //{
-        
-    //}
-
-    void Attack()
+    void ShowChannelUI()
     {
-        attRoutineOn = true;
-        StartCoroutine(AttackRoutine());
+        //Code here :D
+    }
+
+    void HideChannelUI()
+    {
+        //Code here :D
+    }
+
+    void OnEnable()
+    {
+        if (controls == null)
+        {
+            controls = new PlayerControls();
+        }
+        controls.Gameplay.Enable();
+    }
+
+    void OnDisable()
+    {
+        controls.Gameplay.Disable();
     }
 
     IEnumerator AttackRoutine()
@@ -78,13 +77,56 @@ public class PlayerControllerMovement : MonoBehaviour
         weaponDamage.hitOnce = false;
     }
 
-    private void OnEnable()
+    public void MeleeAttack()
     {
-        controls.Gameplay.Enable();
+        attRoutineOn = true;
+        StartCoroutine(AttackRoutine());
     }
 
-    private void OnDisable()
+    public void Move()
     {
-        controls.Gameplay.Disable();
+        var movementInput = controls.Gameplay.Move.ReadValue<Vector2>();
+
+        var movement = new Vector3
+        {
+            x = movementInput.x,
+            z = movementInput.y
+        };
+
+        movement.Normalize();
+        
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+
+    }
+
+    public void Rotate()
+    {
+        var rotateInput = controls.Gameplay.Rotate.ReadValue<Vector2>();
+
+        var rotation = new Vector3
+        {
+          y = rotateInput.x,
+          x = rotateInput.y
+        };
+        
+        rotation.Normalize();
+
+        // controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+        // controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+    }
+
+    public void Interactive()
+    {
+        
+    }
+
+    public void Spell1()
+    {
+        Debug.Log("Spell1 pressed");
+    }
+
+    public void OnSpell2()
+    {
+        Debug.Log("Spell2 pressed");
     }
 }
