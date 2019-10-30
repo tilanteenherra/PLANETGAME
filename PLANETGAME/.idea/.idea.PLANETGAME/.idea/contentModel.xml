@@ -374,7 +374,6 @@
           </e>
           <e p="PlayerScripts" t="Include">
             <e p="PlayerController.cs" t="Include" />
-            <e p="PlayerControllerMovement.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
             <e p="WeaponDamage.cs" t="Include" />
           </e>

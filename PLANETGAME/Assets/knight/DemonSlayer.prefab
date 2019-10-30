@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  rotateSpeed: 100
+  rotateSpeed: 150
   attRoutineOn: 0
 --- !u!114 &2004150027
 MonoBehaviour:

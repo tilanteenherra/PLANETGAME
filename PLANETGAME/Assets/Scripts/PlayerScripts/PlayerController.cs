@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     // Player variables
     public float moveSpeed;
     public float rotateSpeed;
+    private float mouseX;
+    private float mouseY;
+    private float mouseVerticalRotation;
 
     public bool attRoutineOn = false;
     
@@ -30,18 +34,26 @@ public class PlayerController : MonoBehaviour
         
         animator = GetComponent<Animator>();
         weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
-        
-        // Input Controller Related Things
-        controls = new PlayerControls();
 
+        // Input Controller Related Things Start Here
+        
+        controls = new PlayerControls();
+        
+        // Movement
         controls.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
         
+        // Rotation
         controls.Gameplay.Rotate.performed += ctx => rotateInput = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Rotate.canceled += ctx => moveInput = Vector2.zero;
-        
-        //controls.Gameplay.MeleeAttack
-            
+        controls.Gameplay.Rotate.canceled += ctx => rotateInput = Vector2.zero;
+
+        // Other Stuff
+        controls.Gameplay.MeleeAttack.performed += ctx => MeleeAttack();
+        controls.Gameplay.Spell1.performed += ctx => Spell1();
+        controls.Gameplay.Spell2.performed += ctx => Spell2();
+
+        // Input Controller Related Things End Here
+
     }
     
     private void FixedUpdate()
@@ -55,19 +67,31 @@ public class PlayerController : MonoBehaviour
         movement.Normalize();
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
         
-        // Player rotation
-        float hRotateInput = rotateInput.x;
-        float vRotateInput = rotateInput.y;
+        // Player rotation below
+        // Rotation for x and y values, y not implemented yet:
+        // Vector2 rotate = new Vector2(rotateInput.y, rotateInput.x) * rotateSpeed * Time.deltaTime;
+        Vector2 rotate = new Vector2(0, rotateInput.x) * rotateSpeed * Time.deltaTime;
+        transform.Rotate(rotate, Space.Self);
+        
+        //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
     }
 
-    void ShowChannelUI()
+    private void Update()
     {
-        //Code here :D
-    }
-
-    void HideChannelUI()
-    {
-        //Code here :D
+        /*
+        mouseX += Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
+        mouseY -= Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
+        mouseY = Mathf.Clamp(mouseY, -20, 20);
+        
+        transform.rotation = Quaternion.Euler(0, mouseX, 0);
+        
+        //target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+        //player.rotation = Quaternion.Euler(0, mouseX, 0);
+        
+        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed);
+        mouseVerticalRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
+        mouseVerticalRotation = Mathf.Clamp(mouseVerticalRotation, -20, 20);
+        */
     }
 
     void OnEnable()
@@ -123,7 +147,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Spell1 pressed");
     }
 
-    public void OnSpell2()
+    public void Spell2()
     {
         Debug.Log("Spell2 pressed");
     }
