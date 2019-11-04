@@ -10,8 +10,9 @@ public class FauxGravityBody : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        attractor = GameObject.FindGameObjectWithTag("World").GetComponent<FauxGravityAttractor>();
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         GetComponent<Rigidbody>().useGravity = false;
         myTransform = transform;
@@ -20,9 +21,12 @@ public class FauxGravityBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        attractor.Attract(myTransform);
+        /*
         if (attractor)
         {
             attractor.Attract(myTransform);
         }
+        */
     }
 }

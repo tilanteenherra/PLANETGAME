@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
 
     public int maxHp;
-    public int curHp;
+    public float curHp;
     
     // Start is called before the first frame update
     void Start()

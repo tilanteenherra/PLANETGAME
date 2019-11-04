@@ -261,7 +261,8 @@ GameObject:
   - component: {fileID: 1737277792668710719}
   - component: {fileID: 1737277792668710718}
   - component: {fileID: 7234000434055965842}
-  - component: {fileID: 8080850000065184103}
+  - component: {fileID: 7003327660812923504}
+  - component: {fileID: 2004150027}
   m_Layer: 0
   m_Name: DemonSlayer
   m_TagString: Player
@@ -378,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   curHp: 0
---- !u!114 &8080850000065184103
+--- !u!114 &7003327660812923504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -387,12 +388,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737277792105899429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e70f69ffa196342bf9244040bd0b1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  rotateSpeed: 100
+  rotateSpeed: 150
   attRoutineOn: 0
+--- !u!114 &2004150027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737277792105899429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84f2763dc3e4e34a9e5319eec6944fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curSpeed: 0
+  cactusJuiceSpeed: 15
+  cactusPickUpMaxTime: 5
+  healthMultiplier: 0.1
 --- !u!1 &1737277792105899431
 GameObject:
   m_ObjectHideFlags: 0

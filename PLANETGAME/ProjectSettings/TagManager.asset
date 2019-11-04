@@ -8,6 +8,9 @@ TagManager:
   - World
   - BloodEffect
   - Fireplace
+  - Bullet
+  - Campfire
+  - Cactus
   layers:
   - Default
   - TransparentFX
