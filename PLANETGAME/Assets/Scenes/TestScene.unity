@@ -120,11 +120,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &142426473 stripped
+--- !u!1 &163463531 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1737277792082401018, guid: d97acc1c11a24ca4eaf0cc385dd6e472,
+  m_CorrespondingSourceObject: {fileID: 4343256879588013985, guid: 3e61b63515763cd40bf8b5eaf321cf91,
     type: 3}
-  m_PrefabInstance: {fileID: 546475707}
+  m_PrefabInstance: {fileID: 391944149}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &301732799
 GameObject:
@@ -545,7 +545,7 @@ PrefabInstance:
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
@@ -575,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7877943675283016386, guid: b3166ba3574cdd849bfa68e2b45d794c,
         type: 3}
@@ -1487,7 +1487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1635557122
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1695,6 +1695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cactus
       objectReference: {fileID: 0}
+    - target: {fileID: 2757051630795129689, guid: 003bce25bd9089e4494ad06c3e484d25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8760693134347803373, guid: 003bce25bd9089e4494ad06c3e484d25,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1708,7 +1713,7 @@ PrefabInstance:
     - target: {fileID: 8760693134347803373, guid: 003bce25bd9089e4494ad06c3e484d25,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.7347846
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 8760693134347803373, guid: 003bce25bd9089e4494ad06c3e484d25,
         type: 3}
@@ -1823,7 +1828,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 142426473}
+      objectReference: {fileID: 163463531}
     - target: {fileID: 7596425615194993890, guid: d18efc67165610a408add7072ff9c624,
         type: 3}
       propertyPath: m_CastShadows
