@@ -43,7 +43,7 @@ namespace Interactables
                 {
                     counterForCactus = 0;
                     cactusPicked = false;
-                    firstPersonController.walkSpeed = origSpeed;
+                    //firstPersonController.walkSpeed = origSpeed;
                     curSpeed = origSpeed;
                 }
             }
@@ -59,7 +59,7 @@ namespace Interactables
             if (other.gameObject.CompareTag("Cactus") && !cactusPicked)
             {
                 cactusPicked = true;
-                firstPersonController.walkSpeed = cactusJuiceSpeed;
+                //firstPersonController.walkSpeed = cactusJuiceSpeed;
                 curSpeed = cactusJuiceSpeed;
 
             }

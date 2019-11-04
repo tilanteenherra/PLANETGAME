@@ -5,7 +5,7 @@ namespace StatsScripts
 {
     public class UIHealthChangeScript : MonoBehaviour
     {
-        private PlayerStats stats;
+        public PlayerStats stats;
         public GameObject image;
         private float asd = 0;
         public int damageMultiplier = 1;
@@ -14,7 +14,7 @@ namespace StatsScripts
         void Start()
         {
             image = GetComponent<GameObject>();
-            stats = GameObject.Find("DemonSlayer").GetComponent<PlayerStats>();
+            //stats = GameObject.Find("DemonSlayer").GetComponent<PlayerStats>();
         }
 
         // Update is called once per frame
