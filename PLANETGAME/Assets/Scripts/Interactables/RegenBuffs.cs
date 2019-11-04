@@ -22,12 +22,12 @@ namespace Interactables
         void Start()
         {
             
-            player = GameObject.Find("DemonSlayer").GetComponent<GameObject>();
-            firstPersonController = GameObject.Find("DemonSlayer").GetComponent<FirstPersonController>();
+            player = GetComponent<GameObject>();
+            firstPersonController = GetComponent<FirstPersonController>();
             counterForCactus = 0;
             origSpeed = firstPersonController.walkSpeed;
             cactusPicked = false;
-            stats = GameObject.Find("DemonSlayer").GetComponent<PlayerStats>();
+            stats = GetComponent<PlayerStats>();
             curSpeed = origSpeed;
         }
 
