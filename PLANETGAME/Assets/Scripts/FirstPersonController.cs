@@ -18,12 +18,12 @@ public class FirstPersonController : MonoBehaviour
 
     public bool attRoutineOn = false;
 
-    WeaponDamage weaponDamage;
+    //WeaponDamage weaponDamage;
 
     // Start is called before the first frame update
     void Start()
     {
-        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
+        //weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
         //cameraT = Camera.main.transform;
         anim = GetComponent<Animator>();
     }
@@ -123,7 +123,7 @@ public class FirstPersonController : MonoBehaviour
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingA", false);
         attRoutineOn = false;
-        weaponDamage.hitOnce = false;
+        //weaponDamage.hitOnce = false;
     }
 
     IEnumerator AttackRoutineB()
@@ -134,6 +134,6 @@ public class FirstPersonController : MonoBehaviour
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingB", false);
         attRoutineOn = false;
-        weaponDamage.hitOnce = false;
+        //weaponDamage.hitOnce = false;
     }
 }
