@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
     public int maxHp;
     public float curHp;
-
     public GameObject firePlace;
     // Start is called before the first frame update
     void Start()
@@ -26,13 +24,11 @@ public class PlayerStats : MonoBehaviour
         if (curHp <= 0)
         {
             Die();
-        }
-        
+        }   
     }
 
     void Die()
     {
-        
         Destroy(gameObject);
         Destroy(firePlace);
     }
