@@ -7,7 +7,8 @@ public class PlayerStats : MonoBehaviour
 
     public int maxHp;
     public float curHp;
-    
+
+    public GameObject firePlace;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class PlayerStats : MonoBehaviour
 
     void Die()
     {
+        
         Destroy(gameObject);
+        Destroy(firePlace);
     }
 }
