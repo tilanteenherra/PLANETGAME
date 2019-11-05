@@ -79,27 +79,35 @@ public class FirstPersonController : MonoBehaviour
             {
                 anim.SetBool("running", false);
                 anim.SetInteger("condition", 0);
+                ChargingA();
             }
 
-            else if (anim.GetBool("running") == false)
-            {
-                AttackingA();
-            }
+            //else if (anim.GetBool("running") == false)
+            //{
+            //    AttackingA();
+            //}
+
+            AttackingA();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            if (anim.GetBool("running") == true)
-            {
-                anim.SetBool("running", false);
-                anim.SetInteger("condition", 0);
-            }
+            //    if (anim.GetBool("running") == true)
+            //    {
+            //        anim.SetBool("running", false);
+            //        anim.SetInteger("condition", 0);
+            //    }
 
-            else if (anim.GetBool("running") == false)
-            {
-                AttackingB();
-            }
+            //    else if (anim.GetBool("running") == false)
+            //    {
+            //        AttackingB();
+            //    }
+            //
+            AttackingB();
+
         }
+
+
 
     }
 
@@ -115,11 +123,17 @@ public class FirstPersonController : MonoBehaviour
         StartCoroutine(AttackRoutineB());
     }
 
+    void ChargingA()
+    {
+        attRoutineOn = true;
+        StartCoroutine(AttackRoutineC());
+    }
+
     IEnumerator AttackRoutineA()
     {
         anim.SetBool("attackingA", true);
         anim.SetInteger("condition", 2);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.7f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingA", false);
         attRoutineOn = false;
@@ -130,9 +144,20 @@ public class FirstPersonController : MonoBehaviour
     {
         anim.SetBool("attackingB", true);
         anim.SetInteger("condition", 3);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.3f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingB", false);
+        attRoutineOn = false;
+        //weaponDamage.hitOnce = false;
+    }
+
+    IEnumerator AttackRoutineC()
+    {
+        anim.SetBool("chargingA", true);
+        anim.SetInteger("condition", 4);
+        yield return new WaitForSeconds(1.7f);
+        anim.SetInteger("condition", 0);
+        anim.SetBool("chargingA", false);
         attRoutineOn = false;
         //weaponDamage.hitOnce = false;
     }
