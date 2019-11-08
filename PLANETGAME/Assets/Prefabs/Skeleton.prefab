@@ -2377,7 +2377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotateSpeed: 80
+  controllerRotateSpeed: 80
+  mouseRotateSpeed: 250
   attRoutineOn: 0
 --- !u!114 &5295858740679744489
 MonoBehaviour:
@@ -2422,6 +2423,12 @@ MonoBehaviour:
   firePlaces: []
   cactusPlaces: []
   mushroomPlaces: []
+  castleParts: []
+  castleCaptured: {fileID: 0}
+  castleNotCaptured: {fileID: 0}
+  castleCounterMax: 0
+  castlesCaptured: 0
+  thisCastle: {fileID: 0}
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 20
@@ -3630,17 +3637,17 @@ PrefabInstance:
     - target: {fileID: 954257741540520946, guid: 2328276f404d2824d8295433ff8e2c0a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.061
       objectReference: {fileID: 0}
     - target: {fileID: 954257741540520946, guid: 2328276f404d2824d8295433ff8e2c0a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.049743652
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 954257741540520946, guid: 2328276f404d2824d8295433ff8e2c0a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.004668474
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 954257741540520946, guid: 2328276f404d2824d8295433ff8e2c0a,
         type: 3}
@@ -3681,6 +3688,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374620767137158046, guid: 2328276f404d2824d8295433ff8e2c0a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5332475
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374620767137158046, guid: 2328276f404d2824d8295433ff8e2c0a,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.4071599
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374620767137158046, guid: 2328276f404d2824d8295433ff8e2c0a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.031734467
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374620767137158046, guid: 2328276f404d2824d8295433ff8e2c0a,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.65450853
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2328276f404d2824d8295433ff8e2c0a, type: 3}
