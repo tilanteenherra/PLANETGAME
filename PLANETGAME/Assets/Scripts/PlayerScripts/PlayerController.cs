@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     // Player variables
-    public float moveSpeed;
+    public float moveSpeed = 8;
     public float controllerRotateSpeed = 100f;
     public float mouseRotateSpeed = 250f;
     
