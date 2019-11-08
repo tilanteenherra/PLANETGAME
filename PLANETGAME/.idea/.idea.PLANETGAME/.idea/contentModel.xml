@@ -355,8 +355,11 @@
         <e p="Scripts" t="Include">
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
-          <e p="FireRotateScript.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
+          <e p="Interactables" t="Include">
+            <e p="FireHealthRegen.cs" t="Include" />
+            <e p="FireRotateScript.cs" t="Include" />
+          </e>
           <e p="MenuScripts" t="Include">
             <e p="CharacterSelect.cs" t="Include" />
             <e p="LoadControllerMain.cs" t="Include" />
