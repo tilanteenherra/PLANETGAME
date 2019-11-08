@@ -65,13 +65,13 @@ public class PlayerController : MonoBehaviour
         
         var movement = new Vector3(hMovetInput, 0, vMoveInput);
         movement.Normalize();
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+        this.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
         
         // Player rotation below
         // Rotation for x and y values, y not implemented yet:
         // Vector2 rotate = new Vector2(rotateInput.y, rotateInput.x) * rotateSpeed * Time.deltaTime;
         Vector2 rotate = new Vector2(0, rotateInput.x) * rotateSpeed * Time.deltaTime;
-        transform.Rotate(rotate, Space.Self);
+        this.transform.Rotate(rotate, Space.Self);
         
         //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
     }
@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackRoutine());
     }
 
-    public void Rotate()
+    public void yesRotate()
     {
         var rotateInput = controls.Gameplay.Rotate.ReadValue<Vector2>();
 
