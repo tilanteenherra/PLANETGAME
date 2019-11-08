@@ -50,6 +50,20 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 0);
         }
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            
+                anim.SetBool("walking", true);
+                anim.SetInteger("condition", 9);
+            
+
+        }
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            anim.SetBool("walking", false);
+            anim.SetInteger("condition", 0);
+        }
+
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
         verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
@@ -106,8 +120,6 @@ public class FirstPersonController : MonoBehaviour
             AttackingB();
 
         }
-
-
 
     }
 
