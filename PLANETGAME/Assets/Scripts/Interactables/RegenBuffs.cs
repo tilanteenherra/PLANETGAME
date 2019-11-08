@@ -18,11 +18,15 @@ namespace Interactables
         public Material castleCaptured;
         public Material castleNotCaptured;
 
+        private CastleScript castleScript;
+
         private float castleCounter;
         private float castleCounterReversed;
         public float castleCounterMax;
+        public int castlesCaptured = 0;
         private bool castleCounting;
         private bool castleCapturedBool;
+        public GameObject thisCastle;
         
         
         private bool cactusDoDamage;
@@ -46,6 +50,7 @@ namespace Interactables
             firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
             cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
             mushroomPlaces = GameObject.FindGameObjectsWithTag("Mushroom");
+            
             player = GetComponent<GameObject>();
             firstPersonController = GetComponent<FirstPersonController>();
             counterForMushroom = 0;
@@ -59,27 +64,33 @@ namespace Interactables
             castleParts = GameObject.FindGameObjectsWithTag("CastlePart");
             castleCapturedBool = false;
 
+            castleNotCaptured.SetColor("_Color",Color.white);
         }
 
         // Update is called once per frame
         void Update()
         {
+            
             if (castleCounting)
             {
                 castleCounter += Time.deltaTime;
-                castleCounterReversed -= Time.deltaTime * 0.1f;
+                castleCounterReversed -= Time.deltaTime * 0.2f;
                 castleNotCaptured.SetColor("_Color",(new Color(1,castleCounterReversed,1,1)));
                 if (castleCounter >= castleCounterMax)
                 {
                     castleCounterReversed = 1;
                     castleCounter = 0;
-
-                    foreach (GameObject a in castleParts)
+                    thisCastle.GetComponent<Renderer>().material = castleCaptured;
+                    castlesCaptured++;
+                    //EI MENE POIS KOSKAAN
+                    if (castlesCaptured >= 2)
                     {
-                        a.GetComponent<Renderer>().material = castleCaptured;
-                    }
+                        stats.maxHp = 400;
+                        stats.curHp = 400;
 
-                    castleCapturedBool = true;
+                    }
+                    castleNotCaptured.SetColor("_Color",Color.white);
+                    castleScript.castleCaptured = true;
                     castleCounting = false;
                 }
             }
@@ -131,8 +142,9 @@ namespace Interactables
                 //firstPersonController.walkSpeed = cactusJuiceSpeed;
             }
 
-            if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleCapturedBool)
+            if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleScript.castleCaptured)
             {
+                
                 castleCounting = true;
             }
             //cactus changes user walk speed from 8 to 15
@@ -153,7 +165,7 @@ namespace Interactables
                 cactusDoDamage = false;
             }
 
-            if (castleCounting && other.gameObject.CompareTag("CastlePart") && !castleCapturedBool)
+            if (castleCounting && other.gameObject.CompareTag("CastlePart") && !castleScript.castleCaptured)
             {
                 castleCounter = 0;
                 castleCounting = false;
@@ -163,11 +175,31 @@ namespace Interactables
                 {
                     castle.GetComponent<Renderer>().material = castleNotCaptured;
                 }
+
+                
+            }
+
+            if (other.gameObject.CompareTag("CastlePart"))
+            {
+                thisCastle = null;
+                castleScript = null;
             }
         }
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.gameObject.CompareTag("CastlePart"))
+            {
+                
+                thisCastle = other.gameObject;
+                castleScript = other.gameObject.GetComponent<CastleScript>();
+            }
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 400, 20),
+                "Castles Captured: " + castlesCaptured);
         }
     }
 }

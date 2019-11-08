@@ -358,6 +358,7 @@
           <e p="FauxGravityBody.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
           <e p="Interactables" t="Include">
+            <e p="CastleScript.cs" t="Include" />
             <e p="FireRotateScript.cs" t="Include" />
             <e p="RegenBuffs.cs" t="Include" />
           </e>

@@ -5,6 +5,7 @@ namespace Interactables
     public class FireRotateScript : MonoBehaviour
     {
         public GameObject player;
+        
         // Start is called before the first frame update
         void Start()
         {

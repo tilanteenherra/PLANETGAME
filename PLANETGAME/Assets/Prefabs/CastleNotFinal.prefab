@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5736440000405949103}
   m_Layer: 0
   m_Name: Cleg4
-  m_TagString: CastlePart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 5736440000786150695}
   m_Layer: 0
   m_Name: Cleg3
-  m_TagString: CastlePart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5736440001260286413}
   m_Layer: 0
   m_Name: Cleg1
-  m_TagString: CastlePart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 5736440001487579355}
   - component: {fileID: 5736440001487579352}
   - component: {fileID: 5736440001487579353}
+  - component: {fileID: 95847443}
   m_Layer: 0
   m_Name: CastleNotFinal
   m_TagString: CastlePart
@@ -302,7 +303,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5736440001487579359}
-  m_LocalRotation: {x: 0.39900285, y: -0, z: -0, w: 0.9169497}
+  m_LocalRotation: {x: 0.39900506, y: 0, z: 0, w: 0.9169487}
   m_LocalPosition: {x: -0.18, y: 10.08, z: 10.62}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children:
@@ -372,6 +373,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 5, z: 1}
   m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &95847443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736440001487579359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7f18d50b193c541a5f3335721b95ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castleCaptured: 0
+  capturedByUser: 
 --- !u!1 &5736440002132743151
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +401,7 @@ GameObject:
   - component: {fileID: 5736440002132743145}
   m_Layer: 0
   m_Name: Cleg2
-  m_TagString: CastlePart
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
