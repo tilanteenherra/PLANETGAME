@@ -1578,9 +1578,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84f2763dc3e4e34a9e5319eec6944fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePlaces: []
+  cactusPlaces: []
+  mushroomPlaces: []
   curSpeed: 0
   cactusJuiceSpeed: 0
   cactusPickUpMaxTime: 0
+  mushroomSpeed: 0
+  mushroomPickUpMaxTime: 0
   healthMultiplier: 0
 --- !u!65 &2126695155
 BoxCollider:
@@ -2857,9 +2862,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84f2763dc3e4e34a9e5319eec6944fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePlaces: []
+  cactusPlaces: []
+  mushroomPlaces: []
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusPickUpMaxTime: 5
+  mushroomSpeed: 0
+  mushroomPickUpMaxTime: 0
   healthMultiplier: 0.1
 --- !u!114 &1363816362753885263
 MonoBehaviour:
@@ -4456,7 +4466,7 @@ Transform:
   - {fileID: 942518738880026561}
   - {fileID: 314744665}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2700764204832551957
 Transform:
@@ -6324,7 +6334,7 @@ PrefabInstance:
     - target: {fileID: 8736118855856090800, guid: 3e61b63515763cd40bf8b5eaf321cf91,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8736118855856090800, guid: 3e61b63515763cd40bf8b5eaf321cf91,
         type: 3}
@@ -10281,9 +10291,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84f2763dc3e4e34a9e5319eec6944fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePlaces: []
+  cactusPlaces: []
+  mushroomPlaces: []
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusPickUpMaxTime: 5
+  mushroomSpeed: 0
+  mushroomPickUpMaxTime: 0
   healthMultiplier: 0.1
 --- !u!114 &7760901054993565698
 MonoBehaviour:

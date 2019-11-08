@@ -8,6 +8,8 @@ public class FirstPersonController : MonoBehaviour
     public float mouseSensitivityY = 250f;
     public float walkSpeed = 8f;
 
+    bool canAttack = true;
+
     //Transform cameraT;
     float verticalLookRotation;
 
@@ -55,8 +57,6 @@ public class FirstPersonController : MonoBehaviour
             
                 anim.SetBool("walking", true);
                 anim.SetInteger("condition", 9);
-            
-
         }
         if (Input.GetKeyUp(KeyCode.E))
         {
@@ -89,19 +89,24 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (anim.GetBool("running") == true)
-            {
-                anim.SetBool("running", false);
-                anim.SetInteger("condition", 0);
-                ChargingA();
-            }
+             if (canAttack)
+                {
 
-            //else if (anim.GetBool("running") == false)
-            //{
-            //    AttackingA();
-            //}
+            
+                    if (anim.GetBool("running") == true)
+                    {
+                        anim.SetBool("running", false);
+                        anim.SetInteger("condition", 0);
+                        ChargingA();
+                    }
 
-            AttackingA();
+                    //else if (anim.GetBool("running") == false)
+                    //{
+                    //    AttackingA();
+                    //}
+
+                    AttackingA();
+                }
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -143,12 +148,14 @@ public class FirstPersonController : MonoBehaviour
 
     IEnumerator AttackRoutineA()
     {
+        canAttack = false;
         anim.SetBool("attackingA", true);
         anim.SetInteger("condition", 2);
         yield return new WaitForSeconds(1.7f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingA", false);
         attRoutineOn = false;
+        canAttack = true;
         //weaponDamage.hitOnce = false;
     }
 
