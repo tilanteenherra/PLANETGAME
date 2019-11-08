@@ -8,7 +8,9 @@ namespace Interactables
         private PlayerStats stats;
         private GameObject player;
         private FirstPersonController firstPersonController;
-        
+
+        public GameObject[] firePlaces;
+        public GameObject[] cactusPlaces;
         private float origSpeed;
         public float curSpeed;
         public float cactusJuiceSpeed;
@@ -21,7 +23,8 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
-            
+            firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
+            cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
             player = GetComponent<GameObject>();
             firstPersonController = GetComponent<FirstPersonController>();
             counterForCactus = 0;
