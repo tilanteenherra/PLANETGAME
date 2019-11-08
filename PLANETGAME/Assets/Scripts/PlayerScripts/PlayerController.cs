@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        
         anim = GetComponent<Animator>();
         weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
 
@@ -58,7 +57,7 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-        // Add if statement to do stuff below if controller is connected
+
         // Player movement
         float hMovetInput = moveInput.x;
         float vMoveInput = moveInput.y;
@@ -74,10 +73,11 @@ public class PlayerController : MonoBehaviour
         Vector2 rotate = new Vector2(0, hRotateInput).normalized * controllerRotateSpeed * Time.deltaTime;
         this.gameObject.transform.Rotate(rotate, Space.Self);
 
+        // Player rotation with mouse
+        this.gameObject.transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseRotateSpeed, Space.Self);
+
         //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
 
-        // Add else if statement to do stuff below if controller is not connected and using keyboard and mouse
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseRotateSpeed);
     }
 
     void OnEnable()
