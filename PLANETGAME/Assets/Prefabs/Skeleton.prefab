@@ -2441,6 +2441,7 @@ MonoBehaviour:
   mushroomPlaces: []
   curSpeed: 0
   cactusJuiceSpeed: 15
+  cactusDamage: 20
   cactusPickUpMaxTime: 5
   mushroomSpeed: 0
   mushroomPickUpMaxTime: 0

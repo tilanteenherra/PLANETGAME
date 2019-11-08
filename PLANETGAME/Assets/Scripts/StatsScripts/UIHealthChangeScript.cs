@@ -8,7 +8,7 @@ namespace StatsScripts
         public PlayerStats stats;
         public GameObject image;
         private float asd = 0;
-        public int damageMultiplier = 1;
+        public float damageMultiplier = 1;
         
         // Start is called before the first frame update
         void Start()
@@ -25,7 +25,7 @@ namespace StatsScripts
 
             if (Input.GetKey(KeyCode.X) && stats.curHp >= 0)
             {
-                stats.curHp -= (int)damageMultiplier;
+                stats.curHp -= damageMultiplier;
             }
             transform.localScale = new Vector3( (float)stats.curHp/stats.maxHp,1,1);
             //image.transform.localScale = new Vector3(asd,1,1);
