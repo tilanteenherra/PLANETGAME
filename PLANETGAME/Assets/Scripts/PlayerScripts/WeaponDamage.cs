@@ -6,9 +6,7 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
-    PlayerController pcm;
-    // Only temporary fix to damage work with mouse
-    FirstPersonController fpc;
+    PlayerController pc;
 
     public GameObject thisParent;
     public GameObject damageBurst;
@@ -25,8 +23,7 @@ public class WeaponDamage : MonoBehaviour
     void Awake()
     {
         thisParent = transform.root.gameObject;
-        pcm = thisParent.GetComponent<PlayerController>();
-        fpc = thisParent.GetComponent<FirstPersonController>();
+        pc = thisParent.GetComponent<PlayerController>();
         damageBurst = this.gameObject.transform.GetChild(0).gameObject;
     }
 
@@ -38,7 +35,7 @@ public class WeaponDamage : MonoBehaviour
     
     private void OnTriggerStay(Collider other)
     {
-        if (pcm.attRoutineOn == true || fpc.attRoutineOn == true)
+        if (pc.attRoutineOn == true)
         {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {

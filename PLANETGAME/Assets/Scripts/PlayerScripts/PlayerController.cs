@@ -13,16 +13,16 @@ public class PlayerController : MonoBehaviour
     WeaponDamage weaponDamage;
 
     //Component variables
-    Animator animator;
+    Animator anim;
 
     // Player variables
     public float moveSpeed;
-    public float rotateSpeed;
-    private float mouseX;
-    private float mouseY;
-    private float mouseVerticalRotation;
+    public float controllerRotateSpeed = 100f;
+    public float mouseRotateSpeed = 250f;
+    
 
     public bool attRoutineOn = false;
+    bool canAttack = true;
     
     // Move direction
     Vector2 moveInput;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
 
         // Input Controller Related Things Start Here
@@ -58,40 +58,26 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-
+        // Add if statement to do stuff below if controller is connected
         // Player movement
         float hMovetInput = moveInput.x;
         float vMoveInput = moveInput.y;
         
         var movement = new Vector3(hMovetInput, 0, vMoveInput);
         movement.Normalize();
-        this.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
-        
-        // Player rotation below
-        // Rotation for x and y values, y not implemented yet:
-        // Vector2 rotate = new Vector2(rotateInput.y, rotateInput.x) * rotateSpeed * Time.deltaTime;
-        Vector2 rotate = new Vector2(0, rotateInput.x) * rotateSpeed * Time.deltaTime;
-        this.transform.Rotate(rotate, Space.Self);
-        
-        //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
-    }
+        this.gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
 
-    private void Update()
-    {
-        /*
-        mouseX += Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
-        mouseY -= Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
-        mouseY = Mathf.Clamp(mouseY, -20, 20);
-        
-        transform.rotation = Quaternion.Euler(0, mouseX, 0);
-        
-        //target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
-        //player.rotation = Quaternion.Euler(0, mouseX, 0);
-        
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed);
-        mouseVerticalRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
-        mouseVerticalRotation = Mathf.Clamp(mouseVerticalRotation, -20, 20);
-        */
+        // Player rotation below
+        float hRotateInput = rotateInput.x;
+        float vRotateInput = rotateInput.y;
+
+        Vector2 rotate = new Vector2(0, hRotateInput).normalized * controllerRotateSpeed * Time.deltaTime;
+        this.gameObject.transform.Rotate(rotate, Space.Self);
+
+        //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
+
+        // Add else if statement to do stuff below if controller is not connected and using keyboard and mouse
+        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseRotateSpeed);
     }
 
     void OnEnable()
@@ -106,12 +92,14 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator AttackRoutine()
     {
-        animator.SetBool("attacking", true);
-        animator.SetInteger("condition", 2);
-        yield return new WaitForSeconds(1);
-        animator.SetInteger("condition", 0);
-        animator.SetBool("attacking", false);
+        canAttack = false;
+        anim.SetBool("attackingA", true);
+        anim.SetInteger("condition", 2);
+        yield return new WaitForSeconds(1.7f);
+        anim.SetInteger("condition", 0);
+        anim.SetBool("attackingA", false);
         attRoutineOn = false;
+        canAttack = true;
         weaponDamage.hitOnce = false;
     }
 
@@ -121,25 +109,9 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackRoutine());
     }
 
-    public void yesRotate()
-    {
-        var rotateInput = controls.Gameplay.Rotate.ReadValue<Vector2>();
-
-        var rotation = new Vector3
-        {
-          y = rotateInput.x,
-          x = rotateInput.y
-        };
-        
-        rotation.Normalize();
-
-        // controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
-        // controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
-    }
-
     public void Interactive()
     {
-        //Something
+        Debug.Log("Interacting");
     }
 
     public void Spell1()
