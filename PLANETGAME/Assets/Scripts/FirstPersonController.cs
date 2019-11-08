@@ -9,6 +9,7 @@ public class FirstPersonController : MonoBehaviour
     public float walkSpeed = 8f;
 
     bool canAttack = true;
+    bool canDoubleAttack = true;
 
     //Transform cameraT;
     float verticalLookRotation;
@@ -97,7 +98,6 @@ public class FirstPersonController : MonoBehaviour
                     {
                         anim.SetBool("running", false);
                         anim.SetInteger("condition", 0);
-                        ChargingA();
                     }
 
                     //else if (anim.GetBool("running") == false)
@@ -140,17 +140,24 @@ public class FirstPersonController : MonoBehaviour
         StartCoroutine(AttackRoutineB());
     }
 
-    void ChargingA()
-    {
-        attRoutineOn = true;
-        StartCoroutine(AttackRoutineC());
-    }
-
     IEnumerator AttackRoutineA()
     {
+
+        //while (anim.GetCurrentAnimatorStateInfo.)
+        //{
+
+        //}
         canAttack = false;
         anim.SetBool("attackingA", true);
-        anim.SetInteger("condition", 2);
+        //if (Input.GetKey(KeyCode.W))
+        //{
+            //anim.SetInteger("condition", 11);
+        //}
+        //else
+        //{
+            anim.SetInteger("condition", 2);
+        //}
+        
         yield return new WaitForSeconds(1.7f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingA", false);
@@ -166,17 +173,6 @@ public class FirstPersonController : MonoBehaviour
         yield return new WaitForSeconds(1.3f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingB", false);
-        attRoutineOn = false;
-        //weaponDamage.hitOnce = false;
-    }
-
-    IEnumerator AttackRoutineC()
-    {
-        anim.SetBool("chargingA", true);
-        anim.SetInteger("condition", 4);
-        yield return new WaitForSeconds(1.7f);
-        anim.SetInteger("condition", 0);
-        anim.SetBool("chargingA", false);
         attRoutineOn = false;
         //weaponDamage.hitOnce = false;
     }
