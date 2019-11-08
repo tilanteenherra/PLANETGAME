@@ -56,7 +56,14 @@ namespace Interactables
             firstPersonController = GetComponent<FirstPersonController>();
             
             counterForMushroom = 0;
-            origSpeed = firstPersonController.walkSpeed;
+            if (firstPersonController != null)
+            {
+                origSpeed = firstPersonController.walkSpeed;
+            } else if (playerController != null)
+            {
+                origSpeed = playerController.moveSpeed;
+            }
+            
             cactusPicked = false;
             mushroomPicked = false;
             stats = GetComponent<PlayerStats>();
