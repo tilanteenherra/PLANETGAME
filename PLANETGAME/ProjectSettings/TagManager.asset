@@ -12,6 +12,7 @@ TagManager:
   - Campfire
   - Cactus
   - Mushroom
+  - CastlePart
   layers:
   - Default
   - TransparentFX
