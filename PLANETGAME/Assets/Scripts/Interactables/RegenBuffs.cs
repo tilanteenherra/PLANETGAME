@@ -9,6 +9,7 @@ namespace Interactables
         private PlayerStats stats;
         private GameObject player;
         private FirstPersonController firstPersonController;
+        private PlayerController playerController;
 
         public GameObject[] firePlaces;
         public GameObject[] cactusPlaces;
@@ -53,6 +54,7 @@ namespace Interactables
             
             player = GetComponent<GameObject>();
             firstPersonController = GetComponent<FirstPersonController>();
+            
             counterForMushroom = 0;
             origSpeed = firstPersonController.walkSpeed;
             cactusPicked = false;
@@ -63,6 +65,7 @@ namespace Interactables
             castleCounterReversed = 1;
             castleParts = GameObject.FindGameObjectsWithTag("CastlePart");
             castleCapturedBool = false;
+            playerController = GetComponent<PlayerController>();
 
             castleNotCaptured.SetColor("_Color",Color.white);
         }
@@ -102,7 +105,13 @@ namespace Interactables
                 {
                     counterForMushroom = 0;
                     mushroomPicked = false;
-                    firstPersonController.walkSpeed = origSpeed;
+                    if (firstPersonController != null)
+                    {
+                        firstPersonController.walkSpeed = origSpeed;
+                    } else if (playerController != null)
+                    {
+                        playerController.moveSpeed = origSpeed;
+                    }
                     curSpeed = origSpeed;
                 }
             }
@@ -151,7 +160,14 @@ namespace Interactables
             if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked)
             {
                 mushroomPicked = true;
-                firstPersonController.walkSpeed = mushroomSpeed;
+                if (firstPersonController != null)
+                {
+                    firstPersonController.walkSpeed = mushroomSpeed;
+                } else if (playerController != null)
+                {
+                    playerController.moveSpeed = mushroomSpeed;
+                }
+
                 curSpeed = mushroomSpeed;
             }
         }
