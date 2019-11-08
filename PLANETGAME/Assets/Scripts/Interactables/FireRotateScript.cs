@@ -9,7 +9,7 @@ namespace Interactables
         void Start()
         {
             //testaa kun photon toimii
-            player = GameObject.FindWithTag("Player");
+            //player = GameObject.FindWithTag("Player");
         }
 
         // Update is called once per frame

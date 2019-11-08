@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Interactables
@@ -12,7 +13,18 @@ namespace Interactables
         public GameObject[] firePlaces;
         public GameObject[] cactusPlaces;
         public GameObject[] mushroomPlaces;
+        public GameObject[] castleParts;
 
+        public Material castleCaptured;
+        public Material castleNotCaptured;
+
+        private float castleCounter;
+        private float castleCounterReversed;
+        public float castleCounterMax;
+        private bool castleCounting;
+        private bool castleCapturedBool;
+        
+        
         private bool cactusDoDamage;
         private float origSpeed;
         public float curSpeed;
@@ -43,12 +55,34 @@ namespace Interactables
             stats = GetComponent<PlayerStats>();
             curSpeed = origSpeed;
             cactusDoDamage = false;
+            castleCounterReversed = 1;
+            castleParts = GameObject.FindGameObjectsWithTag("CastlePart");
+            castleCapturedBool = false;
+
         }
 
         // Update is called once per frame
         void Update()
         {
-            
+            if (castleCounting)
+            {
+                castleCounter += Time.deltaTime;
+                castleCounterReversed -= Time.deltaTime * 0.1f;
+                castleNotCaptured.SetColor("_Color",(new Color(1,castleCounterReversed,1,1)));
+                if (castleCounter >= castleCounterMax)
+                {
+                    castleCounterReversed = 1;
+                    castleCounter = 0;
+
+                    foreach (GameObject a in castleParts)
+                    {
+                        a.GetComponent<Renderer>().material = castleCaptured;
+                    }
+
+                    castleCapturedBool = true;
+                    castleCounting = false;
+                }
+            }
             //Counter for cactus effect to last
             if (mushroomPicked)
             {
@@ -95,8 +129,11 @@ namespace Interactables
                 cactusPicked = true;
                 cactusDoDamage = true;
                 //firstPersonController.walkSpeed = cactusJuiceSpeed;
-                
+            }
 
+            if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleCapturedBool)
+            {
+                castleCounting = true;
             }
             //cactus changes user walk speed from 8 to 15
             if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked)
@@ -114,6 +151,18 @@ namespace Interactables
                 counterForCactus = 0;
                 cactusPicked = false;
                 cactusDoDamage = false;
+            }
+
+            if (castleCounting && other.gameObject.CompareTag("CastlePart") && !castleCapturedBool)
+            {
+                castleCounter = 0;
+                castleCounting = false;
+                castleCounterReversed = 1;
+                castleNotCaptured.SetColor("_Color",Color.white);
+                foreach (var castle in castleParts)
+                {
+                    castle.GetComponent<Renderer>().material = castleNotCaptured;
+                }
             }
         }
 

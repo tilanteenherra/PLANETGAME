@@ -609,6 +609,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 180}
+--- !u!4 &1150120246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3140047302729922347, guid: 0218e0a9c057dca419c61d4828615c7f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7991924152073661701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1365617771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3351,6 +3357,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &5736440001448946893
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1150120246}
+    m_Modifications:
+    - target: {fileID: 5736440001487579359, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_Name
+      value: CastleNotFinal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.39900285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9169497
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 47.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5736440001487579358, guid: d6ce3840abd47c64482688d95922c05d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d6ce3840abd47c64482688d95922c05d, type: 3}
 --- !u!1 &5800901028779434127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4240,6 +4315,10 @@ MonoBehaviour:
   firePlaces: []
   cactusPlaces: []
   mushroomPlaces: []
+  castleParts: []
+  castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
+  castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
+  castleCounterMax: 10
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 20
@@ -4436,6 +4515,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 541250494994611695, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7760901054993565694}
+    - target: {fileID: 541250495539515953, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 7760901054993565694}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0218e0a9c057dca419c61d4828615c7f, type: 3}
 --- !u!1 &7999897097561140248
