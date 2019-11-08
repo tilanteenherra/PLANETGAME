@@ -2424,17 +2424,17 @@ MonoBehaviour:
   cactusPlaces: []
   mushroomPlaces: []
   castleParts: []
-  castleCaptured: {fileID: 0}
-  castleNotCaptured: {fileID: 0}
-  castleCounterMax: 0
+  castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
+  castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
+  castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 20
-  cactusPickUpMaxTime: 5
-  mushroomSpeed: 0
-  mushroomPickUpMaxTime: 0
+  cactusPickUpMaxTime: 2
+  mushroomSpeed: 20
+  mushroomPickUpMaxTime: 5
   healthMultiplier: 0.1
 --- !u!1 &5395774678685816675
 GameObject:

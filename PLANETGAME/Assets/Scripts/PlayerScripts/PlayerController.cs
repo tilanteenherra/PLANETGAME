@@ -80,6 +80,27 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if(moveInput.y > 0)
+        {
+            if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
+            {
+                return;
+            }
+            else if((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
+            {
+                anim.SetBool("running", true);
+                anim.SetInteger("condition", 1);
+            }
+        }
+        else if(moveInput.y == 0)
+        {
+            anim.SetBool("running", false);
+            anim.SetInteger("condition", 0);
+        }
+    }
+
     void OnEnable()
     {
         controls.Gameplay.Enable();
