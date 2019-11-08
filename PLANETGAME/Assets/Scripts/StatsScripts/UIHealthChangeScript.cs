@@ -14,6 +14,8 @@ namespace StatsScripts
         void Start()
         {
             image = GetComponent<GameObject>();
+            //kusee kun tulee photon /kusee jo nyt
+            //stats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
             //stats = GameObject.Find("DemonSlayer").GetComponent<PlayerStats>();
         }
 

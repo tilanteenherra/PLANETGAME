@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8760693134347803373}
   - component: {fileID: 7882010315341180449}
   - component: {fileID: 6445695824054585730}
-  - component: {fileID: 8921966474780776769}
   - component: {fileID: 4595477244788790871}
   m_Layer: 0
   m_Name: Cactus
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2757051630795129689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1556387, y: 20.6, z: -0.7347846}
-  m_LocalScale: {x: 0.7, y: 1, z: 0.7}
+  m_LocalScale: {x: 0.0175, y: 0.025, z: 0.0175}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,20 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8921966474780776769
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757051630795129689}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &4595477244788790871
 SphereCollider:
   m_ObjectHideFlags: 0
