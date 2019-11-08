@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Campfire
   - Cactus
+  - Mushroom
   layers:
   - Default
   - TransparentFX

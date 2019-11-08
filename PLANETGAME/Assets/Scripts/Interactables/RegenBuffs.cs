@@ -8,25 +8,35 @@ namespace Interactables
         private PlayerStats stats;
         private GameObject player;
         private FirstPersonController firstPersonController;
+
+        public GameObject[] firePlaces;
+        public GameObject[] cactusPlaces;
+        public GameObject[] mushroomPlaces;
         
         private float origSpeed;
         public float curSpeed;
         public float cactusJuiceSpeed;
-        private float counterForCactus = 0;
+        private float counterForMushroom = 0;
         private bool cactusPicked;
+        private bool mushroomPicked;
         public int cactusPickUpMaxTime;
+        public float mushroomSpeed;
+        public int mushroomPickUpMaxTime;
         public float healthMultiplier;
         
         
         // Start is called before the first frame update
         void Start()
         {
-            
+            firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
+            cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
+            mushroomPlaces = GameObject.FindGameObjectsWithTag("Mushroom");
             player = GetComponent<GameObject>();
             firstPersonController = GetComponent<FirstPersonController>();
-            counterForCactus = 0;
+            counterForMushroom = 0;
             origSpeed = firstPersonController.walkSpeed;
             cactusPicked = false;
+            mushroomPicked = false;
             stats = GetComponent<PlayerStats>();
             curSpeed = origSpeed;
         }
@@ -38,11 +48,11 @@ namespace Interactables
             //Counter for cactus effect to last
             if (cactusPicked)
             {
-                counterForCactus += Time.deltaTime;
-                if (counterForCactus >= cactusPickUpMaxTime)
+                counterForMushroom += Time.deltaTime;
+                if (counterForMushroom >= mushroomPickUpMaxTime)
                 {
-                    counterForCactus = 0;
-                    cactusPicked = false;
+                    counterForMushroom = 0;
+                    mushroomPicked = false;
                     //firstPersonController.walkSpeed = origSpeed;
                     curSpeed = origSpeed;
                 }
@@ -62,6 +72,12 @@ namespace Interactables
                 //firstPersonController.walkSpeed = cactusJuiceSpeed;
                 curSpeed = cactusJuiceSpeed;
 
+            }
+
+            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked)
+            {
+                mushroomPicked = true;
+                curSpeed = mushroomSpeed;
             }
         }
 
