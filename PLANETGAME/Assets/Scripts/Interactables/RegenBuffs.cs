@@ -53,7 +53,7 @@ namespace Interactables
                 {
                     counterForMushroom = 0;
                     mushroomPicked = false;
-                    //firstPersonController.walkSpeed = origSpeed;
+                    firstPersonController.walkSpeed = origSpeed;
                     curSpeed = origSpeed;
                 }
             }
@@ -77,6 +77,7 @@ namespace Interactables
             if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked)
             {
                 mushroomPicked = true;
+                firstPersonController.walkSpeed = mushroomSpeed;
                 curSpeed = mushroomSpeed;
             }
         }
