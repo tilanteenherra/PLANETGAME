@@ -1650,6 +1650,12 @@ MonoBehaviour:
   firePlaces: []
   cactusPlaces: []
   mushroomPlaces: []
+  castleParts: []
+  castleCaptured: {fileID: 0}
+  castleNotCaptured: {fileID: 0}
+  castleCounterMax: 0
+  castlesCaptured: 0
+  thisCastle: {fileID: 0}
   curSpeed: 0
   cactusJuiceSpeed: 0
   cactusDamage: 0
@@ -2935,6 +2941,12 @@ MonoBehaviour:
   firePlaces: []
   cactusPlaces: []
   mushroomPlaces: []
+  castleParts: []
+  castleCaptured: {fileID: 0}
+  castleNotCaptured: {fileID: 0}
+  castleCounterMax: 0
+  castlesCaptured: 0
+  thisCastle: {fileID: 0}
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 0
@@ -10365,6 +10377,12 @@ MonoBehaviour:
   firePlaces: []
   cactusPlaces: []
   mushroomPlaces: []
+  castleParts: []
+  castleCaptured: {fileID: 0}
+  castleNotCaptured: {fileID: 0}
+  castleCounterMax: 0
+  castlesCaptured: 0
+  thisCastle: {fileID: 0}
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 0

@@ -9,7 +9,7 @@ public class FirstPersonController : MonoBehaviour
     public float walkSpeed = 8f;
 
     bool canAttack = true;
-    bool canDoubleAttack = true;
+    //bool canDoubleAttack = true;
 
     //Transform cameraT;
     float verticalLookRotation;
@@ -62,6 +62,18 @@ public class FirstPersonController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             anim.SetBool("walking", false);
+            anim.SetInteger("condition", 0);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+
+            anim.SetBool("runBack", true);
+            anim.SetInteger("condition", 19);
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool("runBack", false);
             anim.SetInteger("condition", 0);
         }
 
