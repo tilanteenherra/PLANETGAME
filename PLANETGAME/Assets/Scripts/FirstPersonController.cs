@@ -65,6 +65,18 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 0);
         }
 
+        if (Input.GetKey(KeyCode.R))
+        {
+
+            anim.SetBool("walkBack", true);
+            anim.SetInteger("condition", 20);
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            anim.SetBool("walkBack", false);
+            anim.SetInteger("condition", 0);
+        }
+
         if (Input.GetKey(KeyCode.S))
         {
 
@@ -76,6 +88,8 @@ public class FirstPersonController : MonoBehaviour
             anim.SetBool("runBack", false);
             anim.SetInteger("condition", 0);
         }
+
+
 
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
         verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
