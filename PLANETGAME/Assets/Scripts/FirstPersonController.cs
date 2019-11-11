@@ -112,44 +112,51 @@ public class FirstPersonController : MonoBehaviour
 
     void GetInput()
     {
-
-
-        if (Input.GetMouseButtonDown(0))
+        if (canAttack)
         {
-             if (canAttack)
+
+
+
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                if (anim.GetBool("running") == true)
                 {
-
-            
-                    if (anim.GetBool("running") == true)
-                    {
-                        anim.SetBool("running", false);
-                        anim.SetInteger("condition", 0);
-                    }
-
-                    //else if (anim.GetBool("running") == false)
-                    //{
-                    //    AttackingA();
-                    //}
-
-                    AttackingA();
+                    anim.SetBool("running", false);
+                    anim.SetInteger("condition", 0);
                 }
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            //    if (anim.GetBool("running") == true)
-            //    {
-            //        anim.SetBool("running", false);
-            //        anim.SetInteger("condition", 0);
-            //    }
+                //else if (anim.GetBool("running") == false)
+                //{
+                //    AttackingA();
+                //}
 
-            //    else if (anim.GetBool("running") == false)
-            //    {
-            //        AttackingB();
-            //    }
-            //
-            AttackingB();
+                AttackingA();
 
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                //    if (anim.GetBool("running") == true)
+                //    {
+                //        anim.SetBool("running", false);
+                //        anim.SetInteger("condition", 0);
+                //    }
+
+                //    else if (anim.GetBool("running") == false)
+                //    {
+                //        AttackingB();
+                //    }
+                //
+                AttackingB();
+
+            }
+
+            if (Input.GetKey(KeyCode.T))
+            {
+
+                SpecialAttack();
+            }
         }
 
     }
@@ -165,6 +172,13 @@ public class FirstPersonController : MonoBehaviour
         attRoutineOn = true;
         StartCoroutine(AttackRoutineB());
     }
+
+    void SpecialAttack()
+    {
+        attRoutineOn = true;
+        StartCoroutine(SpecialAttackRoutine());
+    }
+
 
     IEnumerator AttackRoutineA()
     {
@@ -194,12 +208,27 @@ public class FirstPersonController : MonoBehaviour
 
     IEnumerator AttackRoutineB()
     {
+        canAttack = false;
         anim.SetBool("attackingB", true);
         anim.SetInteger("condition", 3);
         yield return new WaitForSeconds(1.3f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingB", false);
         attRoutineOn = false;
+        canAttack = true;
+        //weaponDamage.hitOnce = false;
+    }
+
+    IEnumerator SpecialAttackRoutine()
+    {
+        canAttack = false;
+        anim.SetBool("specialAttack", true);
+        anim.SetInteger("condition", 25);
+        yield return new WaitForSeconds(2.733f);
+        anim.SetInteger("condition", 0);
+        anim.SetBool("specialAttack", false);
+        attRoutineOn = false;
+        canAttack = true;
         //weaponDamage.hitOnce = false;
     }
 }

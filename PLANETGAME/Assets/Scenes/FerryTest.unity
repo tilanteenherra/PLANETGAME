@@ -589,13 +589,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887045312}
-  m_LocalRotation: {x: 0.12278779, y: 0.6963643, z: -0.12278779, w: 0.6963643}
-  m_LocalPosition: {x: -4.32, y: 3.43, z: -0.1}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: -0.17364816, w: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 5}
   m_LocalScale: {x: 1.2857101, y: 1.2857105, z: 1.2857105}
   m_Children: []
   m_Father: {fileID: 6768659255341774317}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 20, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 180, z: 0}
 --- !u!81 &887045314
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10378,11 +10378,12 @@ MonoBehaviour:
   cactusPlaces: []
   mushroomPlaces: []
   castleParts: []
-  castleCaptured: {fileID: 0}
-  castleNotCaptured: {fileID: 0}
+  castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
+  castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
   castleCounterMax: 0
   castlesCaptured: 0
-  thisCastle: {fileID: 0}
+  thisCastle: {fileID: 5736440001487579359, guid: d6ce3840abd47c64482688d95922c05d,
+    type: 3}
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 0
