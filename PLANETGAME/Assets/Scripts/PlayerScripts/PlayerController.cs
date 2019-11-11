@@ -87,7 +87,18 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Animations start
-        if(moveInput.y > 0.8f && !walking)
+        
+        if(moveInput.y == 0)
+        {
+            anim.SetBool("running", false);
+            anim.SetBool("runBack", false);
+            anim.SetBool("walking", false);
+            anim.SetBool("walkBack", false);
+            anim.SetInteger("condition", 0);
+            //anim.SetInteger(Condition, 0);
+        }
+        
+        else if(moveInput.y > 0.8f && !walking)
         {
             if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
             {
@@ -117,16 +128,39 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("walking", true);
                 anim.SetInteger("condition", 9);
             }
-   
         }
-        else if(moveInput.y == 0)
+        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking)
         {
-            anim.SetBool("running", false);
-            //anim.SetInteger("condition", 0);
-            anim.SetBool("walking", false);
-            anim.SetInteger(Condition, 0);
+            if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
+            {
+                return;
+            }
+            if(anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false)
+            {
+                anim.SetBool("walkBack", true);
+                anim.SetInteger("condition", 20);
+            }
+
+            if (anim.GetBool("running") == true)
+            {
+                anim.SetBool("running", false);
+                anim.SetBool("walkBack", true);
+                anim.SetInteger("condition", 20);
+            }
         }
-        
+        else if(moveInput.y <= -0.8f && !walking)
+        {
+            if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
+            {
+                return;
+            }
+            if(anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false)
+            {
+                anim.SetBool("runBack", true);
+                anim.SetInteger("condition", 19);
+            }
+        }
+
         // Animations end
     }
 
@@ -176,6 +210,7 @@ public class PlayerController : MonoBehaviour
 
     private void Walk()
     {
+        
         walking = true;
         moveSpeed *= 0.5f;
     }
