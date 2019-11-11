@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun.Demo.SlotRacer.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -16,18 +17,20 @@ public class PlayerController : MonoBehaviour
     Animator anim;
 
     // Player variables
-    public float moveSpeed = 8;
+    public float moveSpeed = 10;
     public float controllerRotateSpeed = 100f;
     public float mouseRotateSpeed = 250f;
     
 
     public bool attRoutineOn = false;
     bool canAttack = true;
-    
+    private bool walking;
+
     // Move direction
     Vector2 moveInput;
     //Rotate direction
     Vector2 rotateInput;
+    private static readonly int Condition = Animator.StringToHash("condition");
 
     private void Awake()
     {
@@ -50,6 +53,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.MeleeAttack.performed += ctx => MeleeAttack();
         controls.Gameplay.Spell1.performed += ctx => Spell1();
         controls.Gameplay.Spell2.performed += ctx => Spell2();
+        controls.Gameplay.Walk.performed += ctx => Walk();
+        controls.Gameplay.Walk.canceled += ctx => Run();
 
         // Input Controller Related Things End Here
 
@@ -57,20 +62,19 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
-
         // Player movement
-        float hMovetInput = moveInput.x;
+        float hMoveInput = moveInput.x;
         float vMoveInput = moveInput.y;
-        
-        var movement = new Vector3(hMovetInput, 0, vMoveInput);
-        movement.Normalize();
+        //Debug.Log(moveInput);
+
+        var movement = new Vector3(hMoveInput, 0, vMoveInput);
         this.gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
 
         // Player rotation below
         float hRotateInput = rotateInput.x;
         float vRotateInput = rotateInput.y;
 
-        Vector2 rotate = new Vector2(0, hRotateInput).normalized * controllerRotateSpeed * Time.deltaTime;
+        Vector2 rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
         this.gameObject.transform.Rotate(rotate, Space.Self);
 
         // Player rotation with mouse
@@ -82,23 +86,48 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(moveInput.y > 0)
+        // Animations start
+        if(moveInput.y > 0.8f && !walking)
         {
             if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
             {
                 return;
             }
-            else if((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
+            else if(anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false)
             {
                 anim.SetBool("running", true);
                 anim.SetInteger("condition", 1);
             }
         }
+        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking)
+        {
+            if(anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true)
+            {
+                return;
+            }
+            if(anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false)
+            {
+                anim.SetBool("walking", true);
+                anim.SetInteger("condition", 9);
+            }
+
+            if (anim.GetBool("running") == true)
+            {
+                anim.SetBool("running", false);
+                anim.SetBool("walking", true);
+                anim.SetInteger("condition", 9);
+            }
+   
+        }
         else if(moveInput.y == 0)
         {
             anim.SetBool("running", false);
-            anim.SetInteger("condition", 0);
+            //anim.SetInteger("condition", 0);
+            anim.SetBool("walking", false);
+            anim.SetInteger(Condition, 0);
         }
+        
+        // Animations end
     }
 
     void OnEnable()
@@ -124,24 +153,36 @@ public class PlayerController : MonoBehaviour
         weaponDamage.hitOnce = false;
     }
 
-    public void MeleeAttack()
+    private void MeleeAttack()
     {
         attRoutineOn = true;
         StartCoroutine(AttackRoutine());
     }
 
-    public void Interactive()
+    private void Interactive()
     {
         Debug.Log("Interacting");
     }
 
-    public void Spell1()
+    private void Spell1()
     {
         Debug.Log("Spell1 pressed");
     }
 
-    public void Spell2()
+    private void Spell2()
     {
         Debug.Log("Spell2 pressed");
+    }
+
+    private void Walk()
+    {
+        walking = true;
+        moveSpeed *= 0.5f;
+    }
+
+    private void Run()
+    {
+        walking = false;
+        moveSpeed *= 2f;
     }
 }

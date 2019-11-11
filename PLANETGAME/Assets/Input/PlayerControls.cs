@@ -65,6 +65,14 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""Button"",
+                    ""id"": ""d2796715-57b6-41c8-afd2-a0528bf31a1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -243,6 +251,28 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Spell2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6c45deba-4a27-4e6b-b1fc-27399a040782"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f78e3ee8-4392-45fc-999f-661cee01d8c1"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC"",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -306,6 +336,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Interactive = m_Gameplay.FindAction("Interactive", throwIfNotFound: true);
         m_Gameplay_Spell1 = m_Gameplay.FindAction("Spell1", throwIfNotFound: true);
         m_Gameplay_Spell2 = m_Gameplay.FindAction("Spell2", throwIfNotFound: true);
+        m_Gameplay_Walk = m_Gameplay.FindAction("Walk", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -361,6 +392,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Interactive;
     private readonly InputAction m_Gameplay_Spell1;
     private readonly InputAction m_Gameplay_Spell2;
+    private readonly InputAction m_Gameplay_Walk;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
@@ -371,6 +403,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Interactive => m_Wrapper.m_Gameplay_Interactive;
         public InputAction @Spell1 => m_Wrapper.m_Gameplay_Spell1;
         public InputAction @Spell2 => m_Wrapper.m_Gameplay_Spell2;
+        public InputAction @Walk => m_Wrapper.m_Gameplay_Walk;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -398,6 +431,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Spell2.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpell2;
                 Spell2.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpell2;
                 Spell2.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSpell2;
+                Walk.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWalk;
+                Walk.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWalk;
+                Walk.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWalk;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -420,6 +456,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Spell2.started += instance.OnSpell2;
                 Spell2.performed += instance.OnSpell2;
                 Spell2.canceled += instance.OnSpell2;
+                Walk.started += instance.OnWalk;
+                Walk.performed += instance.OnWalk;
+                Walk.canceled += instance.OnWalk;
             }
         }
     }
@@ -459,5 +498,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
         void OnInteractive(InputAction.CallbackContext context);
         void OnSpell1(InputAction.CallbackContext context);
         void OnSpell2(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
     }
 }
