@@ -10,6 +10,10 @@ public class FirstPersonController : MonoBehaviour
 
     bool canAttack = true;
 
+    public int noOfClicks = 0;
+    float lastClickedTime = 0;
+    float maxComboDelay = 1;
+
     //Wasn't in use
     //Transform cameraT;
     float verticalLookRotation;
@@ -37,6 +41,11 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.time - lastClickedTime > maxComboDelay)
+        {
+            noOfClicks = 0;
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
@@ -118,12 +127,24 @@ public class FirstPersonController : MonoBehaviour
     void GetInput()
     {
 
+        
+
+
+
         if (canAttack)
         {
 
-            if (Input.GetMouseButtonDown(0))
-            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                //This doesn't work yet - it should monitor the number of clicks for the double attack
+                //lastClickedTime = Time.time;
+                //noOfClicks++;
+                //if (noOfClicks == 1)
+                //{
+                //    anim.SetInteger("condition", 2);
+                //}
 
+                //noOfClicks = Mathf.Clamp(noOfClicks, 0, 2);
                 AttackingA();
 
             }
