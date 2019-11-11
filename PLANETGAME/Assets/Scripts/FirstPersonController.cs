@@ -11,6 +11,7 @@ public class FirstPersonController : MonoBehaviour
     bool canAttack = true;
     //bool canDoubleAttack = true;
 
+    //Wasn't in use
     //Transform cameraT;
     float verticalLookRotation;
 
@@ -21,12 +22,15 @@ public class FirstPersonController : MonoBehaviour
 
     public bool attRoutineOn = false;
 
+    //Temporarily disabled since it gave errors
     //WeaponDamage weaponDamage;
 
     // Start is called before the first frame update
     void Start()
     {
+        //Temporarily disabled since it gave errors
         //weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
+        //Wasn't in use
         //cameraT = Camera.main.transform;
         anim = GetComponent<Animator>();
     }
@@ -94,6 +98,8 @@ public class FirstPersonController : MonoBehaviour
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
         verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
         verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
+        
+        //Mouselook up/down - not needed
         //cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
 
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
@@ -115,21 +121,8 @@ public class FirstPersonController : MonoBehaviour
         if (canAttack)
         {
 
-
-
             if (Input.GetMouseButtonDown(0))
             {
-
-                if (anim.GetBool("running") == true)
-                {
-                    anim.SetBool("running", false);
-                    anim.SetInteger("condition", 0);
-                }
-
-                //else if (anim.GetBool("running") == false)
-                //{
-                //    AttackingA();
-                //}
 
                 AttackingA();
 
@@ -137,17 +130,6 @@ public class FirstPersonController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
             {
-                //    if (anim.GetBool("running") == true)
-                //    {
-                //        anim.SetBool("running", false);
-                //        anim.SetInteger("condition", 0);
-                //    }
-
-                //    else if (anim.GetBool("running") == false)
-                //    {
-                //        AttackingB();
-                //    }
-                //
                 AttackingB();
 
             }
@@ -182,27 +164,19 @@ public class FirstPersonController : MonoBehaviour
 
     IEnumerator AttackRoutineA()
     {
-
-        //while (anim.GetCurrentAnimatorStateInfo.)
-        //{
-
-        //}
         canAttack = false;
         anim.SetBool("attackingA", true);
-        //if (Input.GetKey(KeyCode.W))
-        //{
-            //anim.SetInteger("condition", 11);
-        //}
-        //else
-        //{
-            anim.SetInteger("condition", 2);
-        //}
+        anim.SetInteger("condition", 2);
+        //anim.Play("AttackA", 0, 0);
+        yield return new WaitForSeconds(1.0f);
+        anim.SetInteger("condition", 3);
         
-        yield return new WaitForSeconds(1.7f);
+        yield return new WaitForSeconds(1.3f);
         anim.SetInteger("condition", 0);
         anim.SetBool("attackingA", false);
         attRoutineOn = false;
         canAttack = true;
+        //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
     }
 
@@ -216,6 +190,7 @@ public class FirstPersonController : MonoBehaviour
         anim.SetBool("attackingB", false);
         attRoutineOn = false;
         canAttack = true;
+        //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
     }
 
@@ -229,6 +204,7 @@ public class FirstPersonController : MonoBehaviour
         anim.SetBool("specialAttack", false);
         attRoutineOn = false;
         canAttack = true;
+        //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
     }
 }
