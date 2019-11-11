@@ -9,7 +9,6 @@ public class FirstPersonController : MonoBehaviour
     public float walkSpeed = 8f;
 
     bool canAttack = true;
-    //bool canDoubleAttack = true;
 
     //Wasn't in use
     //Transform cameraT;
@@ -118,6 +117,7 @@ public class FirstPersonController : MonoBehaviour
 
     void GetInput()
     {
+
         if (canAttack)
         {
 
@@ -164,20 +164,24 @@ public class FirstPersonController : MonoBehaviour
 
     IEnumerator AttackRoutineA()
     {
-        canAttack = false;
-        anim.SetBool("attackingA", true);
-        anim.SetInteger("condition", 2);
-        //anim.Play("AttackA", 0, 0);
-        yield return new WaitForSeconds(1.0f);
-        anim.SetInteger("condition", 3);
-        
-        yield return new WaitForSeconds(1.3f);
-        anim.SetInteger("condition", 0);
-        anim.SetBool("attackingA", false);
-        attRoutineOn = false;
-        canAttack = true;
-        //Temporarily disabled since it gave errors
-        //weaponDamage.hitOnce = false;
+            canAttack = false;
+            anim.SetBool("attackingA", true);
+            anim.SetInteger("condition", 2);
+            //anim.Play("AttackA", 0, 0);
+            yield return new WaitForSeconds(1.0f);
+
+                anim.SetInteger("condition", 3);
+
+                yield return new WaitForSeconds(1.3f);
+                anim.SetInteger("condition", 0);
+                anim.SetBool("attackingA", false);
+                attRoutineOn = false;
+                canAttack = true;
+
+            
+            //Temporarily disabled since it gave errors
+            //weaponDamage.hitOnce = false;
+
     }
 
     IEnumerator AttackRoutineB()
