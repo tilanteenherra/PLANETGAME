@@ -160,6 +160,14 @@ public class FirstPersonController : MonoBehaviour
 
                 SpecialAttack();
             }
+
+            if (Input.GetKey(KeyCode.Y))
+            {
+
+                SpecialAttack2();
+            }
+
+
         }
 
     }
@@ -180,6 +188,12 @@ public class FirstPersonController : MonoBehaviour
     {
         attRoutineOn = true;
         StartCoroutine(SpecialAttackRoutine());
+    }
+
+    void SpecialAttack2()
+    {
+        attRoutineOn = true;
+        StartCoroutine(SpecialAttackRoutine2());
     }
 
 
@@ -227,6 +241,20 @@ public class FirstPersonController : MonoBehaviour
         yield return new WaitForSeconds(2.733f);
         anim.SetInteger("condition", 0);
         anim.SetBool("specialAttack", false);
+        attRoutineOn = false;
+        canAttack = true;
+        //Temporarily disabled since it gave errors
+        //weaponDamage.hitOnce = false;
+    }
+
+    IEnumerator SpecialAttackRoutine2()
+    {
+        canAttack = false;
+        anim.SetBool("specialAttack2", true);
+        anim.SetInteger("condition", 26);
+        yield return new WaitForSeconds(2.667f);
+        anim.SetInteger("condition", 0);
+        anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
         canAttack = true;
         //Temporarily disabled since it gave errors
