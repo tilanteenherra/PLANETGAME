@@ -176,6 +176,20 @@ public class FirstPersonController : MonoBehaviour
             SpecialAttack2();
         }
 
+        if (Input.GetKey(KeyCode.J))
+        {
+            anim.SetInteger("condition", 85);
+        }
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            anim.SetInteger("condition", 86);
+        }
+
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            anim.SetInteger("condition", 50);
+        }
+
 
         //}
 
