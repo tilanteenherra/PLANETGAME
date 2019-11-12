@@ -10,9 +10,10 @@ public class FirstPersonController : MonoBehaviour
 
     bool canAttack = true;
 
-    public int noOfClicks = 0;
-    float lastClickedTime = 0;
-    float maxComboDelay = 1;
+    int noOfClicks;
+    bool canClick;
+    //float lastClickedTime = 0;
+    //float maxComboDelay = 1;
 
     //Wasn't in use
     //Transform cameraT;
@@ -36,33 +37,36 @@ public class FirstPersonController : MonoBehaviour
         //Wasn't in use
         //cameraT = Camera.main.transform;
         anim = GetComponent<Animator>();
+        noOfClicks = 0;
+        canClick = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time - lastClickedTime > maxComboDelay)
-        {
-            noOfClicks = 0;
-        }
+        //if(Time.time - lastClickedTime > maxComboDelay)
+        //{
+        //    noOfClicks = 0;
+        //}
 
         if (Input.GetKey(KeyCode.W))
         {
-            if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
-            {
-                return;
-            }
-            else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
-            {
+            //if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
+            //{
+            //    return;
+            //}
+            //else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
+            //{
                 anim.SetBool("running", true);
                 anim.SetInteger("condition", 1);
-            }
+            //}
 
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
             anim.SetBool("running", false);
-            anim.SetInteger("condition", 0);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
         }
 
         if (Input.GetKey(KeyCode.E))
@@ -74,7 +78,8 @@ public class FirstPersonController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.E))
         {
             anim.SetBool("walking", false);
-            anim.SetInteger("condition", 0);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
         }
 
         if (Input.GetKey(KeyCode.R))
@@ -86,7 +91,8 @@ public class FirstPersonController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.R))
         {
             anim.SetBool("walkBack", false);
-            anim.SetInteger("condition", 0);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -98,7 +104,8 @@ public class FirstPersonController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.S))
         {
             anim.SetBool("runBack", false);
-            anim.SetInteger("condition", 0);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
         }
 
 
@@ -127,62 +134,64 @@ public class FirstPersonController : MonoBehaviour
     void GetInput()
     {
 
-        
-
-
-
-        if (canAttack)
+        if (Input.GetMouseButtonDown(0))
         {
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                //This doesn't work yet - it should monitor the number of clicks for the double attack
-                //lastClickedTime = Time.time;
-                //noOfClicks++;
-                //if (noOfClicks == 1)
-                //{
-                //    anim.SetInteger("condition", 2);
-                //}
-
-                //noOfClicks = Mathf.Clamp(noOfClicks, 0, 2);
-                AttackingA();
-
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                AttackingB();
-
-            }
-
-            if (Input.GetKey(KeyCode.T))
-            {
-
-                SpecialAttack();
-            }
-
-            if (Input.GetKey(KeyCode.Y))
-            {
-
-                SpecialAttack2();
-            }
-
-
+            ComboStarter();
         }
 
+
+        //if (canAttack)
+        //{
+
+        //        if (Input.GetMouseButtonDown(0))
+        //        {
+        //        //This doesn't work yet - it should monitor the number of clicks for the double attack
+        //        //lastClickedTime = Time.time;
+        //        //noOfClicks++;
+        //        //if (noOfClicks == 1)
+        //        //{
+        //        //    anim.SetInteger("condition", 2);
+        //        //}
+
+        //        //noOfClicks = Mathf.Clamp(noOfClicks, 0, 2);
+        //        AttackingA();
+
+        //    }
+
+        //    //if (Input.GetMouseButtonDown(1))
+        //    //{
+        //    //    AttackingB();
+
+        //    //}
+
+        if (Input.GetKey(KeyCode.T))
+        {
+
+            SpecialAttack();
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+
+            SpecialAttack2();
+        }
+
+
+        //}
+
     }
 
-    void AttackingA()
-    {
-        attRoutineOn = true;
-        StartCoroutine(AttackRoutineA());
-    }
+    //void AttackingA()
+    //{
+    //    attRoutineOn = true;
+    //    StartCoroutine(AttackRoutineA());
+    //}
 
-    void AttackingB()
-    {
-        attRoutineOn = true;
-        StartCoroutine(AttackRoutineB());
-    }
+    ////void AttackingB()
+    ////{
+    ////    attRoutineOn = true;
+    ////    StartCoroutine(AttackRoutineB());
+    ////}
 
     void SpecialAttack()
     {
@@ -196,42 +205,80 @@ public class FirstPersonController : MonoBehaviour
         StartCoroutine(SpecialAttackRoutine2());
     }
 
-
-    IEnumerator AttackRoutineA()
+    void ComboStarter()
     {
-            canAttack = false;
-            anim.SetBool("attackingA", true);
+        if (canClick)
+        {
+            noOfClicks++;
+        }
+
+        if(noOfClicks == 1)
+        {
             anim.SetInteger("condition", 2);
-            //anim.Play("AttackA", 0, 0);
-            yield return new WaitForSeconds(1.0f);
-
-                anim.SetInteger("condition", 3);
-
-                yield return new WaitForSeconds(1.3f);
-                anim.SetInteger("condition", 0);
-                anim.SetBool("attackingA", false);
-                attRoutineOn = false;
-                canAttack = true;
-
-            
-            //Temporarily disabled since it gave errors
-            //weaponDamage.hitOnce = false;
-
+        }
     }
 
-    IEnumerator AttackRoutineB()
+    public void ComboCheck()
     {
-        canAttack = false;
-        anim.SetBool("attackingB", true);
-        anim.SetInteger("condition", 3);
-        yield return new WaitForSeconds(1.3f);
-        anim.SetInteger("condition", 0);
-        anim.SetBool("attackingB", false);
-        attRoutineOn = false;
-        canAttack = true;
-        //Temporarily disabled since it gave errors
-        //weaponDamage.hitOnce = false;
+        canClick = false;
+
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
+        {
+            anim.SetInteger("condition", 98);
+            canClick = true;
+            noOfClicks = 0;
+        }
+        else if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
+        {
+            anim.SetInteger("condition", 3);
+            canClick = true;
+        }
+        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB"))
+        {
+            anim.SetInteger("condition", 98);
+            canClick = true;
+            noOfClicks = 0;
+        }
+
+
     }
+
+
+    //IEnumerator AttackRoutineA()
+    //{
+    //        canAttack = false;
+    //        anim.SetBool("attackingA", true);
+    //        anim.SetInteger("condition", 2);
+    //        //anim.Play("AttackA", 0, 0);
+    //        yield return new WaitForSeconds(1.0f);
+
+    //            anim.SetInteger("condition", 3);
+
+    //            yield return new WaitForSeconds(1.3f);
+    //            anim.SetInteger("condition", 0);
+    //            anim.SetBool("attackingA", false);
+    //            attRoutineOn = false;
+    //            canAttack = true;
+
+
+    //        //Temporarily disabled since it gave errors
+    //        //weaponDamage.hitOnce = false;
+
+    //}
+
+    ////IEnumerator AttackRoutineB()
+    ////{
+    ////    canAttack = false;
+    ////    anim.SetBool("attackingB", true);
+    ////    anim.SetInteger("condition", 3);
+    ////    yield return new WaitForSeconds(1.3f);
+    ////    anim.SetInteger("condition", 0);
+    ////    anim.SetBool("attackingB", false);
+    ////    attRoutineOn = false;
+    ////    canAttack = true;
+    ////    //Temporarily disabled since it gave errors
+    ////    //weaponDamage.hitOnce = false;
+    ////}
 
     IEnumerator SpecialAttackRoutine()
     {
@@ -239,7 +286,7 @@ public class FirstPersonController : MonoBehaviour
         anim.SetBool("specialAttack", true);
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(2.733f);
-        anim.SetInteger("condition", 0);
+        anim.SetInteger("condition", 98);
         anim.SetBool("specialAttack", false);
         attRoutineOn = false;
         canAttack = true;
@@ -253,7 +300,7 @@ public class FirstPersonController : MonoBehaviour
         anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(2.667f);
-        anim.SetInteger("condition", 0);
+        anim.SetInteger("condition", 98);
         anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
         canAttack = true;
