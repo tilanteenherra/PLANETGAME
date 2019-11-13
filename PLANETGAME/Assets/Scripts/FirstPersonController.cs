@@ -180,11 +180,6 @@ public class FirstPersonController : MonoBehaviour
         {
             anim.SetInteger("condition", 85);
         }
-        if (Input.GetKeyUp(KeyCode.J))
-        {
-            anim.SetInteger("condition", 98);
-        }
-
 
         if (Input.GetKeyUp(KeyCode.K))
         {
@@ -244,28 +239,28 @@ public class FirstPersonController : MonoBehaviour
 
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
         {
-            Debug.Log("In one");
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
         }
         else if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
-            Debug.Log("Two");
-
             anim.SetInteger("condition", 3);
             canClick = true;
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB"))
         {
-            Debug.Log("In three");
-
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
         }
 
 
+    }
+
+    public void ExitAnimation()
+    {
+        anim.SetInteger("condition", 98);
     }
 
 
