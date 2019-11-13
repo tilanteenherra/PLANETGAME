@@ -12,8 +12,6 @@ public class FirstPersonController : MonoBehaviour
 
     int noOfClicks;
     bool canClick;
-    //float lastClickedTime = 0;
-    //float maxComboDelay = 1;
 
     //Wasn't in use
     //Transform cameraT;
@@ -23,6 +21,9 @@ public class FirstPersonController : MonoBehaviour
     Vector3 smoothMoveVelocity;
 
     Animator anim;
+
+    public Renderer shovel;
+    public Renderer shield;
 
     public bool attRoutineOn = false;
 
@@ -44,10 +45,6 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(Time.time - lastClickedTime > maxComboDelay)
-        //{
-        //    noOfClicks = 0;
-        //}
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -139,31 +136,6 @@ public class FirstPersonController : MonoBehaviour
             ComboStarter();
         }
 
-
-        //if (canAttack)
-        //{
-
-        //        if (Input.GetMouseButtonDown(0))
-        //        {
-        //        //This doesn't work yet - it should monitor the number of clicks for the double attack
-        //        //lastClickedTime = Time.time;
-        //        //noOfClicks++;
-        //        //if (noOfClicks == 1)
-        //        //{
-        //        //    anim.SetInteger("condition", 2);
-        //        //}
-
-        //        //noOfClicks = Mathf.Clamp(noOfClicks, 0, 2);
-        //        AttackingA();
-
-        //    }
-
-        //    //if (Input.GetMouseButtonDown(1))
-        //    //{
-        //    //    AttackingB();
-
-        //    //}
-
         if (Input.GetKey(KeyCode.T))
         {
 
@@ -178,35 +150,28 @@ public class FirstPersonController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.J))
         {
+            //storeweapons
             anim.SetInteger("condition", 85);
+            shovel.enabled = false;
+            shield.enabled = false;
         }
 
         if (Input.GetKeyUp(KeyCode.K))
         {
+            //showweapons
             anim.SetInteger("condition", 86);
+            shovel.enabled = true;
+            shield.enabled = true;
         }
 
         if (Input.GetKeyUp(KeyCode.N))
         {
+            //snowangel
             anim.SetInteger("condition", 50);
         }
 
-
-        //}
-
     }
 
-    //void AttackingA()
-    //{
-    //    attRoutineOn = true;
-    //    StartCoroutine(AttackRoutineA());
-    //}
-
-    ////void AttackingB()
-    ////{
-    ////    attRoutineOn = true;
-    ////    StartCoroutine(AttackRoutineB());
-    ////}
 
     void SpecialAttack()
     {
@@ -262,43 +227,6 @@ public class FirstPersonController : MonoBehaviour
     {
         anim.SetInteger("condition", 98);
     }
-
-
-    //IEnumerator AttackRoutineA()
-    //{
-    //        canAttack = false;
-    //        anim.SetBool("attackingA", true);
-    //        anim.SetInteger("condition", 2);
-    //        //anim.Play("AttackA", 0, 0);
-    //        yield return new WaitForSeconds(1.0f);
-
-    //            anim.SetInteger("condition", 3);
-
-    //            yield return new WaitForSeconds(1.3f);
-    //            anim.SetInteger("condition", 0);
-    //            anim.SetBool("attackingA", false);
-    //            attRoutineOn = false;
-    //            canAttack = true;
-
-
-    //        //Temporarily disabled since it gave errors
-    //        //weaponDamage.hitOnce = false;
-
-    //}
-
-    ////IEnumerator AttackRoutineB()
-    ////{
-    ////    canAttack = false;
-    ////    anim.SetBool("attackingB", true);
-    ////    anim.SetInteger("condition", 3);
-    ////    yield return new WaitForSeconds(1.3f);
-    ////    anim.SetInteger("condition", 0);
-    ////    anim.SetBool("attackingB", false);
-    ////    attRoutineOn = false;
-    ////    canAttack = true;
-    ////    //Temporarily disabled since it gave errors
-    ////    //weaponDamage.hitOnce = false;
-    ////}
 
     IEnumerator SpecialAttackRoutine()
     {
