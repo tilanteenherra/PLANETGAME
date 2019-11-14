@@ -25,6 +25,12 @@ public class FirstPersonController : MonoBehaviour
     public Renderer shovel;
     public Renderer shield;
 
+    //Disabled invicibility variables
+    /*
+    public Color tempColor = Color.white;
+    public Renderer hideMaterial;
+    */
+
     public bool attRoutineOn = false;
 
     //Temporarily disabled since it gave errors
@@ -65,6 +71,32 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 98);
             noOfClicks = 0;
         }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("running", true);
+            anim.SetInteger("condition", 44);
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool("running", false);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("running", true);
+            anim.SetInteger("condition", 44);
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetBool("running", false);
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+        }
+
+
 
         if (Input.GetKey(KeyCode.E))
         {
@@ -136,19 +168,19 @@ public class FirstPersonController : MonoBehaviour
             ComboStarter();
         }
 
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKeyUp(KeyCode.T))
         {
 
             SpecialAttack();
         }
 
-        if (Input.GetKey(KeyCode.Y))
+        if (Input.GetKeyUp(KeyCode.Y))
         {
 
             SpecialAttack2();
         }
 
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKeyUp(KeyCode.J))
         {
             //storeweapons
             anim.SetInteger("condition", 85);
@@ -165,6 +197,13 @@ public class FirstPersonController : MonoBehaviour
             //snowangel
             anim.SetInteger("condition", 50);
         }
+        /*
+        if (Input.GetKeyUp(KeyCode.O))
+        {
+            //predator
+            Predator();
+        }
+        */
 
     }
 
@@ -235,6 +274,17 @@ public class FirstPersonController : MonoBehaviour
         shovel.enabled = false;
         shield.enabled = false;
     }
+
+    //Invisibility trigger
+    /*
+    public void Predator()
+    {
+        tempColor = hideMaterial.material.color;
+        tempColor.a = 0.0f;
+        hideMaterial.material.color = tempColor;
+    }
+    */
+    
 
     IEnumerator SpecialAttackRoutine()
     {
