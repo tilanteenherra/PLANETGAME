@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Nike\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Nike\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_PLANETGAME.212913859.00" t="ExcludeRecursive" />
-    <e p="D:\UnityProjects\PlanetGame\PlanetGame\PlanetGame" t="IncludeRecursive">
+    <e p="C:\Users\joona\.Rider2019.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\joona\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\joona\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_PLANETGAME.-576303037.00" t="ExcludeRecursive" />
+    <e p="C:\Users\joona\Documents\Unity\Planet Game\PlanetGame\PlanetGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Input" t="Include">
@@ -354,7 +355,9 @@
         <e p="Scripts" t="Include">
           <e p="AudioManager.cs" t="Include" />
           <e p="FauxGravityAttractor.cs" t="Include" />
+          <e p="FauxGravityAttractor1.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
+          <e p="FauxGravityBody1.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
           <e p="Interactables" t="Include">
             <e p="CastleScript.cs" t="Include" />
@@ -378,10 +381,15 @@
             <e p="PlayerStats.cs" t="Include" />
             <e p="WeaponDamage.cs" t="Include" />
           </e>
+          <e p="Shield.cs" t="Include" />
+          <e p="Shovel.cs" t="Include" />
           <e p="StatsScripts" t="Include">
             <e p="UIHealthChangeScript.cs" t="Include" />
           </e>
           <e p="SwitchMusicTrigger.cs" t="Include" />
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="DistortShader.shader" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />
