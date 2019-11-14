@@ -4386,6 +4386,77 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 7760901054993565694}
+    - target: {fileID: 2146222207956884457, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799292704644663548, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Name
+      value: CactusPlacePoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799292704644663548, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799292704644663548, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324102182100825722, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.131
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324102182100825722, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.678
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324102182100825722, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.028
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174485195706462710, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 3348521423227894998, guid: 289f3d3e1d8703d45abaf939e6cea300,
+        type: 3}
+    - target: {fileID: 1696254455750144782, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 910396853983729656, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Name
+      value: CactusPlace
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734068297502326273, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734068297502326273, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734068297502326273, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444944579620077061, guid: 0218e0a9c057dca419c61d4828615c7f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0218e0a9c057dca419c61d4828615c7f, type: 3}
 --- !u!1 &7999897097561140248
