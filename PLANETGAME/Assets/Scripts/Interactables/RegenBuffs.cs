@@ -28,8 +28,14 @@ namespace Interactables
         private bool castleCounting;
         private bool castleCapturedBool;
         public GameObject thisCastle;
+
+        private bool snowAngelPicked;
+        private float snowAngelCounterValue;
+        private bool SnowAngelCounter;
+        public int SnowAngelMaxTime;
+       
         
-        
+
         private bool cactusDoDamage;
         private float origSpeed;
         public float curSpeed;
@@ -177,11 +183,19 @@ namespace Interactables
 
                 curSpeed = mushroomSpeed;
             }
+
+            if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
+            {
+                if (snowAngelPicked && SnowAngelCounter && snowAngelCounterValue < SnowAngelMaxTime)
+                {
+                    snowAngelCounterValue = 0;
+                }
+            }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (counterForCactus != 0 &&other.gameObject.CompareTag("Cactus"))
+            if (counterForCactus != 0 && other.gameObject.CompareTag("Cactus"))
             {
                 counterForCactus = 0;
                 cactusPicked = false;
