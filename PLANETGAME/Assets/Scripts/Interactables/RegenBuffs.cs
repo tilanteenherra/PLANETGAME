@@ -33,8 +33,8 @@ namespace Interactables
         private float snowAngelCounterValue;
         private bool SnowAngelCounter;
         public int SnowAngelMaxTime;
-       
-        
+
+        public Material CharacterMaterial;
 
         private bool cactusDoDamage;
         private float origSpeed;
@@ -54,6 +54,7 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
+            
             firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
             cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
             mushroomPlaces = GameObject.FindGameObjectsWithTag("Mushroom");
@@ -86,7 +87,19 @@ namespace Interactables
         // Update is called once per frame
         void Update()
         {
-            
+            if (snowAngelPicked)
+            {
+                snowAngelCounterValue += Time.deltaTime;
+                if (snowAngelCounterValue >= SnowAngelMaxTime)
+                {
+                    StandardShaderUtils.ChangeRenderMode(CharacterMaterial,StandardShaderUtils.BlendMode.Opaque);
+                    CharacterMaterial.SetColor("Nakyva",new Color(CharacterMaterial.color.r,CharacterMaterial.color.g,CharacterMaterial.color.b,1f));
+                    snowAngelPicked = false;
+                    snowAngelCounterValue = 0;
+                    SnowAngelCounter = false;
+                    
+                }
+            }
             if (castleCounting)
             {
                 castleCounter += Time.deltaTime;
@@ -186,10 +199,12 @@ namespace Interactables
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
             {
-                if (snowAngelPicked && SnowAngelCounter && snowAngelCounterValue < SnowAngelMaxTime)
-                {
+                
                     snowAngelCounterValue = 0;
-                }
+                    snowAngelPicked = true;
+                    SnowAngelCounter = true;
+                    StandardShaderUtils.ChangeRenderMode(CharacterMaterial,StandardShaderUtils.BlendMode.Fade);
+                    CharacterMaterial.SetColor("Nakymaton",new Color(CharacterMaterial.color.r,CharacterMaterial.color.g,CharacterMaterial.color.b,0.2f));
             }
         }
 
@@ -239,4 +254,60 @@ namespace Interactables
                 "Castles Captured: " + castlesCaptured);
         }
     }
+    
+    
+    public static class StandardShaderUtils
+ {
+     public enum BlendMode
+     {
+         Opaque,
+         Cutout,
+         Fade,
+         Transparent
+     }
+ 
+     public static void ChangeRenderMode(Material standardShaderMaterial, BlendMode blendMode)
+     {
+         switch (blendMode)
+         {
+             case BlendMode.Opaque:
+                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                 standardShaderMaterial.SetInt("_ZWrite", 1);
+                 standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                 standardShaderMaterial.renderQueue = -1;
+                 break;
+             case BlendMode.Cutout:
+                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                 standardShaderMaterial.SetInt("_ZWrite", 1);
+                 standardShaderMaterial.EnableKeyword("_ALPHATEST_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                 standardShaderMaterial.renderQueue = 2450;
+                 break;
+             case BlendMode.Fade:
+                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                 standardShaderMaterial.SetInt("_ZWrite", 0);
+                 standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                 standardShaderMaterial.EnableKeyword("_ALPHABLEND_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                 standardShaderMaterial.renderQueue = 3000;
+                 break;
+             case BlendMode.Transparent:
+                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+                 standardShaderMaterial.SetInt("_ZWrite", 0);
+                 standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                 standardShaderMaterial.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+                 standardShaderMaterial.renderQueue = 3000;
+                 break;
+         }
+ 
+     }
+ }
 }
