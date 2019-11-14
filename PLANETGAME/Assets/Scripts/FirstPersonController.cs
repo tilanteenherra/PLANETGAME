@@ -152,16 +152,12 @@ public class FirstPersonController : MonoBehaviour
         {
             //storeweapons
             anim.SetInteger("condition", 85);
-            shovel.enabled = false;
-            shield.enabled = false;
         }
 
         if (Input.GetKeyUp(KeyCode.K))
         {
             //showweapons
             anim.SetInteger("condition", 86);
-            shovel.enabled = true;
-            shield.enabled = true;
         }
 
         if (Input.GetKeyUp(KeyCode.N))
@@ -226,6 +222,18 @@ public class FirstPersonController : MonoBehaviour
     public void ExitAnimation()
     {
         anim.SetInteger("condition", 98);
+    }
+
+    public void WeaponShow()
+    {
+        shovel.enabled = true;
+        shield.enabled = true;
+    }
+
+    public void WeaponHide()
+    {
+        shovel.enabled = false;
+        shield.enabled = false;
     }
 
     IEnumerator SpecialAttackRoutine()
