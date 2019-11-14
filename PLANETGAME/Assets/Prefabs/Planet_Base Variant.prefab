@@ -336,8 +336,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 11.555251
-  m_Center: {x: 0, y: 0.00000047683716, z: -0.0000014305115}
+  m_Radius: 11.55
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1150120247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -519,17 +519,17 @@ PrefabInstance:
     - target: {fileID: 1107546734375357366, guid: 14adfb6a939209e4dabe0b233089d362,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.105
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1107546734375357366, guid: 14adfb6a939209e4dabe0b233089d362,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.929999
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1107546734375357366, guid: 14adfb6a939209e4dabe0b233089d362,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.423414e-12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107546734375357366, guid: 14adfb6a939209e4dabe0b233089d362,
         type: 3}
@@ -682,17 +682,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d547aacd223eb0e4ba8e26361077764c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000001263884
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d547aacd223eb0e4ba8e26361077764c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35887787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d547aacd223eb0e4ba8e26361077764c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000052713585
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d547aacd223eb0e4ba8e26361077764c,
         type: 3}
