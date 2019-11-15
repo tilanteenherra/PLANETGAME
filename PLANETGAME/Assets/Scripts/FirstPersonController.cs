@@ -241,8 +241,8 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks++;
         }
 
-        if(noOfClicks == 1)
-        {
+        if(noOfClicks >= 1)
+        {   
             anim.SetInteger("condition", 2);
         }
     }
@@ -275,6 +275,7 @@ public class FirstPersonController : MonoBehaviour
     public void ExitAnimation()
     {
         anim.SetInteger("condition", 98);
+        noOfClicks = 0;
     }
 
     public void Charge()
