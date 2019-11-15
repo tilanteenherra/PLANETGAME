@@ -5,7 +5,7 @@ using UnityEngine;
 public class FirstPersonController : MonoBehaviour
 {
     public float mouseSensitivityX = 250f;
-    public float mouseSensitivityY = 250f;
+    //public float mouseSensitivityY = 250f;
     public float walkSpeed = 8f;
 
     bool canAttack = true;
@@ -16,6 +16,7 @@ public class FirstPersonController : MonoBehaviour
     //Wasn't in use
     //Transform cameraT;
     float verticalLookRotation;
+    Rigidbody rb;
 
     Vector3 moveAmount;
     Vector3 smoothMoveVelocity;
@@ -44,6 +45,7 @@ public class FirstPersonController : MonoBehaviour
         //Wasn't in use
         //cameraT = Camera.main.transform;
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         noOfClicks = 0;
         canClick = true;
     }
@@ -137,18 +139,26 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks = 0;
         }
 
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+
 
 
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
-        verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
-        verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
-        
+
+
+        //Mouselook up/down - not needed
+        //verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
+        //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
+
         //Mouselook up/down - not needed
         //cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
 
         Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
         Vector3 targetMoveAmount = moveDir * walkSpeed;
         moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+
+        Move(x, y);
 
         GetInput();
 
@@ -163,21 +173,25 @@ public class FirstPersonController : MonoBehaviour
     void GetInput()
     {
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1"))
         {
             ComboStarter();
         }
 
         if (Input.GetKeyUp(KeyCode.T))
         {
-
-            SpecialAttack();
+            if (canAttack)
+            {
+                SpecialAttack();
+            }
         }
 
-        if (Input.GetKeyUp(KeyCode.Y))
+        if (Input.GetKeyUp(KeyCode.Y) || (Input.GetButtonDown("Fire2")))
         {
-
-            SpecialAttack2();
+            if (canAttack)
+            {
+                SpecialAttack2();
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.J))
@@ -192,7 +206,7 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 86);
         }
 
-        if (Input.GetKeyUp(KeyCode.N))
+        if ((Input.GetKeyUp(KeyCode.N)) || Input.GetButtonDown("Fire3"))
         {
             //snowangel
             anim.SetInteger("condition", 50);
@@ -263,6 +277,11 @@ public class FirstPersonController : MonoBehaviour
         anim.SetInteger("condition", 98);
     }
 
+    public void Charge()
+    {
+        rb.AddForce(Camera.main.transform.forward * 5000f);
+    }
+
     public void WeaponShow()
     {
         shovel.enabled = true;
@@ -275,6 +294,16 @@ public class FirstPersonController : MonoBehaviour
         shield.enabled = false;
     }
 
+    private void Move(float x, float y)
+    {
+        anim.SetFloat("VelX", x);
+        anim.SetFloat("VelY", y);
+
+        Vector3 moveDir = new Vector3(x, 0, y).normalized;
+        Vector3 targetMoveAmount = moveDir * walkSpeed * (Mathf.Abs(x) + Mathf.Abs(y));
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+    }
+
     //Invisibility trigger
     /*
     public void Predator()
@@ -284,7 +313,7 @@ public class FirstPersonController : MonoBehaviour
         hideMaterial.material.color = tempColor;
     }
     */
-    
+
 
     IEnumerator SpecialAttackRoutine()
     {
@@ -305,7 +334,7 @@ public class FirstPersonController : MonoBehaviour
         canAttack = false;
         anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
-        yield return new WaitForSeconds(2.667f);
+        yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
         anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
