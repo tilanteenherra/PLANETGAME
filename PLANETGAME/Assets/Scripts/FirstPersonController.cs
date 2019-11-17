@@ -182,7 +182,7 @@ public class FirstPersonController : MonoBehaviour
 
         if (dashing)
         {
-            endPosition = transform.forward * 0.1f;
+            endPosition = transform.forward * 0.3f;
             transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
         }
     }
