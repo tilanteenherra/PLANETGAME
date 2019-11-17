@@ -44,6 +44,8 @@ public class FirstPersonController : MonoBehaviour
 
     public bool attRoutineOn = false;
 
+    public bool dashSmoke = false;
+
     //Temporarily disabled since it gave errors
     //WeaponDamage weaponDamage;
 
@@ -59,6 +61,7 @@ public class FirstPersonController : MonoBehaviour
         noOfClicks = 0;
         canClick = true;
         endPosition = new Vector3(0, 0, 0);
+        
     }
 
     // Update is called once per frame
@@ -207,7 +210,9 @@ public class FirstPersonController : MonoBehaviour
         {
             if (canAttack)
             {
+                
                 SpecialAttack2();
+                
             }
         }
 
@@ -298,6 +303,16 @@ public class FirstPersonController : MonoBehaviour
     public void SetChargeFalse()
     {
         dashing = false;
+    }
+
+    public void SmokeOn()
+    {
+        GetComponent<DashSmokeScripts>().smokeOn = true;
+    }
+
+    public void SmokeOff()
+    {
+        GetComponent<DashSmokeScripts>().smokeOn = false;
     }
 
     public void Charge()
