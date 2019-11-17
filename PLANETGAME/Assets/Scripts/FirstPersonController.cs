@@ -15,6 +15,16 @@ public class FirstPersonController : MonoBehaviour
 
     //Wasn't in use
     //Transform cameraT;
+
+    //public float speed;
+    //public float maxSpeed;
+    //public float acceleration;
+    //public float deceleration;
+
+    Vector3 endPosition;
+    bool dashing = false;
+
+
     float verticalLookRotation;
     Rigidbody rb;
 
@@ -48,6 +58,7 @@ public class FirstPersonController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         noOfClicks = 0;
         canClick = true;
+        endPosition = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -168,6 +179,12 @@ public class FirstPersonController : MonoBehaviour
     void FixedUpdate()
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+
+        if (dashing)
+        {
+            endPosition = transform.forward * 0.1f;
+            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
+        }
     }
 
     void GetInput()
@@ -278,9 +295,62 @@ public class FirstPersonController : MonoBehaviour
         noOfClicks = 0;
     }
 
+    public void SetChargeFalse()
+    {
+        dashing = false;
+    }
+
     public void Charge()
     {
-        rb.AddForce(Camera.main.transform.forward * 5000f);
+        //float t = 1.5f;
+        //rb.velocity = new Vector3(0, 0, 0);
+
+        //while (t > 0)
+        //{         
+        //    rb.AddForce(transform.forward * 20f, ForceMode.Acceleration);
+        //    t -= Time.deltaTime;
+        //}
+
+        //while (!(Input.GetKeyDown(KeyCode.H)))
+        //{
+        //    if (speed < maxSpeed)
+        //    {
+        //        speed = speed - acceleration * Time.deltaTime;
+        //    }
+        //    else if (speed > -maxSpeed)
+        //    {
+        //        speed = speed + acceleration * Time.deltaTime;
+        //    }
+        //    else
+        //    {
+        //        if (speed > deceleration * Time.deltaTime)
+        //        {
+        //            speed = speed - deceleration * Time.deltaTime;
+        //        }
+        //        else if (speed < -deceleration * Time.deltaTime)
+        //        {
+        //            speed = speed + deceleration * Time.deltaTime;
+        //        }
+        //        else
+        //        {
+        //            speed = 0;
+        //        }
+        //    }
+
+        //    Vector3 tempPos = transform.position;
+        //    tempPos.x = transform.position.x;
+        //    tempPos.y = transform.position.y;
+        //    tempPos.z = transform.position.z;
+
+
+
+        //    transform.position = new Vector3(tempPos.x + speed * Time.deltaTime, tempPos.y, tempPos.z);
+        //}
+
+        dashing = true;
+
+
+
     }
 
     public void WeaponShow()
