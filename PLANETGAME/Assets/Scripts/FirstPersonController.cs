@@ -222,6 +222,12 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 85);
         }
 
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            //dies
+            anim.SetInteger("condition", 66);
+        }
+
         if (Input.GetKeyUp(KeyCode.K))
         {
             //showweapons
@@ -406,7 +412,7 @@ public class FirstPersonController : MonoBehaviour
         canAttack = false;
         anim.SetBool("specialAttack", true);
         anim.SetInteger("condition", 25);
-        yield return new WaitForSeconds(2.733f);
+        yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
         anim.SetBool("specialAttack", false);
         attRoutineOn = false;
