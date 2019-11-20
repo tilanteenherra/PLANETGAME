@@ -7,10 +7,13 @@ public class DashSmokeScripts : MonoBehaviour
     public GameObject dashSmoke;
     public bool smokeOn = false;
     private GameObject tempObj;
+    public GameObject empty;
+    private Quaternion temp;
 
     // Start is called before the first frame update
     void Start()
     {
+        empty = new GameObject();
     }
 
     // Update is called once per frame
@@ -18,7 +21,11 @@ public class DashSmokeScripts : MonoBehaviour
     {
         if (smokeOn)
         {
-            tempObj = Instantiate(dashSmoke, transform.position,dashSmoke.transform.rotation);
+            empty.transform.rotation = transform.rotation;
+            empty.transform.Rotate(transform.up, 180f, Space.World);
+            //empty.transform.rotation = Quaternion.Inverse(transform.rotation);
+            tempObj = Instantiate(dashSmoke, transform.position, empty.transform.rotation);
+            
             Destroy(tempObj, 1.0f);
         }
     }

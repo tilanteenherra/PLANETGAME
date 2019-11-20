@@ -222,7 +222,7 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 85);
         }
 
-        if (Input.GetKeyUp(KeyCode.L))
+        if ((Input.GetKeyUp(KeyCode.L)) || Input.GetButtonDown("Fire4"))
         {
             //dies
             anim.SetInteger("condition", 66);
