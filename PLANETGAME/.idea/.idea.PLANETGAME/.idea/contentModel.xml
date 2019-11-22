@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\joona\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\joona\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_PLANETGAME.1879260400.00" t="ExcludeRecursive" />
-    <e p="F:\Joonatan Ritalahti\Tiedostot\GitHub\PlanetGame\PlanetGame" t="IncludeRecursive">
+    <e p="C:\Users\Nike\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Nike\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_PLANETGAME.212913859.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\PlanetGame\PlanetGame\PlanetGame" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Input" t="Include">
@@ -353,6 +353,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AudioManager.cs" t="Include" />
+          <e p="DashSmokeScripts.cs" t="Include" />
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityAttractor1.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />

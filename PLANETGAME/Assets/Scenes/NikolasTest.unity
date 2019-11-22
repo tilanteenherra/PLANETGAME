@@ -790,5 +790,10 @@ PrefabInstance:
       propertyPath: controllerRotateSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5295858740679744488, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299cc3c063a7277478e444a0c58b8256, type: 3}

@@ -20,11 +20,13 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 10;
     public float controllerRotateSpeed = 100f;
     public float mouseRotateSpeed = 250f;
+    private float buffTimer = 0f;
     
 
     public bool attRoutineOn = false;
     bool canAttack = true;
     private bool walking;
+    private bool interacting;
 
     // Move direction
     Vector2 moveInput;
@@ -55,6 +57,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Spell2.performed += ctx => Spell2();
         controls.Gameplay.Walk.performed += ctx => Walk();
         controls.Gameplay.Walk.canceled += ctx => Run();
+        controls.Gameplay.Interactive.performed += ctx => OnInteract();
+        controls.Gameplay.Interactive.canceled += ctx => NoInteract();
 
         // Input Controller Related Things End Here
 
@@ -65,7 +69,6 @@ public class PlayerController : MonoBehaviour
         // Player movement
         float hMoveInput = moveInput.x;
         float vMoveInput = moveInput.y;
-        //Debug.Log(moveInput);
 
         var movement = new Vector3(hMoveInput, 0, vMoveInput);
         this.gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
@@ -78,7 +81,8 @@ public class PlayerController : MonoBehaviour
         this.gameObject.transform.Rotate(rotate, Space.Self);
 
         // Player rotation with mouse
-        this.gameObject.transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseRotateSpeed, Space.Self);
+        //loat hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+        //this.gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
 
         //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
 
@@ -86,7 +90,22 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Animations start
+        // Other stuff start ------------------------------------------------------------------------------------
+
+        if (interacting)
+        {
+            buffTimer += Time.deltaTime;
+            
+            if (buffTimer >= 5f)
+            {
+                // Gets buff code
+                Debug.Log("GOT THE BUFF!");
+            }
+        }
+        
+        // Other stuff end --------------------------------------------------------------------------------------
+        
+        // Animations start -------------------------------------------------------------------------------------
         
         if(moveInput.y == 0)
         {
@@ -161,7 +180,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Animations end
+        // Animations end ---------------------------------------------------------------------------------------
     }
 
     void OnEnable()
@@ -193,9 +212,15 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackRoutine());
     }
 
-    private void Interactive()
+    private void OnInteract()
     {
-        Debug.Log("Interacting");
+        interacting = true;
+    }
+
+    void NoInteract()
+    {
+        interacting = false;
+        buffTimer = 0f;
     }
 
     private void Spell1()

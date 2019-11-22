@@ -48,7 +48,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""62e79bde-68e0-4595-a083-abc81b29ad81"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=5)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Spell1"",
