@@ -81,8 +81,8 @@ public class PlayerController : MonoBehaviour
         this.gameObject.transform.Rotate(rotate, Space.Self);
 
         // Player rotation with mouse
-        //loat hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
-        //this.gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
+        float hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+        this.gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
 
         //vRotateInput = Mathf.Clamp(vRotateInput, -20, 20);
 
