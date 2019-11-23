@@ -244,7 +244,7 @@ public class FirstPersonController : MonoBehaviour
         {
             //changecamera
             GameObject cammy = GameObject.FindGameObjectWithTag("MainCamera");
-            cammy.transform.RotateAround(cammy.transform.parent.position, new Vector3(0, 1, 0), 45f);
+            cammy.transform.RotateAround(cammy.transform.parent.position, cammy.transform.parent.up, 45f);
         }
 
 
