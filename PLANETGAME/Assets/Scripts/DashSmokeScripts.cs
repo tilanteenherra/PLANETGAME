@@ -6,9 +6,8 @@ public class DashSmokeScripts : MonoBehaviour
 {
     public GameObject dashSmoke;
     public bool smokeOn = false;
+    private GameObject empty;
     private GameObject tempObj;
-    public GameObject empty;
-    private Quaternion temp;
 
     // Start is called before the first frame update
     void Start()

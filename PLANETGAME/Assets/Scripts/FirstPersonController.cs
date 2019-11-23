@@ -239,6 +239,15 @@ public class FirstPersonController : MonoBehaviour
             //snowangel
             anim.SetInteger("condition", 50);
         }
+
+        if (Input.GetKeyUp(KeyCode.B))
+        {
+            //changecamera
+            GameObject cammy = GameObject.FindGameObjectWithTag("MainCamera");
+            cammy.transform.RotateAround(cammy.transform.parent.position, new Vector3(0, 1, 0), 45f);
+        }
+
+
         /*
         if (Input.GetKeyUp(KeyCode.O))
         {
