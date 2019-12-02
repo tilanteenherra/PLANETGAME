@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Castle/CastleNotCaptured.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Castle/CastleNotCaptured.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/JoonatanTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/JoonatanTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +152,7 @@
       <workItem from="1573753894453" duration="3887000" />
       <workItem from="1574432371228" duration="4133000" />
       <workItem from="1574459141573" duration="893000" />
-      <workItem from="1575275026564" duration="4871000" />
+      <workItem from="1575275026564" duration="7960000" />
     </task>
     <servers />
   </component>

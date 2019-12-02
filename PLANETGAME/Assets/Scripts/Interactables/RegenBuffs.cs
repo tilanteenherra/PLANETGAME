@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 namespace Interactables
 {
@@ -11,13 +12,15 @@ namespace Interactables
         private FirstPersonController firstPersonController;
         private PlayerController playerController;
 
+        private int nextLocation;
         public GameObject[] firePlaces;
         public GameObject[] cactusPlaces;
         public GameObject[] mushroomPlaces;
         public GameObject[] castleParts;
-
+        private bool notLeft;
         public Material castleCaptured;
         public Material castleNotCaptured;
+        public GameObject[] graveStones;
 
         private CastleScript castleScript;
 
@@ -64,28 +67,11 @@ namespace Interactables
         {
             bodypartsDone = 0;
             bodypartsDone2 = 0;
-            //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee
+            
+            //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
             bodyPartsMeshRenderer = new SkinnedMeshRenderer[6];
             bodyPartsRenderers = new MeshRenderer[2];
             SetLayer(transform.root, 1);
-            
-            //bodyPartsMeshRenderer.SetValue(gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>(),0);
-            //InvisibilityMaterial = Resources.Load<Material>("Materials/Invisibility");
-            
-            
-            //bodyPartsMeshRenderer[0] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
-            //bodyPartsMeshRenderer[1] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
-            //bodyPartsMeshRenderer[1] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
-            // Get the current material applied on the GameObject
-            /*foreach (var VARIABLE in bodyPartsMeshRenderer)
-            {
-                VARIABLE.material = InvisibilityMaterial;
-            }
-            */
-            //bodyPartsMeshRenderer[0].material = InvisibilityMaterial;
-            Debug.Log("MESH 0: " + gameObject.transform.childCount);
-            // Set the new material on the GameObject
-            
             
             firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
             cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
@@ -114,6 +100,10 @@ namespace Interactables
             playerController = GetComponent<PlayerController>();
 
             castleNotCaptured.SetColor("_Color",Color.white);
+
+            graveStones = GameObject.FindGameObjectsWithTag("GraveStone");
+
+
         }
 
         private void SetLayer (Transform trans, int layer){
@@ -298,6 +288,11 @@ namespace Interactables
                 thisCastle = null;
                 castleScript = null;
             }
+
+            if (other.gameObject.CompareTag("GraveStone") && other.gameObject == graveStones[nextLocation])
+            {
+                notLeft = false;
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -307,6 +302,20 @@ namespace Interactables
                 
                 thisCastle = other.gameObject;
                 castleScript = other.gameObject.GetComponent<CastleScript>();
+            }
+
+            if (other.gameObject.CompareTag("GraveStone") && !notLeft)
+            {
+                //teleport to another gravestone randomly.
+                nextLocation = UnityEngine.Random.Range(0, graveStones.Length);
+                while (graveStones[nextLocation] == other.gameObject)
+                {
+                    nextLocation = UnityEngine.Random.Range(0, graveStones.Length);
+                }
+
+                notLeft = true;
+                transform.position = graveStones[nextLocation].transform.position;
+                
             }
         }
 

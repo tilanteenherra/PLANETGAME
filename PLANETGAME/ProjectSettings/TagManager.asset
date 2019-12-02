@@ -15,6 +15,7 @@ TagManager:
   - CastlePart
   - World1
   - SnowAngelArea
+  - GraveStone
   layers:
   - Default
   - TransparentFX
