@@ -33,7 +33,7 @@ namespace MenuScripts
 
             if (timer >= 3)
             {
-                SceneManager.LoadScene("FerryTest");
+                SceneManager.LoadScene("RolleTest2");
             }
             
         }
