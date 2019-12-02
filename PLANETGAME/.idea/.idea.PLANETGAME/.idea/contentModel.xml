@@ -373,10 +373,12 @@
             <e p="SettingsButtons.cs" t="Include" />
           </e>
           <e p="PhotonScripts" t="Include">
+            <e p="DelayStartRoomController.cs" t="Include" />
             <e p="GameSetupController.cs" t="Include" />
             <e p="NetworkController.cs" t="Include" />
             <e p="QuickStartLobbyController.cs" t="Include" />
             <e p="QuickStartRoomController.cs" t="Include" />
+            <e p="WaitingRoomController.cs" t="Include" />
           </e>
           <e p="PlayerScripts" t="Include">
             <e p="PlayerController.cs" t="Include" />
