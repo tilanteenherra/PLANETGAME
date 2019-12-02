@@ -14,7 +14,7 @@ public class WeaponDamage : MonoBehaviour
     private const float time = 3;
     private GameObject instantiatedObj;
 
-    public int damage;
+    public float damage;
 
     public bool hitOnce = false;
     public bool inArea = false;
@@ -29,8 +29,8 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (pc.attRoutineOn == true)
-        {
+        //if (pc.attRoutineOn == true)
+        //{
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {
                 if (hitOnce == false)
@@ -41,6 +41,6 @@ public class WeaponDamage : MonoBehaviour
                     Destroy(instantiatedObj, time);
                 }
             }
-        }
+        //}
     }
 }
