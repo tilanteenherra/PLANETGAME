@@ -35,6 +35,14 @@ namespace Interactables
         public int SnowAngelMaxTime;
 
         public Material CharacterMaterial;
+        public Material InvisibilityMaterial;
+        public SkinnedMeshRenderer[] bodyPartsMeshRenderer;
+        public MeshRenderer[] bodyPartsRenderers;
+
+        public int bodypartsDone;
+        public int bodypartsDone2;
+
+        private GameObject bodypart;
 
         private bool cactusDoDamage;
         private float origSpeed;
@@ -54,6 +62,30 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
+            bodypartsDone = 0;
+            bodypartsDone2 = 0;
+            //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee
+            bodyPartsMeshRenderer = new SkinnedMeshRenderer[6];
+            bodyPartsRenderers = new MeshRenderer[2];
+            SetLayer(transform.root, 1);
+            
+            //bodyPartsMeshRenderer.SetValue(gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>(),0);
+            //InvisibilityMaterial = Resources.Load<Material>("Materials/Invisibility");
+            
+            
+            //bodyPartsMeshRenderer[0] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
+            //bodyPartsMeshRenderer[1] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
+            //bodyPartsMeshRenderer[1] = gameObject.transform.Find("GEO/bodymesh").GetComponent<SkinnedMeshRenderer>();
+            // Get the current material applied on the GameObject
+            /*foreach (var VARIABLE in bodyPartsMeshRenderer)
+            {
+                VARIABLE.material = InvisibilityMaterial;
+            }
+            */
+            //bodyPartsMeshRenderer[0].material = InvisibilityMaterial;
+            Debug.Log("MESH 0: " + gameObject.transform.childCount);
+            // Set the new material on the GameObject
+            
             
             firePlaces = GameObject.FindGameObjectsWithTag("Campfire");
             cactusPlaces = GameObject.FindGameObjectsWithTag("Cactus");
@@ -84,6 +116,25 @@ namespace Interactables
             castleNotCaptured.SetColor("_Color",Color.white);
         }
 
+        private void SetLayer (Transform trans, int layer){
+            //Set the layer Of the parent
+            trans.gameObject.layer = layer;
+
+            if (trans.GetComponent<SkinnedMeshRenderer>() != null)
+            {
+                bodyPartsMeshRenderer[bodypartsDone] = trans.GetComponent<SkinnedMeshRenderer>();
+                bodypartsDone++;
+            }else if (trans.GetComponent<MeshRenderer>() != null)
+            {
+                bodyPartsRenderers[bodypartsDone2] = trans.GetComponent<MeshRenderer>();
+                bodypartsDone2++;
+            }
+            
+            // Call set layer on any children
+            for (int i = 0; i < trans.childCount; i++) {
+                SetLayer(trans.GetChild(i), layer);
+            }
+        }
         // Update is called once per frame
         void Update()
         {
@@ -92,11 +143,19 @@ namespace Interactables
                 snowAngelCounterValue += Time.deltaTime;
                 if (snowAngelCounterValue >= SnowAngelMaxTime)
                 {
-                    StandardShaderUtils.ChangeRenderMode(CharacterMaterial,StandardShaderUtils.BlendMode.Opaque);
-                    CharacterMaterial.SetColor("Nakyva",new Color(CharacterMaterial.color.r,CharacterMaterial.color.g,CharacterMaterial.color.b,1f));
+                   
+                    
                     snowAngelPicked = false;
                     snowAngelCounterValue = 0;
                     SnowAngelCounter = false;
+                    for (int i = 0; i < bodypartsDone; i++)
+                    {
+                        bodyPartsMeshRenderer[i].material = CharacterMaterial;
+                    }
+                    for (int s = 0; s < bodypartsDone2; s++)
+                    {
+                        bodyPartsRenderers[s].material = CharacterMaterial;
+                    }
                     
                 }
             }
@@ -199,12 +258,17 @@ namespace Interactables
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
             {
-                
                     snowAngelCounterValue = 0;
                     snowAngelPicked = true;
                     SnowAngelCounter = true;
-                    StandardShaderUtils.ChangeRenderMode(CharacterMaterial,StandardShaderUtils.BlendMode.Fade);
-                    CharacterMaterial.SetColor("Nakymaton",new Color(CharacterMaterial.color.r,CharacterMaterial.color.g,CharacterMaterial.color.b,0.2f));
+                    for (int i = 0; i < bodypartsDone; i++)
+                    {
+                        bodyPartsMeshRenderer[i].material = InvisibilityMaterial;
+                    }
+                    for (int s = 0; s < bodypartsDone2; s++)
+                    {
+                        bodyPartsRenderers[s].material = InvisibilityMaterial;
+                    }
             }
         }
 
@@ -227,8 +291,6 @@ namespace Interactables
                 {
                     castle.GetComponent<Renderer>().material = castleNotCaptured;
                 }
-
-                
             }
 
             if (other.gameObject.CompareTag("CastlePart"))
@@ -255,7 +317,7 @@ namespace Interactables
         }
     }
     
-    
+   /* 
     public static class StandardShaderUtils
  {
      public enum BlendMode
@@ -309,5 +371,13 @@ namespace Interactables
          }
  
      }
- }
+ }*/
+   
+   
+   
+   
+  
+   
+   
+   
 }

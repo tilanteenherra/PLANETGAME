@@ -4179,6 +4179,12 @@ MonoBehaviour:
   thisCastle: {fileID: 0}
   SnowAngelMaxTime: 10
   CharacterMaterial: {fileID: 2100000, guid: 9663d4dac83822d4cb7458d0fc9a3862, type: 2}
+  InvisibilityMaterial: {fileID: 2100000, guid: d912b37c6a7854d499dd49c66e8fb8ac,
+    type: 2}
+  bodyPartsMeshRenderer: []
+  bodyPartsRenderers: []
+  bodypartsDone: 0
+  bodypartsDone2: 0
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 20
@@ -4214,11 +4220,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivityX: 250
-  mouseSensitivityY: 250
   walkSpeed: 8
   shovel: {fileID: 0}
   shield: {fileID: 0}
   attRoutineOn: 0
+  dashSmoke: 0
 --- !u!114 &7760901054993565700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4387,6 +4393,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 7760901054993565694}
+    - target: {fileID: 1765287995, guid: 0218e0a9c057dca419c61d4828615c7f, type: 3}
+      propertyPath: m_Radius
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0218e0a9c057dca419c61d4828615c7f, type: 3}
 --- !u!1 &7999897097561140248
