@@ -80,16 +80,19 @@ public class FirstPersonController : MonoBehaviour
         //    //else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
         //    //{
             anim.SetBool("running", true);
-        //        anim.SetInteger("condition", 1);
-        //        noOfClicks = 0;
+            //        anim.SetInteger("condition", 1);
+            //        noOfClicks = 0;
+            noOfClicks = 0;
+            canClick = true;
         }
 
         //}
-        if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
         {
             anim.SetBool("running", false);
         //    anim.SetInteger("condition", 98);
             noOfClicks = 0;
+            canClick = true;
         }
 
         if (Input.GetKeyDown(KeyCode.A))
@@ -97,12 +100,14 @@ public class FirstPersonController : MonoBehaviour
             anim.SetBool("running", true);
         //    anim.SetInteger("condition", 44);
             noOfClicks = 0;
+            canClick = true;
         }
-        if (Input.GetKeyUp(KeyCode.A))
+        if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
         {
             anim.SetBool("running", false);
         //    anim.SetInteger("condition", 98);
             noOfClicks = 0;
+            canClick = true;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -110,12 +115,14 @@ public class FirstPersonController : MonoBehaviour
             anim.SetBool("running", true);
         //    anim.SetInteger("condition", 44);
             noOfClicks = 0;
+            canClick = true;
         }
-        if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
         {
             anim.SetBool("running", false);
         //    anim.SetInteger("condition", 98);
             noOfClicks = 0;
+            canClick = true;
         }
 
         if (Input.GetKey(KeyCode.R))
@@ -133,12 +140,14 @@ public class FirstPersonController : MonoBehaviour
             anim.SetBool("running", true);
         //    anim.SetInteger("condition", 19);
             noOfClicks = 0;
+            canClick = true;
         }
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
         {
             anim.SetBool("running", false);
         //    anim.SetInteger("condition", 98);
             noOfClicks = 0;
+            canClick = true;
         }
 
         var x = Input.GetAxis("Horizontal");
@@ -278,7 +287,6 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks++;
         }
 
-        //test
         if(noOfClicks >= 1 && (anim.GetBool("running") == true))
         {   
             anim.SetInteger("condition", 30);
@@ -292,7 +300,8 @@ public class FirstPersonController : MonoBehaviour
 
     public void ComboCheck()
     {
-        canClick = false;
+        //Not sure if this is needed(seem so work better without)
+        //canClick = false;
 
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
         {
@@ -480,7 +489,6 @@ public class FirstPersonController : MonoBehaviour
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
-        anim.SetBool("specialAttack", false);
         attRoutineOn = false;
         canAttack = true;
         noOfClicks = 0;
@@ -495,7 +503,6 @@ public class FirstPersonController : MonoBehaviour
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
-        anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
         canAttack = true;
         noOfClicks = 0;
