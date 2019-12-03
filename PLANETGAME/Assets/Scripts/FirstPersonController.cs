@@ -25,7 +25,6 @@ public class FirstPersonController : MonoBehaviour
     Vector3 endPosition;
     bool dashing = false;
 
-
     float verticalLookRotation;
     Rigidbody rb;
 
@@ -303,13 +302,14 @@ public class FirstPersonController : MonoBehaviour
         //Not sure if this is needed(seem so work better without)
         //canClick = false;
 
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
         {
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
         }
-        else if(anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
+
+        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
             ////test
             //if (anim.GetBool("running") == true)
@@ -322,10 +322,10 @@ public class FirstPersonController : MonoBehaviour
             //    anim.SetInteger("condition", 3);
             //    canClick = true;
             //}  
-           
-             anim.SetInteger("condition", 3);
-             canClick = true;
-           
+
+            anim.SetInteger("condition", 3);
+            canClick = true;
+
 
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB"))
