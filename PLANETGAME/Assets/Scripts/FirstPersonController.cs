@@ -70,8 +70,8 @@ public class FirstPersonController : MonoBehaviour
     void Update()
     {
 
-        //if (Input.GetKeyDown(KeyCode.W))
-        //{
+        if (Input.GetKeyDown(KeyCode.W))
+        {
         //    //Deprecated code
         //    //if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
         //    //{
@@ -79,52 +79,42 @@ public class FirstPersonController : MonoBehaviour
         //    //}
         //    //else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
         //    //{
-        //        anim.SetBool("running", true);
+            anim.SetBool("running", true);
         //        anim.SetInteger("condition", 1);
         //        noOfClicks = 0;
-        //    //}
-
-        //}
-        //if (Input.GetKeyUp(KeyCode.W))
-        //{
-        //    anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-        //    noOfClicks = 0;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.A))
-        //{
-        //    anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-        //    noOfClicks = 0;
-        //}
-        //if (Input.GetKeyUp(KeyCode.A))
-        //{
-        //    anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-        //    noOfClicks = 0;
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //{
-        //    anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-        //    noOfClicks = 0;
-        //}
-        //if (Input.GetKeyUp(KeyCode.D))
-        //{
-        //    anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-        //    noOfClicks = 0;
-        //}
-
-        if (Input.GetKey(KeyCode.E))
-        {
-                anim.SetInteger("condition", 9);
         }
-        if (Input.GetKeyUp(KeyCode.E))
+
+        //}
+        if (Input.GetKeyUp(KeyCode.W))
         {
-            anim.SetInteger("condition", 98);
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetBool("running", true);
+        //    anim.SetInteger("condition", 44);
+            noOfClicks = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetBool("running", true);
+        //    anim.SetInteger("condition", 44);
+            noOfClicks = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
             noOfClicks = 0;
         }
 
@@ -138,18 +128,18 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks = 0;
         }
 
-        //if (Input.GetKeyDown(KeyCode.S))
-        //{
-        //    anim.SetBool("running", true);
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetBool("running", true);
         //    anim.SetInteger("condition", 19);
-        //    noOfClicks = 0;
-        //}
-        //if (Input.GetKeyUp(KeyCode.S))
-        //{
-        //    anim.SetBool("running", false);
+            noOfClicks = 0;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            anim.SetBool("running", false);
         //    anim.SetInteger("condition", 98);
-        //    noOfClicks = 0;
-        //}
+            noOfClicks = 0;
+        }
 
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
@@ -236,6 +226,12 @@ public class FirstPersonController : MonoBehaviour
         {
             //showweapons
             anim.SetInteger("condition", 86);
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            //eat mushroom
+            anim.SetInteger("condition", 9);
         }
 
         if ((Input.GetKeyUp(KeyCode.N)) || Input.GetButtonDown("Fire3"))
