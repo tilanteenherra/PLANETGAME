@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
-    PlayerController pc;
+    private PlayerController pc;
 
     private GameObject thisParent;
     private GameObject damageBurst;
@@ -29,8 +29,8 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        //if (pc.attRoutineOn == true)
-        //{
+        if (pc.attRoutineOn == true)
+        {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {
                 if (hitOnce == false)
@@ -41,6 +41,6 @@ public class WeaponDamage : MonoBehaviour
                     Destroy(instantiatedObj, time);
                 }
             }
-        //}
+        }
     }
 }

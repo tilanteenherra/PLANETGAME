@@ -49,11 +49,13 @@ public class PlayerController : MonoBehaviour
     Vector2 rotateInput;
 
     private static readonly int Condition = Animator.StringToHash("condition");
+    private static readonly int RunBack = Animator.StringToHash("runBack");
+    private static readonly int Running = Animator.StringToHash("running");
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
+        //weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
         endPosition = new Vector3(0, 0, 0);
         rb = this.GetComponent<Rigidbody>();
         targetMoveAmount = Vector3.forward * dashSpeed;
@@ -135,44 +137,53 @@ public class PlayerController : MonoBehaviour
         {
 
             anim.SetBool("running", false);
-            anim.SetBool("runBack", false);
             anim.SetBool("walking", false);
             anim.SetBool("walkBack", false);
-            anim.SetInteger("condition", 0);
+            anim.SetBool("runBack", false);
+            anim.SetInteger("condition", 98);
             noOfClicks = 0;
+            canClick = true;
         }
 
         // Running Forward
         else if (moveInput.y > 0.8f && !walking)
         {
-
+            anim.SetBool("walking", false);
+            anim.SetBool("walkBack", false);
+            anim.SetBool("runBack", false);
             anim.SetBool("running", true);
-            anim.SetInteger("condition", 1);
+            anim.SetInteger("condition", 15);
+
         }
         // Walking Forward
         else if (moveInput.y > 0 && moveInput.y < 0.8f || walking)
         {
-
+            anim.SetBool("running", false);
+            anim.SetBool("walkBack", false);
+            anim.SetBool("runBack", false);
             anim.SetBool("walking", true);
-            anim.SetInteger("condition", 9);
+            anim.SetInteger("condition", 13);
+        }
+        
+        // Running Back
+        else if (moveInput.y <= -0.8f && !walking)
+        {
 
+            anim.SetBool("walking", false);
+            anim.SetBool("running", false);
+            anim.SetBool("walkBack", false);
+            anim.SetBool("runBack", true);
+            anim.SetInteger("condition", 12);
         }
 
         // Walking Back
         else if (moveInput.y < 0 && moveInput.y > -0.8f || walking)
         {
-
+            anim.SetBool("walking", false);
+            anim.SetBool("running", false);
             anim.SetBool("walkBack", true);
-            anim.SetInteger("condition", 20);
-            
-        }
-
-        // Running Back
-        else if (moveInput.y <= -0.8f && !walking)
-        {
-
-            anim.SetBool("runBack", true);
-            anim.SetInteger("condition", 19);
+            anim.SetBool("runBack", false);
+            anim.SetInteger("condition", 11);
         }
 
         // Animations end ---------------------------------------------------------------------------------------
@@ -190,6 +201,7 @@ public class PlayerController : MonoBehaviour
 
     private void MeleeAttack()
     {
+        Debug.Log(("Melee"));
         attRoutineOn = true;
         //StartCoroutine(AttackRoutine());
         ComboStarter();
@@ -208,21 +220,18 @@ public class PlayerController : MonoBehaviour
 
     private void Spell1()
     {
+        Debug.Log("Spell1");
         attRoutineOn = true;
         StartCoroutine(SpecialAttackRoutine());
     }
 
     private void Spell2()
     {
+        Debug.Log("Spell2");
         attRoutineOn = true;
         StartCoroutine(SpecialAttackRoutine2());
     }
-
-    public void Charge()
-    {
-        dashing = true;
-    }
-
+    
     private void Walk()
     {
         
@@ -236,14 +245,38 @@ public class PlayerController : MonoBehaviour
         moveSpeed *= 2f;
     }
 
+    public void Charge()
+    {
+        dashing = true;
+    }
+    
+    public void SetChargeFalse()
+    {
+        dashing = false;
+        noOfClicks = 0;
+    }
+    
+    public void SmokeOn()
+    {
+        GetComponent<DashSmokeScripts>().smokeOn = true;
+    }
+
+    public void SmokeOff()
+    {
+        GetComponent<DashSmokeScripts>().smokeOn = false;
+        noOfClicks = 0;
+    }
+
     public void WeaponShow()
     {
+        // Enables renderers
         shovel.enabled = true;
         shield.enabled = true;
     }
 
     public void WeaponHide()
     {
+        // Disables renderers
         shovel.enabled = false;
         shield.enabled = false;
     }
