@@ -172,7 +172,6 @@ public class FirstPersonController : MonoBehaviour
 
         GetInput();
 
-        
     }
 
     void FixedUpdate()
