@@ -10,6 +10,12 @@ public class FirstPersonController : MonoBehaviour
 
     bool canAttack = true;
 
+    public bool canDash = true;
+    public bool keepPlace = false;
+
+    Vector3 playerPos;
+
+
     public int noOfClicks;
     bool canClick;
 
@@ -183,6 +189,11 @@ public class FirstPersonController : MonoBehaviour
             endPosition = transform.forward * 0.3f;
             transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
         }
+
+        if(keepPlace)
+        {
+            transform.position = playerPos;
+        }
     }
 
     void GetInput()
@@ -268,14 +279,21 @@ public class FirstPersonController : MonoBehaviour
 
     void SpecialAttack()
     {
-        attRoutineOn = true;
-        StartCoroutine(SpecialAttackRoutine());
+        if (canDash)
+        {
+            attRoutineOn = true;
+            StartCoroutine(SpecialAttackRoutine());
+        }
     }
 
     void SpecialAttack2()
     {
-        attRoutineOn = true;
-        StartCoroutine(SpecialAttackRoutine2());
+        if(canDash)
+        {
+            attRoutineOn = true;
+            StartCoroutine(SpecialAttackRoutine2());
+        }
+        
     }
 
     void ComboStarter()
@@ -288,11 +306,15 @@ public class FirstPersonController : MonoBehaviour
         if(noOfClicks >= 1 && (anim.GetBool("running") == true))
         {   
             anim.SetInteger("condition", 30);
+            canDash = false;
         }
 
         if (noOfClicks >= 1 && (anim.GetBool("running") == false))
         {
             anim.SetInteger("condition", 2);
+            canDash = false;
+            playerPos = transform.position;
+            keepPlace = true;
         }
     }
 
@@ -306,6 +328,8 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
         }
 
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
@@ -324,6 +348,8 @@ public class FirstPersonController : MonoBehaviour
 
             anim.SetInteger("condition", 3);
             canClick = true;
+            canDash = false;
+            keepPlace = true;
 
 
         }
@@ -332,12 +358,18 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
+
         }
         else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks == 1)
         {
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
+
         }
         else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks >= 2)
         {
@@ -355,6 +387,9 @@ public class FirstPersonController : MonoBehaviour
 
             anim.SetInteger("condition", 31);
             canClick = true;
+            canDash = false;
+            keepPlace = true;
+
 
 
         }
@@ -363,6 +398,9 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
+
         }
 
 
@@ -372,6 +410,7 @@ public class FirstPersonController : MonoBehaviour
     {
         anim.SetInteger("condition", 98);
         noOfClicks = 0;
+        keepPlace = false;
     }
 
     public void SetChargeFalse()
