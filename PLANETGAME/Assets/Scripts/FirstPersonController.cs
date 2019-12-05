@@ -252,6 +252,12 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 9);
         }
 
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            //cactus
+            anim.SetInteger("condition", 10);
+        }
+
         if ((Input.GetKeyUp(KeyCode.N)) || Input.GetButtonDown("Fire3"))
         {
             //snowangel
