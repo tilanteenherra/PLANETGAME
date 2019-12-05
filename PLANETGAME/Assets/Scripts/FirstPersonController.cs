@@ -374,7 +374,6 @@ public class FirstPersonController : MonoBehaviour
             canClick = true;
             noOfClicks = 0;
             canDash = true;
-            keepPlace = false;
 
         }
         else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks >= 2)
@@ -394,7 +393,6 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 31);
             canClick = true;
             canDash = false;
-            keepPlace = true;
 
 
 
@@ -405,7 +403,6 @@ public class FirstPersonController : MonoBehaviour
             canClick = true;
             noOfClicks = 0;
             canDash = true;
-            keepPlace = false;
 
         }
 
