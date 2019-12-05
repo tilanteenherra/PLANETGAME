@@ -317,10 +317,14 @@ public class FirstPersonController : MonoBehaviour
 
         if (noOfClicks >= 1 && (anim.GetBool("running") == false))
         {
-            anim.SetInteger("condition", 2);
-            canDash = false;
-            playerPos = transform.position;
-            keepPlace = true;
+            if(canAttack)
+            {
+                anim.SetInteger("condition", 2);
+                canDash = false;
+                playerPos = transform.position;
+                keepPlace = true;
+            }
+            
         }
     }
 
