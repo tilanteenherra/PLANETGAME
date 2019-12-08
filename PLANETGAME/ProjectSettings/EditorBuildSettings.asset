@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RolleTest.unity
     guid: e983aef43ec28d149924b3554c8967b1
   - enabled: 0
@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 9c393dcf16710c440a9b27cdfd9ae94c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CharacterSelect.unity
     guid: d6d25a020a70eff4883ccc618f1ed8bb
   - enabled: 0
@@ -29,9 +29,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/FerryTest.unity
     guid: 870ecf9c68332334e943028bc0e59b47
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/RolleTest2.unity
     guid: 2bcb37eb64ef4a14d8d78fdec83628bf
+  - enabled: 1
+    path: Assets/Scenes/NikolasTest.unity
+    guid: f81771273dd341c4f8e068ee31621d2c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7053230f6b097be43b0f362592eaef95,
       type: 2}

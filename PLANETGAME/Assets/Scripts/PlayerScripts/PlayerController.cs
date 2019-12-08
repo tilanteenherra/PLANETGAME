@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     Rigidbody rb;
 
-    // Float & Int variables
+    // Float & Int variables ----------
     public float moveSpeed = 10;
     public float controllerRotateSpeed = 100f;
     public float mouseRotateSpeed = 250f;
@@ -27,30 +27,34 @@ public class PlayerController : MonoBehaviour
     public int noOfClicks = 0;
     
     // Boolean variables
+    //------ PUBLIC ------
     public bool attRoutineOn = false;
-    bool canAttack = true;
     public bool canDash = true;
     public bool keepPlace = false;
-    private bool walking;
     public bool interacting;
+    public bool dashSmoke = false;
+    public bool paused = false;
+    //------ PRIVATE ------
+    bool canAttack = true;
+    bool walking;
     bool canClick = true;
     bool dashing = false;
-    public bool dashSmoke = false;
 
-    // Vectors
+    // Vectors ----------
     Vector3 endPosition;
     Vector3 moveAmount;
     Vector3 targetMoveAmount;
     Vector3 smoothMoveVelocity;
     Vector3 playerPos;
-
-    public Renderer shovel;
-    public Renderer shield;
-
+    
     // Move direction
     Vector2 moveInput;
     //Rotate direction
     Vector2 rotateInput;
+
+    // Renders ---------
+    public Renderer shovel;
+    public Renderer shield;
 
     private void Awake()
     {
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Walk.canceled += ctx => Run();
         controls.Gameplay.Interactive.performed += ctx => OnInteract();
         controls.Gameplay.Interactive.canceled += ctx => NoInteract();
+        controls.Gameplay.Pause.performed += ctx => Pause();
 
         // Input Controller Related Things End Here --------------------------------------
 
@@ -135,7 +140,6 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
         // Other stuff end --------------------------------------------------------------------------------------
 
         // Animations start -------------------------------------------------------------------------------------
@@ -211,6 +215,19 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log(("Melee"));
         ComboStarter();
+    }
+    // Used to open "PauseMenu"
+    void Pause()
+    {
+        Debug.Log("Online games can't be paused mom!");
+        if (paused)
+        {
+            paused = false;
+        }
+        else if (!paused)
+        {
+            paused = true;
+        }
     }
 
     private void OnInteract()
