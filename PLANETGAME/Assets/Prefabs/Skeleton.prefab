@@ -1987,7 +1987,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4573408413772347721}
-  m_LocalRotation: {x: 0.16163681, y: 0.5221311, z: 0.036347676, w: 0.8366191}
+  m_LocalRotation: {x: 0.16163683, y: 0.5221311, z: 0.03634768, w: 0.8366191}
   m_LocalPosition: {x: -0.09778201, y: 0.006501421, z: 0.001184975}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2326,7 +2326,7 @@ Animator:
   m_GameObject: {fileID: 5295858740679742483}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1f4a4677ff165164f80d80b53626d01c, type: 3}
-  m_Controller: {fileID: 9100000, guid: 41fccd509d49cdc4ebbbac3421e556f1, type: 2}
+  m_Controller: {fileID: 9100000, guid: ae44ec8b56f22ca42a51c8482eded412, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2377,9 +2377,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  controllerRotateSpeed: 80
+  controllerRotateSpeed: 100
   mouseRotateSpeed: 250
+  dashSpeed: 8
+  noOfClicks: 0
   attRoutineOn: 0
+  canDash: 1
+  keepPlace: 0
+  interacting: 0
+  dashSmoke: 0
+  shovel: {fileID: 0}
+  shield: {fileID: 0}
 --- !u!114 &5295858740679744489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2426,9 +2434,17 @@ MonoBehaviour:
   castleParts: []
   castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
   castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
+  graveStones: []
   castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}
+  SnowAngelMaxTime: 0
+  CharacterMaterial: {fileID: 0}
+  InvisibilityMaterial: {fileID: 0}
+  bodyPartsMeshRenderer: []
+  bodyPartsRenderers: []
+  bodypartsDone: 0
+  bodypartsDone2: 0
   curSpeed: 0
   cactusJuiceSpeed: 15
   cactusDamage: 20

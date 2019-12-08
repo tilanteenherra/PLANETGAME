@@ -62,7 +62,7 @@ ModelImporter:
       - time: 0.60465115
         functionName: ComboCheck
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -70,7 +70,7 @@ ModelImporter:
       - time: 0.88866436
         functionName: ExitAnimation
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
