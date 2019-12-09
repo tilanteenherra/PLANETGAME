@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
     public bool interacting;
     public bool dashSmoke = false;
     public bool paused = false;
+    public bool myIdle = false;
+    public bool myWFor = false;
+    public bool myWBack = false;
+    public bool myRFor = false;
+    public bool myRBack = false;
+
     //------ PRIVATE ------
     bool canAttack = true;
     bool walking;
@@ -145,9 +151,13 @@ public class PlayerController : MonoBehaviour
         // Animations start -------------------------------------------------------------------------------------
 
         // Standing still
-        if (moveInput.y == 0 && moveInput.x == 0)
+        if (moveInput.y == 0 && moveInput.x == 0 && myIdle == false)
         {
-
+            myRFor = false;
+            myWFor = false;
+            myIdle = true;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("running", false);
             anim.SetBool("walking", false);
             anim.SetBool("walkBack", false);
@@ -155,11 +165,17 @@ public class PlayerController : MonoBehaviour
             anim.SetInteger("condition", 98);
             noOfClicks = 0;
             canClick = true;
+            keepPlace = false;
         }
 
         // Running Forward
-        else if (moveInput.y > 0.8f && !walking)
+        else if (moveInput.y > 0.8f && !walking && myRFor == false)
         {
+            myRFor = true;
+            myWFor = false;
+            myIdle = false;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("walking", false);
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
@@ -168,8 +184,13 @@ public class PlayerController : MonoBehaviour
 
         }
         // Walking Forward
-        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking)
+        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking && myWFor == false)
         {
+            myRFor = false;
+            myWFor = true;
+            myIdle = false;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("running", false);
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
@@ -178,9 +199,13 @@ public class PlayerController : MonoBehaviour
         }
         
         // Running Back
-        else if (moveInput.y <= -0.8f && !walking)
+        else if (moveInput.y <= -0.8f && !walking && myRBack == false)
         {
-
+            myRFor = false;
+            myWFor = false;
+            myIdle = false;
+            myRBack = true;
+            myWBack = false;
             anim.SetBool("walking", false);
             anim.SetBool("running", false);
             anim.SetBool("walkBack", false);
@@ -189,8 +214,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // Walking Back
-        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking)
+        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking && myWBack == false)
         {
+            myRFor = false;
+            myWFor = false;
+            myIdle = false;
+            myRBack = false;
+            myWBack = true;
             anim.SetBool("walking", false);
             anim.SetBool("running", false);
             anim.SetBool("walkBack", true);
@@ -324,19 +354,19 @@ public class PlayerController : MonoBehaviour
     }
 
     void ComboStarter()
-    {
+    {       
         if (canClick)
         {
             noOfClicks++;
         }
 
-        if(noOfClicks >= 1 && (anim.GetBool("running") == true))
+        if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
         {   
             anim.SetInteger("condition", 30);
             canDash = false;
         }
 
-        if (noOfClicks >= 1 && (anim.GetBool("running") == false))
+        if (noOfClicks >= 1 && (anim.GetBool("running") == false) && (anim.GetBool("walking") == false) && (anim.GetBool("walkBack") == false) && (anim.GetBool("runBack") == false))
         {
             if(canAttack)
             {
