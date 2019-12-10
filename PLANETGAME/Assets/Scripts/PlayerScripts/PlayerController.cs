@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public bool myWBack = false;
     public bool myRFor = false;
     public bool myRBack = false;
+    public bool useMask = false;
 
     //------ PRIVATE ------
     bool canAttack = true;
@@ -180,6 +181,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
             anim.SetBool("running", true);
+            useMask = true;
             anim.SetInteger("condition", 15);
 
         }
@@ -195,6 +197,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
             anim.SetBool("walking", true);
+            useMask = true;
             anim.SetInteger("condition", 13);
         }
         
@@ -210,6 +213,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("running", false);
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", true);
+            useMask = true;
             anim.SetInteger("condition", 12);
         }
 
@@ -225,6 +229,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("running", false);
             anim.SetBool("walkBack", true);
             anim.SetBool("runBack", false);
+            useMask = true;
             anim.SetInteger("condition", 11);
         }
 
@@ -360,7 +365,8 @@ public class PlayerController : MonoBehaviour
             noOfClicks++;
         }
 
-        if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
+        //if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
+        if (noOfClicks >= 1 && useMask == true)
         {   
             anim.SetInteger("condition", 30);
             canDash = false;
