@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour
         // Dashing
         if(dashing)
         {
-            endPosition = transform.forward * 0.3f;
+            endPosition = transform.forward * 8.0f;
             transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.deltaTime);
         }
 
@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
 
         //if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
         if (noOfClicks >= 1 && useMask == true)
-        {   
+        {
             anim.SetInteger("condition", 30);
             canDash = false;
         }

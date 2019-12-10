@@ -178,11 +178,29 @@ public class FirstPersonController : MonoBehaviour
 
         GetInput();
 
+        if(y > 0 && y <= 0.1)
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
+
+        if(y > 0.1)
+        {
+            anim.SetBool("running", true);
+        }
+        else
+        {
+            anim.SetBool("running", false);
+        }
+
     }
 
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
         if (dashing)
         {
@@ -309,13 +327,13 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks++;
         }
 
-        if(noOfClicks >= 1 && (anim.GetBool("running") == true))
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
         {   
             anim.SetInteger("condition", 30);
             canDash = false;
         }
 
-        if (noOfClicks >= 1 && (anim.GetBool("running") == false))
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == false) && (anim.GetBool("walking") == false)))
         {
             if(canAttack)
             {
@@ -341,7 +359,7 @@ public class FirstPersonController : MonoBehaviour
             canDash = true;
             keepPlace = false;
         }
-
+         
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
             ////test
