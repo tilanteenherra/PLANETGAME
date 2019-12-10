@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
 
-    PlayerController pc;
+    private PlayerController pc;
 
     private GameObject thisParent;
     private GameObject damageBurst;
@@ -14,7 +14,7 @@ public class WeaponDamage : MonoBehaviour
     private const float time = 3;
     private GameObject instantiatedObj;
 
-    public int damage;
+    public float damage;
 
     public bool hitOnce = false;
     public bool inArea = false;

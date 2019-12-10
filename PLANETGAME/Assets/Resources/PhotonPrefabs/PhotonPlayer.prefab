@@ -3247,6 +3247,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivityX: 750
   walkSpeed: 7
+  canDash: 1
+  keepPlace: 0
+  noOfClicks: 0
   shovel: {fileID: 3662248180940980250}
   shield: {fileID: 2936786326165174954}
   attRoutineOn: 0

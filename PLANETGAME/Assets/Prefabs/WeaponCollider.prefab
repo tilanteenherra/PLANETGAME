@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 954257741540520946}
   - component: {fileID: 5374620767137158046}
-  - component: {fileID: 7441503915008678043}
+  - component: {fileID: 3553023617545924729}
   m_Layer: 0
-  m_Name: WeaponCollider (1)
+  m_Name: WeaponCollider
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6390936, y: 1.5332476, z: 1.1480675}
   m_Center: {x: -0.031734478, y: 0.8223126, z: 0.6556839}
---- !u!114 &7441503915008678043
+--- !u!114 &3553023617545924729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db8f220ddfb41e468016d0e83860510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pc: {fileID: 0}
   thisParent: {fileID: 0}
-  damageBurst: {fileID: 5247389841451107436, guid: 9f4b9a4ad240f984fbb176d9d6d27627,
-    type: 3}
+  damageBurst: {fileID: 0}
   damage: 1
   hitOnce: 0
   inArea: 0
