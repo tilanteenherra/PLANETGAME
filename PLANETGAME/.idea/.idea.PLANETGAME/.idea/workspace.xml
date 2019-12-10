@@ -23,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/CastleScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/Game.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/SpellHit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityBody.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" root0="FORCE_HIGHLIGHTING" />
@@ -61,9 +62,10 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/CactusRandomizer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Test.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/BackupController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/SpellHit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerController.cs" />
       </list>
     </option>
@@ -155,7 +157,7 @@
       <workItem from="1575827116905" duration="4626000" />
       <workItem from="1575839401802" duration="264000" />
       <workItem from="1575843634088" duration="607000" />
-      <workItem from="1575998971478" duration="16327000" />
+      <workItem from="1575998971478" duration="18529000" />
     </task>
     <servers />
   </component>

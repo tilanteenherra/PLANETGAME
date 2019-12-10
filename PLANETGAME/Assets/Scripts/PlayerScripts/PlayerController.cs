@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
 
     // Class usage variables
     PlayerControls controls;
-    WeaponDamage weaponDamage;
+    public WeaponDamage weaponDamage;
+    public SpellHit spellHit;
     DashSmokeScripts dashSmoker;
     
     //Component variables
@@ -62,7 +63,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         //Temporarily disabled since it gave errors
-        //weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
+        weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
+        spellHit = GameObject.FindGameObjectWithTag("SpellCollider").GetComponent<SpellHit>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         shovel = GameObject.Find("Shovel").GetComponent<Renderer>();
@@ -475,8 +477,8 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
         canDash = true;
         noOfClicks = 0;
-        //Temporarily disabled since it gave errors
-        //weaponDamage.hitOnce = false;
+        weaponDamage.hitOnce = false;
+        spellHit.hitOnce = false;
     }
 
     IEnumerator SpecialAttackRoutine2()
@@ -491,7 +493,7 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
         canDash = true;
         noOfClicks = 0;
-        //Temporarily disabled since it gave errors
-        //weaponDamage.hitOnce = false;
+        weaponDamage.hitOnce = false;
+        spellHit.hitOnce = false;
     }
 }
