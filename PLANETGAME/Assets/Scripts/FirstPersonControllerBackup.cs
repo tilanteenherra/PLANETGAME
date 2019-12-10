@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonControllerBackup : MonoBehaviour
 {
     public float mouseSensitivityX = 100f;
     //public float mouseSensitivityY = 250f;
