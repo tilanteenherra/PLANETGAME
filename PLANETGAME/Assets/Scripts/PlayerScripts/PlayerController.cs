@@ -26,12 +26,14 @@ public class PlayerController : MonoBehaviour
     
     // Float & Int variables ----------
     public float moveSpeed = 10;
-    public float controllerRotateSpeed = 100f;
-    public float mouseRotateSpeed = 150f;
+    public float controllerRotateSpeed;
+    public float mouseRotateSpeed;
     public float dashSpeed = 8f;
     public int noOfClicks = 0;
     public float walkSpeed = 8f;
     public float buffTimer;
+    private float xInput;
+    private float yInput;
 
     // Boolean variables
     //------ PUBLIC ------
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
         noOfClicks = 0;
         canClick = true;
         endPosition = new Vector3(0, 0, 0);
-        
+
         // Input Controller Related Things Start Here ------------------------------------
         
         controls = new PlayerControls();
@@ -170,14 +172,16 @@ public class PlayerController : MonoBehaviour
             canClick = true;
         }
         
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
+        xInput = Input.GetAxis("Horizontal");
+        yInput = Input.GetAxis("Vertical");
+        anim.SetFloat("VelX", xInput);
+        anim.SetFloat("VelY", yInput);
         
-        if(y > 0 && y <= 0.5)
+        if(yInput > 0 && yInput <= 0.5)
         {
             anim.SetBool("walking", true);
         }
-        else if (y < 0 && y >= -0.5)
+        else if (yInput < 0 && yInput >= -0.5)
         {
             anim.SetBool("walking", true);
         }
@@ -186,11 +190,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("walking", false);
         }
 
-        if(y > 0.5)
+        if(yInput > 0.5)
         {
             anim.SetBool("running", true);
         }
-        else if (y < -0.5)
+        else if (yInput < -0.5)
         {
             anim.SetBool("running", true);
         }
@@ -199,17 +203,26 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("running", false);
         }
         
-        
         // Animations end ----------------------------------------------------------------------------------------
-
-        Move(x, y);
-        
     }
 
     void FixedUpdate()
     {
         // Actual player movement
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        if (!attRoutineOn)
+        {
+            Vector3 moveDir = new Vector3(xInput, 0, yInput);
+            gameObject.transform.Translate(moveDir * moveSpeed * Time.fixedDeltaTime, Space.Self);
+        }
+
+        // Player rotation
+        var hRotateInput = rotateInput.x;
+        var rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
+        gameObject.transform.Rotate(rotate, Space.Self);
+
+        // Player rotation with mouse
+        var hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+        gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
 
         if (dashing)
         {
@@ -287,7 +300,7 @@ public class PlayerController : MonoBehaviour
         interacting = false;
         buffTimer = 0f;
     }
-    // Used to open "PauseMenu"
+
     public void Pause()
     {
         Debug.Log("Online games can't be paused mom!");
@@ -450,28 +463,17 @@ public class PlayerController : MonoBehaviour
         shield.enabled = false;
     }
 
-    void Move(float x, float y)
-    {
-        anim.SetFloat("VelX", x);
-        anim.SetFloat("VelY", y);
-        
-        //var movement = new Vector3(x, 0, y);
-        //gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
-
-        Vector3 moveDir = new Vector3(x, 0, y).normalized;
-        Vector3 targetMoveAmount = moveDir * moveSpeed * (Mathf.Abs(x) + Mathf.Abs(y));
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-    }
-
     IEnumerator SpecialAttackRoutine()
     {
         canAttack = false;
+        canDash = false;
         //anim.SetBool("specialAttack", true);
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
         attRoutineOn = false;
         canAttack = true;
+        canDash = true;
         noOfClicks = 0;
         //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
@@ -480,12 +482,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator SpecialAttackRoutine2()
     {
         canAttack = false;
+        canDash = false;
         //anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
         attRoutineOn = false;
         canAttack = true;
+        canDash = true;
         noOfClicks = 0;
         //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;

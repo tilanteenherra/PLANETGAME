@@ -9,7 +9,9 @@
         <e p="Input" t="Include">
           <e p="PlayerControls.cs" t="Include" />
         </e>
-        <e p="knightController.cs" t="Include" />
+        <e p="knight" t="Include">
+          <e p="knightController.cs" t="Include" />
+        </e>
         <e p="OldCrap" t="Include">
           <e p="FauxGravityAttractor1.cs" t="Include" />
           <e p="FauxGravityBody1.cs" t="Include" />
@@ -361,6 +363,7 @@
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
+          <e p="FirstPersonControllerBackup.cs" t="Include" />
           <e p="Interactables" t="Include">
             <e p="CactusRandomizer.cs" t="Include" />
             <e p="CastleScript.cs" t="Include" />

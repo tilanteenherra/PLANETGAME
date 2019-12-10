@@ -2328,7 +2328,7 @@ Animator:
   m_GameObject: {fileID: 5295858740679742483}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 1f4a4677ff165164f80d80b53626d01c, type: 3}
-  m_Controller: {fileID: 9100000, guid: ae44ec8b56f22ca42a51c8482eded412, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5cc1c78d36223c245930a4ceb14e810b, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   shield: {fileID: 0}
   moveSpeed: 10
   controllerRotateSpeed: 100
-  mouseRotateSpeed: 250
+  mouseRotateSpeed: 150
   dashSpeed: 8
   noOfClicks: 0
   walkSpeed: 8
