@@ -469,8 +469,10 @@ public class PlayerController : MonoBehaviour
         usingSpell = true;
         canAttack = false;
         //anim.SetBool("specialAttack2", true);
+        anim.SetBool("special2", true);
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(0.6f);
+        anim.SetBool("special2", false);
         anim.SetInteger("condition", 98);
         //anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
