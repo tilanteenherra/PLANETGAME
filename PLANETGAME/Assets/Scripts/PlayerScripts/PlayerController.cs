@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public bool attRoutineOn = false;
     public bool canDash = true;
     public bool keepPlace = false;
+    public bool usingSpell = false;
     public bool interacting;
     public bool dashSmoke = false;
     public bool paused = false;
@@ -107,24 +108,28 @@ public class PlayerController : MonoBehaviour
         float hMoveInput = moveInput.x;
         float vMoveInput = moveInput.y;
 
-        var movement = new Vector3(hMoveInput, 0, vMoveInput);
-        gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+        if(!usingSpell)
+        {
+            var movement = new Vector3(hMoveInput, 0, vMoveInput);
+            gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
 
-        // Player rotation below
-        float hRotateInput = rotateInput.x;
-        float vRotateInput = rotateInput.y;
+            // Player rotation below
+            float hRotateInput = rotateInput.x;
+            float vRotateInput = rotateInput.y;
 
-        Vector2 rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(rotate, Space.Self);
+            Vector2 rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(rotate, Space.Self);
 
-        // Player rotation with mouse
-        float hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
+            // Player rotation with mouse
+            float hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(0, hMouseInput, 0, Space.Self);
+        }
+
 
         // Dashing
         if(dashing)
         {
-            endPosition = transform.forward * 0.3f;
+            endPosition = transform.forward * 30f;
             transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.deltaTime);
         }
 
@@ -171,7 +176,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Running Forward
-        else if (moveInput.y > 0.8f && !walking && myRFor == false)
+        else if (moveInput.y > 0.7f && !walking && myRFor == false)
         {
             myRFor = true;
             myWFor = false;
@@ -187,7 +192,7 @@ public class PlayerController : MonoBehaviour
 
         }
         // Walking Forward
-        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking && myWFor == false)
+        else if (moveInput.y > 0 && moveInput.y < 0.7f || walking && myWFor == false)
         {
             myRFor = false;
             myWFor = true;
@@ -203,7 +208,7 @@ public class PlayerController : MonoBehaviour
         }
         
         // Running Back
-        else if (moveInput.y <= -0.8f && !walking && myRBack == false)
+        else if (moveInput.y <= -0.7f && !walking && myRBack == false)
         {
             myRFor = false;
             myWFor = false;
@@ -219,7 +224,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Walking Back
-        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking && myWBack == false)
+        else if (moveInput.y < 0 && moveInput.y > -0.7f || walking && myWBack == false)
         {
             myRFor = false;
             myWFor = false;
@@ -249,7 +254,7 @@ public class PlayerController : MonoBehaviour
 
     private void MeleeAttack()
     {
-        Debug.Log(("Melee"));
+        Debug.Log("Melee");
         ComboStarter();
     }
     // Used to open "PauseMenu"
@@ -279,7 +284,6 @@ public class PlayerController : MonoBehaviour
 
     private void Spell1()
     {
-        Debug.Log("Spell1");
         if (canAttack)
         {
             if (canDash)
@@ -292,7 +296,6 @@ public class PlayerController : MonoBehaviour
 
     private void Spell2()
     {
-        Debug.Log("Spell2");
         if (canAttack)
         {
             if (canDash)
@@ -436,13 +439,21 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator SpecialAttackRoutine()
     {
+        anim.SetBool("walking", false);
+        anim.SetBool("running", false);
+        anim.SetBool("walkBack", false);
+        anim.SetBool("runBack", false);
+        usingSpell = true;
         canAttack = false;
         //anim.SetBool("specialAttack", true);
+        anim.SetBool("special1", true);
         anim.SetInteger("condition", 25);
-        yield return new WaitForSeconds(1.067f);
+        yield return new WaitForSeconds(0.8f);
+        anim.SetBool("special1", false);
         anim.SetInteger("condition", 98);
         //anim.SetBool("specialAttack", false);
         attRoutineOn = false;
+        usingSpell = false;
         canAttack = true;
         noOfClicks = 0;
         //Temporarily disabled since it gave errors
@@ -451,13 +462,19 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator SpecialAttackRoutine2()
     {
+        anim.SetBool("walking", false);
+        anim.SetBool("running", false);
+        anim.SetBool("walkBack", false);
+        anim.SetBool("runBack", false);
+        usingSpell = true;
         canAttack = false;
         //anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(0.6f);
         anim.SetInteger("condition", 98);
         //anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
+        usingSpell = false;
         canAttack = true;
         noOfClicks = 0;
         //Temporarily disabled since it gave errors
