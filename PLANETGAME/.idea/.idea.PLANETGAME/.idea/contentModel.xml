@@ -10,6 +10,10 @@
           <e p="PlayerControls.cs" t="Include" />
         </e>
         <e p="knightController.cs" t="Include" />
+        <e p="OldCrap" t="Include">
+          <e p="FauxGravityAttractor1.cs" t="Include" />
+          <e p="FauxGravityBody1.cs" t="Include" />
+        </e>
         <e p="Photon" t="Include">
           <e p="PhotonChat" t="Include">
             <e p="Code" t="Include">
@@ -355,9 +359,7 @@
           <e p="AudioManager.cs" t="Include" />
           <e p="DashSmokeScripts.cs" t="Include" />
           <e p="FauxGravityAttractor.cs" t="Include" />
-          <e p="FauxGravityAttractor1.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
-          <e p="FauxGravityBody1.cs" t="Include" />
           <e p="FirstPersonController.cs" t="Include" />
           <e p="Interactables" t="Include">
             <e p="CactusRandomizer.cs" t="Include" />
@@ -373,13 +375,16 @@
           </e>
           <e p="PhotonScripts" t="Include">
             <e p="DelayStartRoomController.cs" t="Include" />
+            <e p="GameSetup.cs" t="Include" />
             <e p="GameSetupController.cs" t="Include" />
             <e p="NetworkController.cs" t="Include" />
+            <e p="PhotonPlayer.cs" t="Include" />
             <e p="QuickStartLobbyController.cs" t="Include" />
             <e p="QuickStartRoomController.cs" t="Include" />
             <e p="WaitingRoomController.cs" t="Include" />
           </e>
           <e p="PlayerScripts" t="Include">
+            <e p="BackupController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
             <e p="WeaponDamage.cs" t="Include" />

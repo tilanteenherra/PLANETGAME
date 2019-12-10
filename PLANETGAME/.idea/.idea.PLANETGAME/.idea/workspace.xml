@@ -13,6 +13,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/BackupController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Skeleton.prefab" root0="FORCE_HIGHLIGHTING" />
@@ -50,7 +51,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FireRotateScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerControllerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/FauxGravityBody.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" />
@@ -63,6 +63,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/BackupController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerController.cs" />
       </list>
     </option>
@@ -154,6 +156,7 @@
       <workItem from="1575827116905" duration="4626000" />
       <workItem from="1575839401802" duration="264000" />
       <workItem from="1575843634088" duration="607000" />
+      <workItem from="1575998971478" duration="12157000" />
     </task>
     <servers />
   </component>

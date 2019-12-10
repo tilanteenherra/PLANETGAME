@@ -27,14 +27,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press""
                 },
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""8da818ae-023b-46bc-a8ea-2639f8ef2125"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Rotate"",
                     ""type"": ""Value"",
                     ""id"": ""0d53b353-abe1-496f-baaa-f76bafde2258"",
@@ -81,6 +73,14 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AngleChange"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4d2fc1a-fa4b-4232-aeaa-5950d586bb6c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -116,72 +116,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""MeleeAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a5e0367e-d337-4c29-8580-cf30d51e5813"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""All Control Schemes;Gamepad"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""id"": ""ec5d9e72-6646-449b-81b2-f23d4ed62095"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""bbe5335f-857e-49a7-829c-cfbb99f8ef9a"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""All Control Schemes;PC"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""84fd1b20-f997-4939-b288-c97c139f75f0"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""All Control Schemes;PC"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""3f299c6e-7485-4369-9e64-645b1926876f"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""All Control Schemes;PC"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""a6635b90-6fbe-407d-89ef-7852b6a8de99"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""All Control Schemes;PC"",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -240,6 +174,17 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""ff690d5a-42f6-452e-a302-4934377273d6"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""PC;All Control Schemes"",
+                    ""action"": ""Spell1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c75d8b63-3411-406f-a537-8e9de1725a6b"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
@@ -253,6 +198,17 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""70c9dd8b-13d3-4017-93f3-42eba2694545"",
                     ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""All Control Schemes;PC"",
+                    ""action"": ""Spell2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a07ad2d7-9e21-4a7c-837f-3ffb8cd101e7"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""All Control Schemes;PC"",
@@ -301,6 +257,28 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""All Control Schemes;PC"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6129b89f-7816-478e-8b95-9afd42094cd4"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""All Control Schemes;Gamepad"",
+                    ""action"": ""AngleChange"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""348786b4-bc7b-4df2-9bfb-27a0d1933e39"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""All Control Schemes;PC"",
+                    ""action"": ""AngleChange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -361,13 +339,13 @@ public class PlayerControls : IInputActionCollection, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_MeleeAttack = m_Gameplay.FindAction("MeleeAttack", throwIfNotFound: true);
-        m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
         m_Gameplay_Interactive = m_Gameplay.FindAction("Interactive", throwIfNotFound: true);
         m_Gameplay_Spell1 = m_Gameplay.FindAction("Spell1", throwIfNotFound: true);
         m_Gameplay_Spell2 = m_Gameplay.FindAction("Spell2", throwIfNotFound: true);
         m_Gameplay_Walk = m_Gameplay.FindAction("Walk", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_AngleChange = m_Gameplay.FindAction("AngleChange", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -418,25 +396,25 @@ public class PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_MeleeAttack;
-    private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Rotate;
     private readonly InputAction m_Gameplay_Interactive;
     private readonly InputAction m_Gameplay_Spell1;
     private readonly InputAction m_Gameplay_Spell2;
     private readonly InputAction m_Gameplay_Walk;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_AngleChange;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
         public GameplayActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @MeleeAttack => m_Wrapper.m_Gameplay_MeleeAttack;
-        public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
         public InputAction @Interactive => m_Wrapper.m_Gameplay_Interactive;
         public InputAction @Spell1 => m_Wrapper.m_Gameplay_Spell1;
         public InputAction @Spell2 => m_Wrapper.m_Gameplay_Spell2;
         public InputAction @Walk => m_Wrapper.m_Gameplay_Walk;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @AngleChange => m_Wrapper.m_Gameplay_AngleChange;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,9 +427,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 MeleeAttack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMeleeAttack;
                 MeleeAttack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMeleeAttack;
                 MeleeAttack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMeleeAttack;
-                Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
@@ -470,6 +445,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                AngleChange.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAngleChange;
+                AngleChange.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAngleChange;
+                AngleChange.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAngleChange;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -477,9 +455,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 MeleeAttack.started += instance.OnMeleeAttack;
                 MeleeAttack.performed += instance.OnMeleeAttack;
                 MeleeAttack.canceled += instance.OnMeleeAttack;
-                Move.started += instance.OnMove;
-                Move.performed += instance.OnMove;
-                Move.canceled += instance.OnMove;
                 Rotate.started += instance.OnRotate;
                 Rotate.performed += instance.OnRotate;
                 Rotate.canceled += instance.OnRotate;
@@ -498,6 +473,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Pause.started += instance.OnPause;
                 Pause.performed += instance.OnPause;
                 Pause.canceled += instance.OnPause;
+                AngleChange.started += instance.OnAngleChange;
+                AngleChange.performed += instance.OnAngleChange;
+                AngleChange.canceled += instance.OnAngleChange;
             }
         }
     }
@@ -532,12 +510,12 @@ public class PlayerControls : IInputActionCollection, IDisposable
     public interface IGameplayActions
     {
         void OnMeleeAttack(InputAction.CallbackContext context);
-        void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnInteractive(InputAction.CallbackContext context);
         void OnSpell1(InputAction.CallbackContext context);
         void OnSpell2(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnAngleChange(InputAction.CallbackContext context);
     }
 }

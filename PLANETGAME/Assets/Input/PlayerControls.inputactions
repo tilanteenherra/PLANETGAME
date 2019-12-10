@@ -14,14 +14,6 @@
                     "interactions": "Press"
                 },
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "8da818ae-023b-46bc-a8ea-2639f8ef2125",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Rotate",
                     "type": "Value",
                     "id": "0d53b353-abe1-496f-baaa-f76bafde2258",
@@ -68,6 +60,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "AngleChange",
+                    "type": "Button",
+                    "id": "e4d2fc1a-fa4b-4232-aeaa-5950d586bb6c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -103,72 +103,6 @@
                     "action": "MeleeAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a5e0367e-d337-4c29-8580-cf30d51e5813",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "All Control Schemes;Gamepad",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "WASD",
-                    "id": "ec5d9e72-6646-449b-81b2-f23d4ed62095",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "bbe5335f-857e-49a7-829c-cfbb99f8ef9a",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "All Control Schemes;PC",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "84fd1b20-f997-4939-b288-c97c139f75f0",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "All Control Schemes;PC",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "3f299c6e-7485-4369-9e64-645b1926876f",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "All Control Schemes;PC",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "a6635b90-6fbe-407d-89ef-7852b6a8de99",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "All Control Schemes;PC",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -227,6 +161,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ff690d5a-42f6-452e-a302-4934377273d6",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC;All Control Schemes",
+                    "action": "Spell1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c75d8b63-3411-406f-a537-8e9de1725a6b",
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
@@ -240,6 +185,17 @@
                     "name": "",
                     "id": "70c9dd8b-13d3-4017-93f3-42eba2694545",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "All Control Schemes;PC",
+                    "action": "Spell2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a07ad2d7-9e21-4a7c-837f-3ffb8cd101e7",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "All Control Schemes;PC",
@@ -288,6 +244,28 @@
                     "processors": "",
                     "groups": "All Control Schemes;PC",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6129b89f-7816-478e-8b95-9afd42094cd4",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "All Control Schemes;Gamepad",
+                    "action": "AngleChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "348786b4-bc7b-4df2-9bfb-27a0d1933e39",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "All Control Schemes;PC",
+                    "action": "AngleChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

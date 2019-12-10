@@ -14,75 +14,66 @@ public class PlayerController : MonoBehaviour
     // Class usage variables
     PlayerControls controls;
     WeaponDamage weaponDamage;
-
+    DashSmokeScripts dashSmoker;
+    
     //Component variables
     Animator anim;
     Rigidbody rb;
-
+    
+    // Renders ---------
+    public Renderer shovel;
+    public Renderer shield;
+    
     // Float & Int variables ----------
     public float moveSpeed = 10;
     public float controllerRotateSpeed = 100f;
-    public float mouseRotateSpeed = 250f;
-    private float buffTimer = 0f;
+    public float mouseRotateSpeed = 150f;
     public float dashSpeed = 8f;
     public int noOfClicks = 0;
-    
+    public float walkSpeed = 8f;
+    public float buffTimer;
+
     // Boolean variables
     //------ PUBLIC ------
     public bool attRoutineOn = false;
     public bool canDash = true;
-    public bool keepPlace = false;
-    public bool interacting;
-    public bool dashSmoke = false;
     public bool paused = false;
-    public bool myIdle = false;
-    public bool myWFor = false;
-    public bool myWBack = false;
-    public bool myRFor = false;
-    public bool myRBack = false;
-    public bool useMask = false;
-
+    public bool keepPlace = false;
+    public bool interacting = false;
     //------ PRIVATE ------
-    bool canAttack = true;
-    bool walking;
-    bool canClick = true;
-    bool dashing = false;
+    private bool canAttack = true;
+    private bool dashing = false;
+    private bool walking = false;
+    private bool canClick = true;
 
     // Vectors ----------
+    Vector3 playerPos;
     Vector3 endPosition;
     Vector3 moveAmount;
-    Vector3 targetMoveAmount;
     Vector3 smoothMoveVelocity;
-    Vector3 playerPos;
-    
-    // Move direction
-    Vector2 moveInput;
-    //Rotate direction
     Vector2 rotateInput;
 
-    // Renders ---------
-    public Renderer shovel;
-    public Renderer shield;
 
-    private void Awake()
+    public bool dashSmoke = false;
+
+    // Start is called before the first frame update
+    void Awake()
     {
+        //Temporarily disabled since it gave errors
+        //weaponDamage = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponDamage>();
         anim = GetComponent<Animator>();
-        //weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
-        endPosition = new Vector3(0, 0, 0);
         rb = GetComponent<Rigidbody>();
-        noOfClicks = 0;
-        canClick = true;
         shovel = GameObject.Find("Shovel").GetComponent<Renderer>();
         shield = GameObject.Find("Shield").GetComponent<Renderer>();
-
+        dashSmoker = GetComponent<DashSmokeScripts>();
+        noOfClicks = 0;
+        canClick = true;
+        endPosition = new Vector3(0, 0, 0);
+        
         // Input Controller Related Things Start Here ------------------------------------
         
         controls = new PlayerControls();
-        
-        // Movement
-        controls.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        controls.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
-        
+
         // Rotation
         controls.Gameplay.Rotate.performed += ctx => rotateInput = ctx.ReadValue<Vector2>();
         controls.Gameplay.Rotate.canceled += ctx => rotateInput = Vector2.zero;
@@ -96,147 +87,142 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Interactive.performed += ctx => OnInteract();
         controls.Gameplay.Interactive.canceled += ctx => NoInteract();
         controls.Gameplay.Pause.performed += ctx => Pause();
+        controls.Gameplay.AngleChange.performed += ctx => ChangeAngle();
 
         // Input Controller Related Things End Here --------------------------------------
 
     }
     
-    private void FixedUpdate()
+    void Update()
     {
-        // Player movement
-        float hMoveInput = moveInput.x;
-        float vMoveInput = moveInput.y;
 
-        var movement = new Vector3(hMoveInput, 0, vMoveInput);
-        gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
-
-        // Player rotation below
-        float hRotateInput = rotateInput.x;
-        float vRotateInput = rotateInput.y;
-
-        Vector2 rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(rotate, Space.Self);
-
-        // Player rotation with mouse
-        float hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
-
-        // Dashing
-        if(dashing)
+        // Animations Start ------------------------------------------------------------------------------
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            endPosition = transform.forward * 8.0f;
-            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.deltaTime);
+            anim.SetBool("running", true);
+            //        anim.SetInteger("condition", 1);
+            //        noOfClicks = 0;
+            noOfClicks = 0;
+            canClick = true;
         }
 
-        if (keepPlace)
+        //}
+        if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+            canClick = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetBool("running", true);
+        //    anim.SetInteger("condition", 44);
+            noOfClicks = 0;
+            canClick = true;
+        }
+        if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+            canClick = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetBool("running", true);
+        //    anim.SetInteger("condition", 44);
+            noOfClicks = 0;
+            canClick = true;
+        }
+        if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+            canClick = true;
+        }
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            anim.SetInteger("condition", 20);
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetBool("running", true);
+        //    anim.SetInteger("condition", 19);
+            noOfClicks = 0;
+            canClick = true;
+        }
+        if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
+        {
+            anim.SetBool("running", false);
+        //    anim.SetInteger("condition", 98);
+            noOfClicks = 0;
+            canClick = true;
+        }
+        
+        var x = Input.GetAxis("Horizontal");
+        var y = Input.GetAxis("Vertical");
+        
+        if(y > 0 && y <= 0.5)
+        {
+            anim.SetBool("walking", true);
+        }
+        else if (y < 0 && y >= -0.5)
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
+
+        if(y > 0.5)
+        {
+            anim.SetBool("running", true);
+        }
+        else if (y < -0.5)
+        {
+            anim.SetBool("running", true);
+        }
+        else
+        {
+            anim.SetBool("running", false);
+        }
+        
+        
+        // Animations end ----------------------------------------------------------------------------------------
+
+        Move(x, y);
+        
+    }
+
+    void FixedUpdate()
+    {
+        // Actual player movement
+        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+
+        if (dashing)
+        {
+            endPosition = transform.forward * 0.3f;
+            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
+        }
+
+        if(keepPlace)
         {
             transform.position = playerPos;
         }
-
     }
-
-    private void Update()
-    {
-        // Other stuff start ------------------------------------------------------------------------------------
-        if (interacting)
-        {
-            buffTimer += Time.deltaTime;
-            
-            if (buffTimer >= 5f)
-            {
-                // Gets buff code
-
-            }
-        }
-        // Other stuff end --------------------------------------------------------------------------------------
-
-        // Animations start -------------------------------------------------------------------------------------
-
-        // Standing still
-        if (moveInput.y == 0 && moveInput.x == 0 && myIdle == false)
-        {
-            myRFor = false;
-            myWFor = false;
-            myIdle = true;
-            myRBack = false;
-            myWBack = false;
-            anim.SetBool("running", false);
-            anim.SetBool("walking", false);
-            anim.SetBool("walkBack", false);
-            anim.SetBool("runBack", false);
-            anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-            keepPlace = false;
-        }
-
-        // Running Forward
-        else if (moveInput.y > 0.8f && !walking && myRFor == false)
-        {
-            myRFor = true;
-            myWFor = false;
-            myIdle = false;
-            myRBack = false;
-            myWBack = false;
-            anim.SetBool("walking", false);
-            anim.SetBool("walkBack", false);
-            anim.SetBool("runBack", false);
-            anim.SetBool("running", true);
-            useMask = true;
-            anim.SetInteger("condition", 15);
-
-        }
-        // Walking Forward
-        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking && myWFor == false)
-        {
-            myRFor = false;
-            myWFor = true;
-            myIdle = false;
-            myRBack = false;
-            myWBack = false;
-            anim.SetBool("running", false);
-            anim.SetBool("walkBack", false);
-            anim.SetBool("runBack", false);
-            anim.SetBool("walking", true);
-            useMask = true;
-            anim.SetInteger("condition", 13);
-        }
-        
-        // Running Back
-        else if (moveInput.y <= -0.8f && !walking && myRBack == false)
-        {
-            myRFor = false;
-            myWFor = false;
-            myIdle = false;
-            myRBack = true;
-            myWBack = false;
-            anim.SetBool("walking", false);
-            anim.SetBool("running", false);
-            anim.SetBool("walkBack", false);
-            anim.SetBool("runBack", true);
-            useMask = true;
-            anim.SetInteger("condition", 12);
-        }
-
-        // Walking Back
-        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking && myWBack == false)
-        {
-            myRFor = false;
-            myWFor = false;
-            myIdle = false;
-            myRBack = false;
-            myWBack = true;
-            anim.SetBool("walking", false);
-            anim.SetBool("running", false);
-            anim.SetBool("walkBack", true);
-            anim.SetBool("runBack", false);
-            useMask = true;
-            anim.SetInteger("condition", 11);
-        }
-
-        // Animations end ---------------------------------------------------------------------------------------
-    }
-
+    
     void OnEnable()
     {
         controls.Gameplay.Enable();
@@ -247,13 +233,62 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Disable();
     }
 
-    private void MeleeAttack()
+    void MeleeAttack()
     {
         Debug.Log(("Melee"));
         ComboStarter();
     }
+    
+    void Spell1()
+    {
+        Debug.Log("Spell1");
+        if (canAttack)
+        {
+            if (canDash)
+            {
+                attRoutineOn = true;
+                StartCoroutine(SpecialAttackRoutine());
+            }
+        }
+    }
+    
+    void Spell2()
+    {
+        Debug.Log("Spell2");
+        if (canAttack)
+        {
+            if (canDash)
+            {
+                attRoutineOn = true;
+                StartCoroutine(SpecialAttackRoutine2());   
+            }
+        }
+    }
+
+    void Walk()
+    {
+        walking = true;
+        moveSpeed *= 0.5f;
+    }
+
+    void Run()
+    {
+        walking = false;
+        moveSpeed *= 2f;
+    }
+
+    void OnInteract()
+    {
+        interacting = true;
+    }
+
+    void NoInteract()
+    {
+        interacting = false;
+        buffTimer = 0f;
+    }
     // Used to open "PauseMenu"
-    void Pause()
+    public void Pause()
     {
         Debug.Log("Online games can't be paused mom!");
         if (paused)
@@ -266,114 +301,51 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnInteract()
+    void ChangeAngle()
     {
-        interacting = true;
+        // Change camera angle
+        GameObject cammy = gameObject.transform.GetChild(0).gameObject;
+        var parent = cammy.transform.parent;
+        cammy.transform.RotateAround(parent.position, parent.up, 45f);
     }
-
-    void NoInteract()
+    /*
+    void GetInput()
     {
-        interacting = false;
-        buffTimer = 0f;
-    }
-
-    private void Spell1()
-    {
-        Debug.Log("Spell1");
-        if (canAttack)
-        {
-            if (canDash)
-            {
-                attRoutineOn = true;
-                StartCoroutine(SpecialAttackRoutine());
-            }
-        }
-    }
-
-    private void Spell2()
-    {
-        Debug.Log("Spell2");
-        if (canAttack)
-        {
-            if (canDash)
-            {
-                attRoutineOn = true;
-                StartCoroutine(SpecialAttackRoutine2());   
-            }
-        }
-    }
-    
-    private void Walk()
-    {
+            //storeweapons
+            anim.SetInteger("condition", 85);
+       
+            //diesBackward
+            anim.SetInteger("condition", 66);
         
-        walking = true;
-        moveSpeed *= 0.5f;
-    }
-
-    private void Run()
-    {
-        walking = false;
-        moveSpeed *= 2f;
-    }
-
-    public void Charge()
-    {
-        dashing = true;
-    }
-    
-    public void SetChargeFalse()
-    {
-        dashing = false;
-        noOfClicks = 0;
-    }
-    
-    public void SmokeOn()
-    {
-        GetComponent<DashSmokeScripts>().smokeOn = true;
-    }
-
-    public void SmokeOff()
-    {
-        GetComponent<DashSmokeScripts>().smokeOn = false;
-        noOfClicks = 0;
-    }
-
-    public void WeaponShow()
-    {
-        // Enables renderers
-        shovel.enabled = true;
-        shield.enabled = true;
-    }
-
-    public void WeaponHide()
-    {
-        // Disables renderers
-        shovel.enabled = false;
-        shield.enabled = false;
-    }
-
-    public void ExitAnimation()
-    {
-        anim.SetInteger("condition", 98);
-        noOfClicks = 0;
-        keepPlace = false;
-    }
-
+            //diesForward
+            anim.SetInteger("condition", 67);
+        
+            //showweapons
+            anim.SetInteger("condition", 86);
+        
+            //eat mushroom
+            anim.SetInteger("condition", 9);
+       
+            //cactus
+            anim.SetInteger("condition", 10);
+        
+            //snowangel
+            anim.SetInteger("condition", 50);
+*/
     void ComboStarter()
-    {       
+    {
         if (canClick)
         {
             noOfClicks++;
         }
 
-        //if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
-        if (noOfClicks >= 1 && useMask == true)
-        {
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
+        {   
             anim.SetInteger("condition", 30);
             canDash = false;
         }
 
-        if (noOfClicks >= 1 && (anim.GetBool("running") == false) && (anim.GetBool("walking") == false) && (anim.GetBool("walkBack") == false) && (anim.GetBool("runBack") == false))
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == false) && (anim.GetBool("walking") == false)))
         {
             if(canAttack)
             {
@@ -382,12 +354,12 @@ public class PlayerController : MonoBehaviour
                 playerPos = transform.position;
                 keepPlace = true;
             }
+            
         }
     }
 
     public void ComboCheck()
     {
-        canClick = false;
 
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks == 1)
         {
@@ -397,6 +369,7 @@ public class PlayerController : MonoBehaviour
             canDash = true;
             keepPlace = false;
         }
+         
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
             anim.SetInteger("condition", 3);
@@ -434,6 +407,62 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ExitAnimation()
+    {
+        anim.SetInteger("condition", 98);
+        noOfClicks = 0;
+        keepPlace = false;
+    }
+
+    public void SetChargeFalse()
+    {
+        dashing = false;
+        noOfClicks = 0;
+    }
+
+    public void SmokeOn()
+    {
+        dashSmoker.smokeOn = true;
+    }
+
+    public void SmokeOff()
+    {
+        dashSmoker.smokeOn = false;
+        noOfClicks = 0;
+    }
+
+    public void Charge()
+    {
+        dashing = true;
+    }
+
+    public void WeaponShow()
+    {
+        // Enables renderers
+        shovel.enabled = true;
+        shield.enabled = true;
+    }
+
+    public void WeaponHide()
+    {
+        // Disables renderers
+        shovel.enabled = false;
+        shield.enabled = false;
+    }
+
+    void Move(float x, float y)
+    {
+        anim.SetFloat("VelX", x);
+        anim.SetFloat("VelY", y);
+        
+        //var movement = new Vector3(x, 0, y);
+        //gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+
+        Vector3 moveDir = new Vector3(x, 0, y).normalized;
+        Vector3 targetMoveAmount = moveDir * moveSpeed * (Mathf.Abs(x) + Mathf.Abs(y));
+        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+    }
+
     IEnumerator SpecialAttackRoutine()
     {
         canAttack = false;
@@ -441,7 +470,6 @@ public class PlayerController : MonoBehaviour
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
-        //anim.SetBool("specialAttack", false);
         attRoutineOn = false;
         canAttack = true;
         noOfClicks = 0;
@@ -456,7 +484,6 @@ public class PlayerController : MonoBehaviour
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
-        //anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
         canAttack = true;
         noOfClicks = 0;
