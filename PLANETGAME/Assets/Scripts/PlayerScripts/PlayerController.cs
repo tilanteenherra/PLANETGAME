@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun.Demo.SlotRacer.Utils;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
@@ -18,48 +19,60 @@ public class PlayerController : MonoBehaviour
     Animator anim;
     Rigidbody rb;
 
-    // Float & Int variables
+    // Float & Int variables ----------
     public float moveSpeed = 10;
     public float controllerRotateSpeed = 100f;
     public float mouseRotateSpeed = 250f;
     private float buffTimer = 0f;
     public float dashSpeed = 8f;
-    int noOfClicks = 0;
+    public int noOfClicks = 0;
     
     // Boolean variables
+    //------ PUBLIC ------
     public bool attRoutineOn = false;
-    bool canAttack = true;
-    private bool walking;
+    public bool canDash = true;
+    public bool keepPlace = false;
     public bool interacting;
+    public bool dashSmoke = false;
+    public bool paused = false;
+    public bool myIdle = false;
+    public bool myWFor = false;
+    public bool myWBack = false;
+    public bool myRFor = false;
+    public bool myRBack = false;
+
+    //------ PRIVATE ------
+    bool canAttack = true;
+    bool walking;
     bool canClick = true;
     bool dashing = false;
-    public bool dashSmoke = false;
 
-    // Vectors
+    // Vectors ----------
     Vector3 endPosition;
     Vector3 moveAmount;
     Vector3 targetMoveAmount;
     Vector3 smoothMoveVelocity;
-
-    public Renderer shovel;
-    public Renderer shield;
-
+    Vector3 playerPos;
+    
     // Move direction
     Vector2 moveInput;
     //Rotate direction
     Vector2 rotateInput;
 
-    private static readonly int Condition = Animator.StringToHash("condition");
-    private static readonly int RunBack = Animator.StringToHash("runBack");
-    private static readonly int Running = Animator.StringToHash("running");
+    // Renders ---------
+    public Renderer shovel;
+    public Renderer shield;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         //weaponDamage = gameObject.transform.Find("WeaponCollider").GetComponent<WeaponDamage>();
         endPosition = new Vector3(0, 0, 0);
-        rb = this.GetComponent<Rigidbody>();
-        targetMoveAmount = Vector3.forward * dashSpeed;
+        rb = GetComponent<Rigidbody>();
+        noOfClicks = 0;
+        canClick = true;
+        shovel = GameObject.Find("Shovel").GetComponent<Renderer>();
+        shield = GameObject.Find("Shield").GetComponent<Renderer>();
 
         // Input Controller Related Things Start Here ------------------------------------
         
@@ -81,6 +94,7 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Walk.canceled += ctx => Run();
         controls.Gameplay.Interactive.performed += ctx => OnInteract();
         controls.Gameplay.Interactive.canceled += ctx => NoInteract();
+        controls.Gameplay.Pause.performed += ctx => Pause();
 
         // Input Controller Related Things End Here --------------------------------------
 
@@ -93,24 +107,29 @@ public class PlayerController : MonoBehaviour
         float vMoveInput = moveInput.y;
 
         var movement = new Vector3(hMoveInput, 0, vMoveInput);
-        this.gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
+        gameObject.transform.Translate(movement * moveSpeed * Time.deltaTime, Space.Self);
 
         // Player rotation below
         float hRotateInput = rotateInput.x;
         float vRotateInput = rotateInput.y;
 
         Vector2 rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
-        this.gameObject.transform.Rotate(rotate, Space.Self);
+        gameObject.transform.Rotate(rotate, Space.Self);
 
         // Player rotation with mouse
         float hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
-        this.gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
+        gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
 
         // Dashing
         if(dashing)
         {
             endPosition = transform.forward * 0.3f;
-            this.transform.position = Vector3.Lerp(this.transform.position, this.transform.position + endPosition, Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.deltaTime);
+        }
+
+        if (keepPlace)
+        {
+            transform.position = playerPos;
         }
 
     }
@@ -125,18 +144,21 @@ public class PlayerController : MonoBehaviour
             if (buffTimer >= 5f)
             {
                 // Gets buff code
-                Debug.Log("GOT THE BUFF!");
+
             }
         }
-
         // Other stuff end --------------------------------------------------------------------------------------
 
         // Animations start -------------------------------------------------------------------------------------
 
         // Standing still
-        if (moveInput.y == 0 && moveInput.x == 0)
+        if (moveInput.y == 0 && moveInput.x == 0 && myIdle == false)
         {
-
+            myRFor = false;
+            myWFor = false;
+            myIdle = true;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("running", false);
             anim.SetBool("walking", false);
             anim.SetBool("walkBack", false);
@@ -144,11 +166,17 @@ public class PlayerController : MonoBehaviour
             anim.SetInteger("condition", 98);
             noOfClicks = 0;
             canClick = true;
+            keepPlace = false;
         }
 
         // Running Forward
-        else if (moveInput.y > 0.8f && !walking)
+        else if (moveInput.y > 0.8f && !walking && myRFor == false)
         {
+            myRFor = true;
+            myWFor = false;
+            myIdle = false;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("walking", false);
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
@@ -157,8 +185,13 @@ public class PlayerController : MonoBehaviour
 
         }
         // Walking Forward
-        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking)
+        else if (moveInput.y > 0 && moveInput.y < 0.8f || walking && myWFor == false)
         {
+            myRFor = false;
+            myWFor = true;
+            myIdle = false;
+            myRBack = false;
+            myWBack = false;
             anim.SetBool("running", false);
             anim.SetBool("walkBack", false);
             anim.SetBool("runBack", false);
@@ -167,9 +200,13 @@ public class PlayerController : MonoBehaviour
         }
         
         // Running Back
-        else if (moveInput.y <= -0.8f && !walking)
+        else if (moveInput.y <= -0.8f && !walking && myRBack == false)
         {
-
+            myRFor = false;
+            myWFor = false;
+            myIdle = false;
+            myRBack = true;
+            myWBack = false;
             anim.SetBool("walking", false);
             anim.SetBool("running", false);
             anim.SetBool("walkBack", false);
@@ -178,8 +215,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // Walking Back
-        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking)
+        else if (moveInput.y < 0 && moveInput.y > -0.8f || walking && myWBack == false)
         {
+            myRFor = false;
+            myWFor = false;
+            myIdle = false;
+            myRBack = false;
+            myWBack = true;
             anim.SetBool("walking", false);
             anim.SetBool("running", false);
             anim.SetBool("walkBack", true);
@@ -203,9 +245,20 @@ public class PlayerController : MonoBehaviour
     private void MeleeAttack()
     {
         Debug.Log(("Melee"));
-        attRoutineOn = true;
-        //StartCoroutine(AttackRoutine());
         ComboStarter();
+    }
+    // Used to open "PauseMenu"
+    void Pause()
+    {
+        Debug.Log("Online games can't be paused mom!");
+        if (paused)
+        {
+            paused = false;
+        }
+        else if (!paused)
+        {
+            paused = true;
+        }
     }
 
     private void OnInteract()
@@ -222,15 +275,27 @@ public class PlayerController : MonoBehaviour
     private void Spell1()
     {
         Debug.Log("Spell1");
-        attRoutineOn = true;
-        StartCoroutine(SpecialAttackRoutine());
+        if (canAttack)
+        {
+            if (canDash)
+            {
+                attRoutineOn = true;
+                StartCoroutine(SpecialAttackRoutine());
+            }
+        }
     }
 
     private void Spell2()
     {
         Debug.Log("Spell2");
-        attRoutineOn = true;
-        StartCoroutine(SpecialAttackRoutine2());
+        if (canAttack)
+        {
+            if (canDash)
+            {
+                attRoutineOn = true;
+                StartCoroutine(SpecialAttackRoutine2());   
+            }
+        }
     }
     
     private void Walk()
@@ -286,18 +351,31 @@ public class PlayerController : MonoBehaviour
     {
         anim.SetInteger("condition", 98);
         noOfClicks = 0;
+        keepPlace = false;
     }
 
     void ComboStarter()
-    {
+    {       
         if (canClick)
         {
             noOfClicks++;
         }
 
-        if (noOfClicks >= 1)
+        if(noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
+        {   
+            anim.SetInteger("condition", 30);
+            canDash = false;
+        }
+
+        if (noOfClicks >= 1 && (anim.GetBool("running") == false) && (anim.GetBool("walking") == false) && (anim.GetBool("walkBack") == false) && (anim.GetBool("runBack") == false))
         {
-            anim.SetInteger("condition", 2);
+            if(canAttack)
+            {
+                anim.SetInteger("condition", 2);
+                canDash = false;
+                playerPos = transform.position;
+                keepPlace = true;
+            }
         }
     }
 
@@ -310,44 +388,57 @@ public class PlayerController : MonoBehaviour
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
             anim.SetInteger("condition", 3);
             canClick = true;
+            canDash = false;
+            keepPlace = true;
         }
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB"))
         {
             anim.SetInteger("condition", 98);
             canClick = true;
             noOfClicks = 0;
+            canDash = true;
+            keepPlace = false;
         }
-
-
+        else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks == 1)
+        {
+            anim.SetInteger("condition", 98);
+            canClick = true;
+            noOfClicks = 0;
+            canDash = true;
+        }
+        else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks >= 2)
+        {
+            anim.SetInteger("condition", 31);
+            canClick = true;
+            canDash = false;
+        }
+        else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackB"))
+        {
+            anim.SetInteger("condition", 98);
+            canClick = true;
+            noOfClicks = 0;
+            canDash = true;
+        }
     }
 
-    //IEnumerator AttackRoutine()
-    //{
-    //    canAttack = false;
-    //    anim.SetBool("attackingA", true);
-    //    anim.SetInteger("condition", 2);
-    //    yield return new WaitForSeconds(1.7f);
-    //    anim.SetInteger("condition", 0);
-    //    anim.SetBool("attackingA", false);
-    //    attRoutineOn = false;
-    //    canAttack = true;
-    //    weaponDamage.hitOnce = false;
-    //}
     IEnumerator SpecialAttackRoutine()
     {
         canAttack = false;
-        anim.SetBool("specialAttack", true);
+        //anim.SetBool("specialAttack", true);
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
-        anim.SetBool("specialAttack", false);
+        //anim.SetBool("specialAttack", false);
         attRoutineOn = false;
         canAttack = true;
+        noOfClicks = 0;
         //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
     }
@@ -355,13 +446,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator SpecialAttackRoutine2()
     {
         canAttack = false;
-        anim.SetBool("specialAttack2", true);
+        //anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
-        anim.SetBool("specialAttack2", false);
+        //anim.SetBool("specialAttack2", false);
         attRoutineOn = false;
         canAttack = true;
+        noOfClicks = 0;
         //Temporarily disabled since it gave errors
         //weaponDamage.hitOnce = false;
     }

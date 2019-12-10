@@ -62,7 +62,7 @@ ModelImporter:
       - time: 0.6663085
         functionName: Charge
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -70,7 +70,7 @@ ModelImporter:
       - time: 0.7015672
         functionName: SmokeOn
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -78,7 +78,7 @@ ModelImporter:
       - time: 0.9401561
         functionName: SmokeOff
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -86,7 +86,7 @@ ModelImporter:
       - time: 0.95736897
         functionName: SetChargeFalse
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
@@ -94,7 +94,7 @@ ModelImporter:
       - time: 0.98064816
         functionName: ExitAnimation
         data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae,
+        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0

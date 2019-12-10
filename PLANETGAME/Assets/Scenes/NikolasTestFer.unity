@@ -744,7 +744,7 @@ PrefabInstance:
     - target: {fileID: 9161995853161555456, guid: 299cc3c063a7277478e444a0c58b8256,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.575
+      value: 19.96
       objectReference: {fileID: 0}
     - target: {fileID: 9161995853161555456, guid: 299cc3c063a7277478e444a0c58b8256,
         type: 3}
@@ -796,5 +796,30 @@ PrefabInstance:
       propertyPath: attractor
       value: 
       objectReference: {fileID: 1613932845}
+    - target: {fileID: 5295858740679744488, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: controllerRotateSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295858740679744488, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274502674508630906, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ae44ec8b56f22ca42a51c8482eded412, type: 2}
+    - target: {fileID: 3510299805493563952, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.16163683
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510299805493563952, guid: 299cc3c063a7277478e444a0c58b8256,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.03634768
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 299cc3c063a7277478e444a0c58b8256, type: 3}

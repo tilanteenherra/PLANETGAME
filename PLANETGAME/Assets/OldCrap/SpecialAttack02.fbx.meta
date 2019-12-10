@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 5368b69257051d343a3b559d534dbbcd
+guid: 7a2de0adc1cd234478a5f80cd4701ffa
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
-      74: 7646856274717288693
-    second: SpecialAttack02
+      74: 3655618922524443190
+    second: SpecialAttack_02
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: SpecialAttack02
-      takeName: SpecialAttack02
+      name: SpecialAttack_02
+      takeName: SpecialAttack_02
       internalID: 0
       firstFrame: 0
-      lastFrame: 54
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,40 +59,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.42507645
-        functionName: Charge
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.8654434
-        functionName: SetChargeFalse
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.9176799
+      - time: 0.8341584
         functionName: ExitAnimation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.73129815
-        functionName: SmokeOff
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.38810635
-        functionName: SmokeOn
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
