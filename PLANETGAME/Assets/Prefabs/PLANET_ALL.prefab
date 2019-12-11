@@ -17695,6 +17695,7 @@ GameObject:
   - component: {fileID: 5953399497235460985}
   - component: {fileID: 8324889594816289461}
   - component: {fileID: 8811222197625835595}
+  - component: {fileID: 4536688001746140503}
   m_Layer: 0
   m_Name: Igloo
   m_TagString: CastlePart
@@ -17776,6 +17777,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castleCaptured: 0
   capturedByUser: 
+--- !u!135 &4536688001746140503
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750484697070093042}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4.5
+  m_Center: {x: 0.69, y: 0, z: 0}
 --- !u!1 &4751841134424393139
 GameObject:
   m_ObjectHideFlags: 0
