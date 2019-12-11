@@ -27,7 +27,7 @@ namespace Interactables
         public GameObject[] graveStones;
 
         private CastleScript castleScript;
-
+        private UIHealthChangeScript uiHealth;
         private float castleCounter = 0;
         private float castleCounterReversed;
         public float castleCounterMax;
@@ -73,7 +73,7 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
-            
+            uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
             bodypartsDone2 = 0;
             ourPlayer = GetComponent<PhotonView>();
@@ -88,6 +88,7 @@ namespace Interactables
             if (ourPlayer.IsMine)
             {
                 mePlayer = ourPlayer;
+                uiHealth.stats = GetComponent<PlayerStats>();
             }
             
             //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
