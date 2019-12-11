@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstPersonController : MonoBehaviour
+public class FirstPersonControllerBackup : MonoBehaviour
 {
     public float mouseSensitivityX = 100f;
     //public float mouseSensitivityY = 250f;
@@ -457,6 +457,51 @@ public class FirstPersonController : MonoBehaviour
 
     public void Charge()
     {
+        //Obsolete code/alternate solution tries for charge
+        //float t = 1.5f;
+        //rb.velocity = new Vector3(0, 0, 0);
+
+        //while (t > 0)
+        //{         
+        //    rb.AddForce(transform.forward * 20f, ForceMode.Acceleration);
+        //    t -= Time.deltaTime;
+        //}
+
+        //while (!(Input.GetKeyDown(KeyCode.H)))
+        //{
+        //    if (speed < maxSpeed)
+        //    {
+        //        speed = speed - acceleration * Time.deltaTime;
+        //    }
+        //    else if (speed > -maxSpeed)
+        //    {
+        //        speed = speed + acceleration * Time.deltaTime;
+        //    }
+        //    else
+        //    {
+        //        if (speed > deceleration * Time.deltaTime)
+        //        {
+        //            speed = speed - deceleration * Time.deltaTime;
+        //        }
+        //        else if (speed < -deceleration * Time.deltaTime)
+        //        {
+        //            speed = speed + deceleration * Time.deltaTime;
+        //        }
+        //        else
+        //        {
+        //            speed = 0;
+        //        }
+        //    }
+
+        //    Vector3 tempPos = transform.position;
+        //    tempPos.x = transform.position.x;
+        //    tempPos.y = transform.position.y;
+        //    tempPos.z = transform.position.z;
+
+
+
+        //    transform.position = new Vector3(tempPos.x + speed * Time.deltaTime, tempPos.y, tempPos.z);
+        //}
 
         dashing = true;
 

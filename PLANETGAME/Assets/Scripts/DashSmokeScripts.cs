@@ -13,6 +13,7 @@ public class DashSmokeScripts : MonoBehaviour
     void Start()
     {
         empty = new GameObject();
+        dashSmoke = GameObject.Find("DashSmoke");
     }
 
     // Update is called once per frame

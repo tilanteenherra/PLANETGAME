@@ -59,16 +59,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.6663085
-        functionName: Charge
+      - time: 0.64823383
+        functionName: SmokeOn
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.7015672
-        functionName: SmokeOn
+      - time: 0.6663085
+        functionName: Charge
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
           type: 3}

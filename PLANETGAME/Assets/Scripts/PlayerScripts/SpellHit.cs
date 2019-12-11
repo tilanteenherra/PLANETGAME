@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponDamage : MonoBehaviour
+public class SpellHit : MonoBehaviour
 {
-
     private PlayerController pc;
 
     private GameObject thisParent;
@@ -17,9 +15,7 @@ public class WeaponDamage : MonoBehaviour
     public float damage;
 
     public bool hitOnce = false;
-    public bool hitAgain = false;
 
-    // Start is called before the first frame update
     void Awake()
     {
         thisParent = transform.root.gameObject;
@@ -29,19 +25,6 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
-        {
-            if (hitOnce == false)
-            {
-                other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
-                hitOnce = true;
-                instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
-                Destroy(instantiatedObj, time);
-            }
-        }
-    }
-   /* Damage to spells --> private void OnTriggerStay(Collider other)
-    {
         if (pc.attRoutineOn == true)
         {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
@@ -50,10 +33,10 @@ public class WeaponDamage : MonoBehaviour
                 {
                     other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
                     hitOnce = true;
-                    instantiatedObj = (GameObject)Instantiate(damageBurst, other.transform.position, transform.rotation);
+                    instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
                     Destroy(instantiatedObj, time);
                 }
             }
         }
-    } */
+    }
 }
