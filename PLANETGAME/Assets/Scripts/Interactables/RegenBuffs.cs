@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 using Random = System.Random;
@@ -11,6 +12,8 @@ namespace Interactables
         private GameObject player;
         private FirstPersonController firstPersonController;
         private PlayerController playerController;
+
+        private PhotonView ourPlayer;
 
         private int nextLocation;
         public GameObject[] firePlaces;
@@ -67,6 +70,8 @@ namespace Interactables
         {
             bodypartsDone = 0;
             bodypartsDone2 = 0;
+            ourPlayer = GetComponent<PhotonView>();
+            Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
             
             //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
             bodyPartsMeshRenderer = new SkinnedMeshRenderer[6];
