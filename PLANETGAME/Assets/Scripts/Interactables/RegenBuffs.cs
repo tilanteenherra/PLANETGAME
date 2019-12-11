@@ -76,7 +76,7 @@ namespace Interactables
             bodypartsDone2 = 0;
             ourPlayer = GetComponent<PhotonView>();
             Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
-            if (!ourPlayer.IsMine)
+            if (ourPlayer.IsMine)
             {
                 //healthScript.stats = GetComponent<PlayerStats>();
             }
