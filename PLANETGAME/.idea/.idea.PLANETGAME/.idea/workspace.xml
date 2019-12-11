@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +18,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Buffs/Cactus.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Skeleton.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/CastleScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -37,6 +38,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PhotonScripts/GameSetupController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityBody.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -71,6 +73,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PhotonScripts/PhotonPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PhotonScripts/GameSetupController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
       </list>
     </option>
