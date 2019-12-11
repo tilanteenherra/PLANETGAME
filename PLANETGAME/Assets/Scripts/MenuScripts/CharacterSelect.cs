@@ -12,7 +12,7 @@ namespace MenuScripts
         public GameObject model;
         private bool count = false;
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             timer = 0;
             demonSlayerButton = GameObject.Find("DemonSlayerButton").GetComponent<Button>();

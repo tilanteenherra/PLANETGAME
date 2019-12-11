@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
     public float curHp;
     public GameObject firePlace;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         curHp = maxHp;
     }
