@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/Buffs/Cactus.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/PhotonPrefabs/Skeleton.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/CastleScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/SpellHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/BackupController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/Game.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/GraveStone.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ide.rider@1.1.0/Rider/Editor/RiderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/JoonatanTest.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PhotonScripts/PhotonPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PhotonScripts/GameSetupController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/FauxGravityBody.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/NewBehaviourScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player_Stats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapon_Damage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player_Stats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/WeaponDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/LoadOnAwake Scripts/LoadControllerMain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/LoadControllerMain.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/SettingsButtons.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/MainMenuButtons.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FireRotateScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireHealthRegen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerControllerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FauxGravityBody.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FauxGravityAttractor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/FireRotateScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/CastleScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Shaders/DistortShader.shader" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/CactusRandomizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/BackupController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/FirstPersonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/SpellHit.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/WeaponDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PhotonScripts/PhotonPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PhotonScripts/GameSetupController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1RQ3MPHbwMaMxrV1wxi8ODVU13B" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="" />
+      <created>1569585453901</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569585453901</updated>
+      <workItem from="1569585476227" duration="13000" />
+      <workItem from="1569591368360" duration="5493000" />
+      <workItem from="1569916039752" duration="192000" />
+      <workItem from="1569916689406" duration="5133000" />
+      <workItem from="1569921907821" duration="1754000" />
+      <workItem from="1569926829410" duration="1611000" />
+      <workItem from="1570439701797" duration="1015000" />
+      <workItem from="1570442728749" duration="603000" />
+      <workItem from="1570698535146" duration="4608000" />
+      <workItem from="1572103252938" duration="4385000" />
+      <workItem from="1572438658513" duration="5663000" />
+      <workItem from="1572862218401" duration="4247000" />
+      <workItem from="1573203090066" duration="545000" />
+      <workItem from="1573203869165" duration="1392000" />
+      <workItem from="1573478779812" duration="386000" />
+      <workItem from="1573479345843" duration="10683000" />
+      <workItem from="1573727786396" duration="1952000" />
+      <workItem from="1573737487086" duration="249000" />
+      <workItem from="1573737829348" duration="1937000" />
+      <workItem from="1573753894453" duration="3887000" />
+      <workItem from="1574432371228" duration="4133000" />
+      <workItem from="1574459141573" duration="893000" />
+      <workItem from="1575275026564" duration="8649000" />
+      <workItem from="1575396114981" duration="2261000" />
+      <workItem from="1575399906104" duration="9781000" />
+      <workItem from="1575501508605" duration="599000" />
+      <workItem from="1575827116905" duration="4626000" />
+      <workItem from="1575839401802" duration="264000" />
+      <workItem from="1575843634088" duration="607000" />
+      <workItem from="1575998971478" duration="18529000" />
+      <workItem from="1576090590362" duration="5375000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
