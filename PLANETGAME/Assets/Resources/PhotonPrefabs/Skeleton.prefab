@@ -2479,6 +2479,7 @@ MonoBehaviour:
   castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}
+  keepPlace: 0
   healthScript: {fileID: 0}
   SnowAngelMaxTime: 5
   CharacterMaterial: {fileID: 2100000, guid: d7cbda3263792a34cabbf46b7a58b1ca, type: 2}
