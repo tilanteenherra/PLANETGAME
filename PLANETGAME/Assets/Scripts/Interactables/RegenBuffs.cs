@@ -4,6 +4,8 @@ using Photon.Pun;
 using StatsScripts;
 using TMPro;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Random = System.Random;
 
 namespace Interactables
@@ -26,6 +28,7 @@ namespace Interactables
         public Material castleCaptured;
         public Material castleNotCaptured;
         public GameObject[] graveStones;
+        public Animator anim;
 
         private CastleScript castleScript;
         private UIHealthChangeScript uiHealth;
@@ -75,6 +78,7 @@ namespace Interactables
         // Start is called before the first frame update
         void Awake()
         {
+            anim = GetComponent<Animator>();
             uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
             bodypartsDone2 = 0;
@@ -266,6 +270,26 @@ namespace Interactables
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
             {
+                StartCoroutine(SnowAngels());
+
+
+                IEnumerator SnowAngels()
+                {
+                    //store weapons
+                    anim.SetInteger("condition", 85);
+                    yield return new WaitForSeconds(2.9f);
+
+
+                    //snow angel
+                    anim.SetInteger("condition", 50);
+                    yield return new WaitForSeconds(6.5f);
+
+                    //show weapons
+                    anim.SetInteger("condition", 86);
+                    yield return new WaitForSeconds(3.167f);
+
+
+
                     snowAngelCounterValue = 0;
                     snowAngelPicked = true;
                     SnowAngelCounter = true;
@@ -277,6 +301,7 @@ namespace Interactables
                     {
                         bodyPartsRenderers[s].material = InvisibilityMaterial;
                     }
+                }
             }
         }
         [PunRPC]
