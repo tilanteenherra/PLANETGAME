@@ -76,7 +76,9 @@ public class WaitingRoomController : MonoBehaviourPunCallbacks
 
         //send master clients countdown timer to all other players in order to sync time
         if (PhotonNetwork.IsMasterClient)
+        {
             myPhotonView.RPC("RPC_SendTimer", RpcTarget.Others, timerToStartGame);
+        }
     }
 
     [PunRPC]
