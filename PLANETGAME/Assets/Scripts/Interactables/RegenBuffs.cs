@@ -70,11 +70,8 @@ namespace Interactables
         public int mushroomPickUpMaxTime;
         public float healthMultiplier;
         
-        [RPC]
-        void setHP(int newHP)
-        {
-            hp = newHP;
-        }
+        
+       
         // Start is called before the first frame update
         void Awake()
         {
