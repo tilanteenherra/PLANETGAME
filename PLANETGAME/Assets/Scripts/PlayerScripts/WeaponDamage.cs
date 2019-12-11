@@ -33,23 +33,32 @@ public class WeaponDamage : MonoBehaviour
         {
             if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {
-                other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
-                hitOnce = true;
-                instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
-                Destroy(instantiatedObj, time);
-
-                if(hitOnce)
+                if(hitOnce == false)
                 {
-                    if (pc.anim.GetInteger("condition") == 3 || pc.anim.GetInteger("condition") == 31)
+                    other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+                    hitOnce = true;
+                    instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
+                    Destroy(instantiatedObj, time);
+                    //hitAgain = false;
+                }
+            }
+        }
+
+        if (hitOnce)
+        {
+            if (pc.anim.GetInteger("condition") == 3 || pc.anim.GetInteger("condition") == 31)
+            {
+                if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+                {
+                    if (hitAgain == false)
                     {
-                        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
-                        {
-                            other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
-                            //hitAgain = true;
-                            instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
-                            Destroy(instantiatedObj, time);
-                        }
+                        other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+                        hitAgain = true;
+                        instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
+                        Destroy(instantiatedObj, time);
+                        //hitOnce = false;
                     }
+
                 }
             }
         }
