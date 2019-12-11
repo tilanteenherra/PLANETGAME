@@ -29,14 +29,28 @@ public class WeaponDamage : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+        if(pc.anim.GetInteger("condition") == 2 || pc.anim.GetInteger("condition") == 30)
         {
-            if (hitOnce == false)
+            if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
             {
                 other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
                 hitOnce = true;
                 instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
                 Destroy(instantiatedObj, time);
+
+                if(hitOnce)
+                {
+                    if (pc.anim.GetInteger("condition") == 3 || pc.anim.GetInteger("condition") == 31)
+                    {
+                        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+                        {
+                            other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+                            //hitAgain = true;
+                            instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
+                            Destroy(instantiatedObj, time);
+                        }
+                    }
+                }
             }
         }
     }

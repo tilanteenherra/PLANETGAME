@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     DashSmokeScripts dashSmoker;
     
     //Component variables
-    Animator anim;
+    public Animator anim;
     Rigidbody rb;
     
     // Renders ---------
@@ -251,13 +251,11 @@ public class PlayerController : MonoBehaviour
 
     void MeleeAttack()
     {
-        Debug.Log(("Melee"));
         ComboStarter();
     }
     
     void Spell1()
     {
-        Debug.Log("Spell1");
         if (canAttack)
         {
             if (canDash)
@@ -270,7 +268,6 @@ public class PlayerController : MonoBehaviour
     
     void Spell2()
     {
-        Debug.Log("Spell2");
         if (canAttack)
         {
             if (canDash)
@@ -470,7 +467,6 @@ public class PlayerController : MonoBehaviour
     {
         canAttack = false;
         canDash = false;
-        //anim.SetBool("specialAttack", true);
         anim.SetInteger("condition", 25);
         yield return new WaitForSeconds(1.067f);
         anim.SetInteger("condition", 98);
@@ -486,7 +482,6 @@ public class PlayerController : MonoBehaviour
     {
         canAttack = false;
         canDash = false;
-        //anim.SetBool("specialAttack2", true);
         anim.SetInteger("condition", 26);
         yield return new WaitForSeconds(1.8f);
         anim.SetInteger("condition", 98);
