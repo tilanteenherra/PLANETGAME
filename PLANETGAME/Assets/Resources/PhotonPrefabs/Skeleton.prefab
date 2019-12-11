@@ -3724,6 +3724,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9161995853161555456}
     m_Modifications:
+    - target: {fileID: 4369651485219561488, guid: 48c371b573f45444ca772f442ed559c0,
+        type: 3}
+      propertyPath: m_Name
+      value: DashSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 646187507854655735, guid: 48c371b573f45444ca772f442ed559c0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3778,11 +3783,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4369651485219561488, guid: 48c371b573f45444ca772f442ed559c0,
-        type: 3}
-      propertyPath: m_Name
-      value: DashSmoke
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c371b573f45444ca772f442ed559c0, type: 3}
