@@ -322,7 +322,6 @@ namespace Interactables
         {
             if (other.gameObject.CompareTag("CastlePart"))
             {
-                
                 thisCastle = other.gameObject;
                 castleScript = other.gameObject.GetComponent<CastleScript>();
             }
