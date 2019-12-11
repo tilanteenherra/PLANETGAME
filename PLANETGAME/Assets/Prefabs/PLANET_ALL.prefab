@@ -557,9 +557,10 @@ GameObject:
   - component: {fileID: 4940121737102869824}
   - component: {fileID: 7271155522743297211}
   - component: {fileID: 5883009356974413553}
+  - component: {fileID: 1923634300429517801}
   m_Layer: 0
   m_Name: CactusCarl11
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -624,6 +625,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517801
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505502375586192874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.69806427, y: 1.4919884, z: 0.40193152}
+  m_Center: {x: 0.02212131, y: 0.010064691, z: -0.0076264814}
 --- !u!1 &517297483562233631
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,9 +961,10 @@ GameObject:
   - component: {fileID: 1638841583556302544}
   - component: {fileID: 8821322746767848001}
   - component: {fileID: 2613792856384535508}
+  - component: {fileID: 1923634300429517809}
   m_Layer: 0
   m_Name: CactusCarl03
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1014,6 +1029,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583907985579121487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8447253, y: 1.633067, z: 1.3594635}
+  m_Center: {x: 0.056364894, y: -0.13359612, z: -0.08202034}
 --- !u!1 &616539372707514243
 GameObject:
   m_ObjectHideFlags: 0
@@ -13198,9 +13226,10 @@ GameObject:
   - component: {fileID: 1410392468918974959}
   - component: {fileID: 3070964281948636316}
   - component: {fileID: 8764735673145621479}
+  - component: {fileID: 1923634300429517805}
   m_Layer: 0
   m_Name: CactusCarl07
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13265,6 +13294,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517805
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2190519932059516892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1261932, y: 1.2018408, z: 0.5638604}
+  m_Center: {x: 0.06809978, y: -0.04331082, z: 0.023226768}
 --- !u!1 &2248687792906928184
 GameObject:
   m_ObjectHideFlags: 0
@@ -13507,9 +13549,10 @@ GameObject:
   - component: {fileID: 3216356895127122022}
   - component: {fileID: 1970130801675995552}
   - component: {fileID: 3283337308179418463}
+  - component: {fileID: 1923634300429517807}
   m_Layer: 0
   m_Name: CactusCarl05
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13574,6 +13617,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517807
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410284864711864249}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1163671, y: 1.5805969, z: 1.0927923}
+  m_Center: {x: -0.046728104, y: 0.102039725, z: 0.011125892}
 --- !u!1 &2438994577711921338
 GameObject:
   m_ObjectHideFlags: 0
@@ -14205,9 +14261,10 @@ GameObject:
   - component: {fileID: 5726196320526022879}
   - component: {fileID: 830291990071108924}
   - component: {fileID: 901453312871389029}
+  - component: {fileID: 1923634300429517799}
   m_Layer: 0
   m_Name: CactusValeri1
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14272,6 +14329,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2697822297235971098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7701195, y: 1.471405, z: 0.9039993}
+  m_Center: {x: 0.056345522, y: 0.053560853, z: -0.030758739}
 --- !u!1 &2736537830782369294
 GameObject:
   m_ObjectHideFlags: 0
@@ -14964,9 +15034,10 @@ GameObject:
   - component: {fileID: 566958003400089574}
   - component: {fileID: 7212382347132377194}
   - component: {fileID: 7192624537068853906}
+  - component: {fileID: 1923634300429517811}
   m_Layer: 0
   m_Name: CactusCarl01
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15031,6 +15102,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517811
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026677510606053728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4927636, y: 0.4177261, z: 0.71061003}
+  m_Center: {x: 0.017568946, y: -0.024139442, z: 0.042520612}
 --- !u!1 &3049904710230151223
 GameObject:
   m_ObjectHideFlags: 0
@@ -17191,9 +17275,10 @@ GameObject:
   - component: {fileID: 6357298978961228344}
   - component: {fileID: 770526237099284557}
   - component: {fileID: 486319192617748146}
+  - component: {fileID: 1923634300429517802}
   m_Layer: 0
   m_Name: CactusCarl10
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17258,6 +17343,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517802
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360484051225801707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3726623, y: 1.9603577, z: 0.6048721}
+  m_Center: {x: -0.000000029802322, y: 0.009486318, z: 0.009657577}
 --- !u!1 &4373815697517932233
 GameObject:
   m_ObjectHideFlags: 0
@@ -19568,9 +19666,10 @@ GameObject:
   - component: {fileID: 797551725906464260}
   - component: {fileID: 2992080710582912432}
   - component: {fileID: 3817697195151915201}
+  - component: {fileID: 1923634300429517803}
   m_Layer: 0
   m_Name: CactusCarl09
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19635,6 +19734,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517803
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605070944947622392}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5477772, y: 2.0451257, z: 1.1389991}
+  m_Center: {x: -0.14523122, y: 0.07163417, z: -0.007194102}
 --- !u!1 &5688568697985361821
 GameObject:
   m_ObjectHideFlags: 0
@@ -21145,9 +21257,10 @@ GameObject:
   - component: {fileID: 6091783363863870073}
   - component: {fileID: 8803142356956676111}
   - component: {fileID: 2230225817323142811}
+  - component: {fileID: 1923634300429517804}
   m_Layer: 0
   m_Name: CactusCarl08
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21212,6 +21325,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517804
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6768195128471233913}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.340564, y: 2.0390415, z: 1.0474414}
+  m_Center: {x: 0.019907445, y: -0.04807943, z: 0.09725672}
 --- !u!1 &6814826961424676458
 GameObject:
   m_ObjectHideFlags: 0
@@ -21457,9 +21583,10 @@ GameObject:
   - component: {fileID: 1520462902878489736}
   - component: {fileID: 8281633040204491674}
   - component: {fileID: 9014141409041729512}
+  - component: {fileID: 1923634300429517800}
   m_Layer: 0
   m_Name: CactusValeri
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21524,6 +21651,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907816241516745183}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3578722, y: 1.0405078, z: 0.93828094}
+  m_Center: {x: -0.026693195, y: 0.03184724, z: -0.07296598}
 --- !u!1 &6925288276741498480
 GameObject:
   m_ObjectHideFlags: 0
@@ -22421,9 +22561,10 @@ GameObject:
   - component: {fileID: 8824774513521709671}
   - component: {fileID: 4390263821630976434}
   - component: {fileID: 1046613647738063898}
+  - component: {fileID: 1923634300429517810}
   m_Layer: 0
   m_Name: CactusCarl02
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22488,6 +22629,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517810
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384412006298457749}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8762035, y: 1.4147985, z: 1.0143011}
+  m_Center: {x: -0.018943489, y: -0.03978327, z: 0.012513131}
 --- !u!1 &7431605542420782997
 GameObject:
   m_ObjectHideFlags: 0
@@ -24176,9 +24330,10 @@ GameObject:
   - component: {fileID: 5664338422885029676}
   - component: {fileID: 2548688546662209386}
   - component: {fileID: 8291951891184034023}
+  - component: {fileID: 1923634300429517806}
   m_Layer: 0
   m_Name: CactusCarl06
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24243,6 +24398,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517806
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464104329735406642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2673023, y: 1.6838146, z: 1.8251977}
+  m_Center: {x: 0.027124852, y: 0.07471281, z: -0.019586861}
 --- !u!1 &8683619358855286700
 GameObject:
   m_ObjectHideFlags: 0
@@ -24502,9 +24670,10 @@ GameObject:
   - component: {fileID: 967921317856618062}
   - component: {fileID: 4215550164438097072}
   - component: {fileID: 101722151566059082}
+  - component: {fileID: 1923634300429517808}
   m_Layer: 0
   m_Name: CactusCarl04
-  m_TagString: Untagged
+  m_TagString: Cactus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24569,6 +24738,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1923634300429517808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717133267073634231}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3498431, y: 1.7665234, z: 1.6649878}
+  m_Center: {x: 0.025565326, y: -0.08129349, z: 0.024686903}
 --- !u!1 &8729269175723269048
 GameObject:
   m_ObjectHideFlags: 0
