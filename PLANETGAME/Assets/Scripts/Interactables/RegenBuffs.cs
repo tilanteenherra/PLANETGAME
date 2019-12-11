@@ -80,7 +80,7 @@ namespace Interactables
             //tämä disablee kamerat muilta
             if (!ourPlayer.IsMine)
             {
-                Destroy(gameObject.transform.Find("Main Camera"));
+                Destroy(gameObject.transform.Find("Main Camera").gameObject);
             }
             
             if (ourPlayer.IsMine)
