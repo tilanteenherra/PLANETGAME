@@ -76,6 +76,13 @@ namespace Interactables
             bodypartsDone2 = 0;
             ourPlayer = GetComponent<PhotonView>();
             Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
+            
+            //tämä disablee kamerat
+            if (!ourPlayer.IsMine)
+            {
+                gameObject.transform.Find("Main Camera").gameObject.GetComponent<Camera>().enabled = false;
+            }
+            
             if (ourPlayer.IsMine)
             {
                 //healthScript.stats = GetComponent<PlayerStats>();
@@ -244,9 +251,10 @@ namespace Interactables
                 
                 castleCounting = true;
             }
-            //cactus changes user walk speed from 8 to 15
-            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked)
+            //shroom changes user walk speed from 8 to 15
+            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.E))
             {
+                //animaation kutsu ei toteutettu
                 mushroomPicked = true;
                 if (firstPersonController != null)
                 {
@@ -255,7 +263,6 @@ namespace Interactables
                 {
                     playerController.moveSpeed = mushroomSpeed;
                 }
-
                 curSpeed = mushroomSpeed;
             }
 
