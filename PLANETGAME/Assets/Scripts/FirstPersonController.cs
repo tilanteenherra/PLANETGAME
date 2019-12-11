@@ -183,24 +183,25 @@ public class FirstPersonController : MonoBehaviour
 
             Move(x, y);
 
-        if(y > 0 && y <= 0.1)
-        {
-            anim.SetBool("walking", true);
-        }
-        else
-        {
-            anim.SetBool("walking", false);
-        }
+            if (y > 0 && y <= 0.1)
+            {
+                anim.SetBool("walking", true);
+            }
+            else
+            {
+                anim.SetBool("walking", false);
+            }
 
-        if(y > 0.1)
-        {
-            anim.SetBool("running", true);
-        }
-        else
-        {
-            anim.SetBool("running", false);
-        }
+            if (y > 0.1)
+            {
+                anim.SetBool("running", true);
+            }
+            else
+            {
+                anim.SetBool("running", false);
+            }
 
+        }
     }
 
     void FixedUpdate()
