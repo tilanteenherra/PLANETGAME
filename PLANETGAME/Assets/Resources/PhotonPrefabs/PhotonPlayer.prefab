@@ -3308,6 +3308,7 @@ MonoBehaviour:
   castlesCaptured: 0
   thisCastle: {fileID: 5736440001487579359, guid: d6ce3840abd47c64482688d95922c05d,
     type: 3}
+  healthScript: {fileID: 0}
   SnowAngelMaxTime: 0
   CharacterMaterial: {fileID: 0}
   InvisibilityMaterial: {fileID: 0}

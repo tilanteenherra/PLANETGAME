@@ -206,21 +206,24 @@ public class FirstPersonController : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
-
-        if (dashing)
+        if (PV.IsMine)
         {
-            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
             if (dashing)
             {
-                endPosition = transform.forward * 0.3f;
-                transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
-            }
+                GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
-            if (keepPlace)
-            {
-                transform.position = playerPos;
+                if (dashing)
+                {
+                    endPosition = transform.forward * 0.3f;
+                    transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
+                }
+
+                if (keepPlace)
+                {
+                    transform.position = playerPos;
+                }
             }
         }
     }
