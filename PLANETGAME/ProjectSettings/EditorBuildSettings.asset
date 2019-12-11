@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JoonatanTest.unity
     guid: dfea96a9b3ace2e49ba87896e20053ef
+  - enabled: 1
+    path: Assets/Scenes/RolleTest3.unity
+    guid: 2ddd8c7c4f1251740bade8e3954e502f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7053230f6b097be43b0f362592eaef95,
       type: 2}

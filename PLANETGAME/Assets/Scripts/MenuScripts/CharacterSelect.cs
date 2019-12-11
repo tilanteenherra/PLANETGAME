@@ -33,7 +33,7 @@ namespace MenuScripts
 
             if (timer >= 3)
             {
-                SceneManager.LoadScene("JoonatanTest");
+                SceneManager.LoadScene("RolleTest3");
             }
             
         }
