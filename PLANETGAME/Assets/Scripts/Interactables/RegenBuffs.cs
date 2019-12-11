@@ -77,10 +77,10 @@ namespace Interactables
             ourPlayer = GetComponent<PhotonView>();
             Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
             
-            //tämä disablee kamerat
+            //tämä disablee kamerat muilta
             if (!ourPlayer.IsMine)
             {
-                gameObject.transform.Find("Main Camera").gameObject.GetComponent<Camera>().enabled = false;
+                Destroy(gameObject.transform.Find("Main Camera"));
             }
             
             if (ourPlayer.IsMine)
