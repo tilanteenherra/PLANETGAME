@@ -3,6 +3,8 @@
   <component name="ContentModelUserStore">
     <attachedFolders />
     <explicitIncludes>
+      <Path>../../../../../AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.render-pipelines.core@6.9.2</Path>
+      <Path>../../../../../AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.shadergraph@6.9.2</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.0</Path>
