@@ -71,13 +71,14 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
+            
             bodypartsDone = 0;
             bodypartsDone2 = 0;
             ourPlayer = GetComponent<PhotonView>();
             Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
-            if (ourPlayer.IsMine)
+            if (!ourPlayer.IsMine)
             {
-                healthScript.stats = GetComponent<PlayerStats>();
+                //healthScript.stats = GetComponent<PlayerStats>();
             }
             
             //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
