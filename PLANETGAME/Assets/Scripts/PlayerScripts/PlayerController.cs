@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     //Component variables
     public Animator anim;
     Rigidbody rb;
+    PhotonView PV;
     
     // Renders ---------
     public Renderer shovel;
@@ -74,8 +75,12 @@ public class PlayerController : MonoBehaviour
         canClick = true;
         endPosition = new Vector3(0, 0, 0);
 
+        //PhotonView
+        PV = GetComponent<PhotonView>();
+
+
         // Input Controller Related Things Start Here ------------------------------------
-        
+
         controls = new PlayerControls();
 
         // Rotation
@@ -99,110 +104,112 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        if (PV.IsMine)
+        {
+            // Animations Start ------------------------------------------------------------------------------
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                anim.SetBool("running", true);
+                //        anim.SetInteger("condition", 1);
+                //        noOfClicks = 0;
+                noOfClicks = 0;
+                canClick = true;
+            }
 
-        // Animations Start ------------------------------------------------------------------------------
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            anim.SetBool("running", true);
-            //        anim.SetInteger("condition", 1);
-            //        noOfClicks = 0;
-            noOfClicks = 0;
-            canClick = true;
-        }
+            //}
+            if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
 
-        //}
-        if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 44);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 44);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
+            if (Input.GetKey(KeyCode.R))
+            {
+                anim.SetInteger("condition", 20);
+            }
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+            }
 
-        if (Input.GetKey(KeyCode.R))
-        {
-            anim.SetInteger("condition", 20);
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-        }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 19);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 19);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        
-        xInput = Input.GetAxis("Horizontal");
-        yInput = Input.GetAxis("Vertical");
-        anim.SetFloat("VelX", xInput);
-        anim.SetFloat("VelY", yInput);
+            xInput = Input.GetAxis("Horizontal");
+            yInput = Input.GetAxis("Vertical");
+            anim.SetFloat("VelX", xInput);
+            anim.SetFloat("VelY", yInput);
 
-        if ((yInput > 0 && yInput <= 0.5) || (xInput > 0 && xInput <= 0.5))
-        {
-            anim.SetBool("walking", true);
-        }
-        else if ((yInput < 0 && yInput >= -0.5) || (xInput < 0 && xInput >= -0.5))
-        {
-            anim.SetBool("walking", true);
-        }     
-        else
-        {
-            anim.SetBool("walking", false);
-        }
+            if ((yInput > 0 && yInput <= 0.5) || (xInput > 0 && xInput <= 0.5))
+            {
+                anim.SetBool("walking", true);
+            }
+            else if ((yInput < 0 && yInput >= -0.5) || (xInput < 0 && xInput >= -0.5))
+            {
+                anim.SetBool("walking", true);
+            }
+            else
+            {
+                anim.SetBool("walking", false);
+            }
 
-        if (yInput > 0.5 || xInput > 0.5)
-        {
-            anim.SetBool("running", true);
-        }
-        else if (yInput < -0.5 || xInput < -0.5)
-        {
-            anim.SetBool("running", true);
-        }
-        else
-        {
-            anim.SetBool("running", false);
+            if (yInput > 0.5 || xInput > 0.5)
+            {
+                anim.SetBool("running", true);
+            }
+            else if (yInput < -0.5 || xInput < -0.5)
+            {
+                anim.SetBool("running", true);
+            }
+            else
+            {
+                anim.SetBool("running", false);
+            }
         }
 
 
@@ -211,31 +218,34 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Actual player movement
-        if (!attRoutineOn)
+        if (PV.IsMine)
         {
-            Vector3 moveDir = new Vector3(xInput, 0, yInput);
-            gameObject.transform.Translate(moveDir * moveSpeed * Time.fixedDeltaTime, Space.Self);
-        }
+            // Actual player movement
+            if (!attRoutineOn)
+            {
+                Vector3 moveDir = new Vector3(xInput, 0, yInput);
+                gameObject.transform.Translate(moveDir * moveSpeed * Time.fixedDeltaTime, Space.Self);
+            }
 
-        // Player rotation
-        var hRotateInput = rotateInput.x;
-        var rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(rotate, Space.Self);
+            // Player rotation
+            var hRotateInput = rotateInput.x;
+            var rotate = new Vector2(0, hRotateInput) * controllerRotateSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(rotate, Space.Self);
 
-        // Player rotation with mouse
-        var hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
-        gameObject.transform.Rotate(0, hMouseInput,0, Space.Self);
+            // Player rotation with mouse
+            var hMouseInput = Input.GetAxis("Mouse X") * mouseRotateSpeed * Time.deltaTime;
+            gameObject.transform.Rotate(0, hMouseInput, 0, Space.Self);
 
-        if (dashing)
-        {
-            endPosition = transform.forward * 0.3f;
-            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
-        }
+            if (dashing)
+            {
+                endPosition = transform.forward * 0.3f;
+                transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
+            }
 
-        if(keepPlace)
-        {
-            transform.position = playerPos;
+            if (keepPlace)
+            {
+                transform.position = playerPos;
+            }
         }
     }
     
