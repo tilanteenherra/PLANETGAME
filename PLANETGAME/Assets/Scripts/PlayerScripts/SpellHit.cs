@@ -20,7 +20,7 @@ public class SpellHit : MonoBehaviour
     {
         thisParent = transform.root.gameObject;
         pc = thisParent.GetComponent<PlayerController>();
-        bloodEffect = this.gameObject.transform.GetChild(0).gameObject;
+        bloodEffect = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerStay(Collider other)
