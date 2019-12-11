@@ -2475,6 +2475,7 @@ MonoBehaviour:
   castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
   castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
   graveStones: []
+  anim: {fileID: 0}
   castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}

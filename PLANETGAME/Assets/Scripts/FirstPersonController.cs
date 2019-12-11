@@ -278,7 +278,7 @@ public class FirstPersonController : MonoBehaviour
             anim.SetInteger("condition", 86);
         }
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetKeyUp(KeyCode.G))
         {
             //eat mushroom
             anim.SetInteger("condition", 9);

@@ -4,6 +4,8 @@ using Photon.Pun;
 using StatsScripts;
 using TMPro;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using Random = System.Random;
 
 namespace Interactables
@@ -26,6 +28,7 @@ namespace Interactables
         public Material castleCaptured;
         public Material castleNotCaptured;
         public GameObject[] graveStones;
+        public Animator anim;
 
         private CastleScript castleScript;
         private UIHealthChangeScript uiHealth;
@@ -75,6 +78,7 @@ namespace Interactables
         // Start is called before the first frame update
         void Awake()
         {
+            anim = GetComponent<Animator>();
             uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
             bodypartsDone2 = 0;
@@ -255,22 +259,69 @@ namespace Interactables
                 castleCounting = true;
             }
             //shroom changes user walk speed from 8 to 15
-            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.E))
+            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.G))
             {
-                //animaation kutsu ei toteutettu
-                mushroomPicked = true;
-                if (firstPersonController != null)
+                StartCoroutine(EatShrooms());
+
+
+                IEnumerator EatShrooms()
                 {
-                    firstPersonController.walkSpeed = mushroomSpeed;
-                } else if (playerController != null)
-                {
-                    playerController.moveSpeed = mushroomSpeed;
+                    //in theory this should work, but the eat shrooms animation bugs out. also, player stops
+                    //after the effect wears out.
+
+                    
+
+                    //store weapons
+                    anim.SetInteger("condition", 85);
+                    yield return new WaitForSeconds(3.0f);
+
+                    //eat shrooms
+                    anim.SetInteger("condition", 49);
+                    yield return new WaitForSeconds(10.7f);
+
+                    //show weapons
+                    anim.SetInteger("condition", 86);
+                    yield return new WaitForSeconds(3.2f);
+
+                    
+
+                    
+
+                    mushroomPicked = true;
+                    if (firstPersonController != null)
+                    {
+                        firstPersonController.walkSpeed = mushroomSpeed;
+                    }
+                    else if (playerController != null)
+                    {
+                        playerController.moveSpeed = mushroomSpeed;
+                    }
+                    curSpeed = mushroomSpeed;
                 }
-                curSpeed = mushroomSpeed;
             }
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
             {
+                StartCoroutine(SnowAngels());
+
+
+                IEnumerator SnowAngels()
+                {
+                    //store weapons
+                    anim.SetInteger("condition", 85);
+                    yield return new WaitForSeconds(2.9f);
+
+
+                    //snow angel
+                    anim.SetInteger("condition", 50);
+                    yield return new WaitForSeconds(6.5f);
+
+                    //show weapons
+                    anim.SetInteger("condition", 86);
+                    yield return new WaitForSeconds(3.167f);
+
+
+
                     snowAngelCounterValue = 0;
                     snowAngelPicked = true;
                     SnowAngelCounter = true;
@@ -282,6 +333,7 @@ namespace Interactables
                     {
                         bodyPartsRenderers[s].material = InvisibilityMaterial;
                     }
+                }
             }
         }
         [PunRPC]
