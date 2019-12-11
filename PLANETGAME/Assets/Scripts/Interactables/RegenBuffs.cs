@@ -219,7 +219,7 @@ namespace Interactables
             {
                 if (cactusDoDamage && counterForCactus <= 0)
                 {
-                    Damage(cactusDamage);
+                    mePlayer.RPC ("Damage", RpcTarget.All, cactusDamage);
                 }
                     
                     
