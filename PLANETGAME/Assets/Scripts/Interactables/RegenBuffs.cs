@@ -254,18 +254,45 @@ namespace Interactables
                 castleCounting = true;
             }
             //shroom changes user walk speed from 8 to 15
-            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.E))
+            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.G))
             {
-                //animaation kutsu ei toteutettu
-                mushroomPicked = true;
-                if (firstPersonController != null)
+                StartCoroutine(EatShrooms());
+
+
+                IEnumerator EatShrooms()
                 {
-                    firstPersonController.walkSpeed = mushroomSpeed;
-                } else if (playerController != null)
-                {
-                    playerController.moveSpeed = mushroomSpeed;
+                    //in theory this should work, but the eat shrooms animation bugs out. also, player stops
+                    //after the effect wears out.
+
+                    
+
+                    //store weapons
+                    anim.SetInteger("condition", 85);
+                    yield return new WaitForSeconds(3.0f);
+
+                    //eat shrooms
+                    anim.SetInteger("condition", 49);
+                    yield return new WaitForSeconds(10.7f);
+
+                    //show weapons
+                    anim.SetInteger("condition", 86);
+                    yield return new WaitForSeconds(3.2f);
+
+                    
+
+                    
+
+                    mushroomPicked = true;
+                    if (firstPersonController != null)
+                    {
+                        firstPersonController.walkSpeed = mushroomSpeed;
+                    }
+                    else if (playerController != null)
+                    {
+                        playerController.moveSpeed = mushroomSpeed;
+                    }
+                    curSpeed = mushroomSpeed;
                 }
-                curSpeed = mushroomSpeed;
             }
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
