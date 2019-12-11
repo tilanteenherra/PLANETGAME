@@ -219,7 +219,7 @@ namespace Interactables
             {
                 if (cactusDoDamage && counterForCactus <= 0)
                 {
-                    stats.curHp -= cactusDamage;
+                    Damage(cactusDamage);
                 }
                     
                     
@@ -284,7 +284,11 @@ namespace Interactables
                     }
             }
         }
-
+        [PunRPC]
+        public void Damage(float dmg){
+            Debug.Log ("Damaged amount: " + dmg);
+            stats.curHp -= dmg;
+        }
         private void OnTriggerExit(Collider other)
         {
             if (counterForCactus != 0 && other.gameObject.CompareTag("Cactus"))
