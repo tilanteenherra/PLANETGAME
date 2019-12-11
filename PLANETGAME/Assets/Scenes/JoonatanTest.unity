@@ -678,6 +678,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.722065, y: 11.086416, z: 11.740939}
   m_Center: {x: 0.24257207, y: 0.4723506, z: -0.16706705}
+--- !u!4 &462547138 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 112fed8962c1cfa44a3b13cca1802146,
+    type: 3}
+  m_PrefabInstance: {fileID: 462547109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1023,59 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &954503703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 954503704}
+  - component: {fileID: 954503706}
+  - component: {fileID: 954503705}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: SnowAngelArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954503704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954503703}
+  m_LocalRotation: {x: -0.07769927, y: -0.21227154, z: 0.09544128, w: 0.96943}
+  m_LocalPosition: {x: -5.89, y: 4.15, z: 12.02}
+  m_LocalScale: {x: 10, y: 20, z: 10}
+  m_Children: []
+  m_Father: {fileID: 462547138}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: -6.3230004, y: -25.404001, z: 12.672001}
+--- !u!65 &954503705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954503703}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &954503706
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954503703}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1048562215
 GameObject:
   m_ObjectHideFlags: 0
