@@ -183,13 +183,31 @@ public class FirstPersonController : MonoBehaviour
 
             Move(x, y);
 
-            GetInput();
+        if(y > 0 && y <= 0.1)
+        {
+            anim.SetBool("walking", true);
         }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
+
+        if(y > 0.1)
+        {
+            anim.SetBool("running", true);
+        }
+        else
+        {
+            anim.SetBool("running", false);
+        }
+
     }
 
     void FixedUpdate()
     {
-        if (PV.IsMine)
+        rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+
+        if (dashing)
         {
             GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
@@ -319,13 +337,13 @@ public class FirstPersonController : MonoBehaviour
             noOfClicks++;
         }
 
-        if(noOfClicks >= 1 && (anim.GetBool("running") == true))
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == true) || (anim.GetBool("walking") == true)))
         {   
             anim.SetInteger("condition", 30);
             canDash = false;
         }
 
-        if (noOfClicks >= 1 && (anim.GetBool("running") == false))
+        if (noOfClicks >= 1 && ((anim.GetBool("running") == false) && (anim.GetBool("walking") == false)))
         {
             if(canAttack)
             {
@@ -351,7 +369,7 @@ public class FirstPersonController : MonoBehaviour
             canDash = true;
             keepPlace = false;
         }
-
+         
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
         {
             ////test
@@ -449,51 +467,6 @@ public class FirstPersonController : MonoBehaviour
 
     public void Charge()
     {
-        //Obsolete code/alternate solution tries for charge
-        //float t = 1.5f;
-        //rb.velocity = new Vector3(0, 0, 0);
-
-        //while (t > 0)
-        //{         
-        //    rb.AddForce(transform.forward * 20f, ForceMode.Acceleration);
-        //    t -= Time.deltaTime;
-        //}
-
-        //while (!(Input.GetKeyDown(KeyCode.H)))
-        //{
-        //    if (speed < maxSpeed)
-        //    {
-        //        speed = speed - acceleration * Time.deltaTime;
-        //    }
-        //    else if (speed > -maxSpeed)
-        //    {
-        //        speed = speed + acceleration * Time.deltaTime;
-        //    }
-        //    else
-        //    {
-        //        if (speed > deceleration * Time.deltaTime)
-        //        {
-        //            speed = speed - deceleration * Time.deltaTime;
-        //        }
-        //        else if (speed < -deceleration * Time.deltaTime)
-        //        {
-        //            speed = speed + deceleration * Time.deltaTime;
-        //        }
-        //        else
-        //        {
-        //            speed = 0;
-        //        }
-        //    }
-
-        //    Vector3 tempPos = transform.position;
-        //    tempPos.x = transform.position.x;
-        //    tempPos.y = transform.position.y;
-        //    tempPos.z = transform.position.z;
-
-
-
-        //    transform.position = new Vector3(tempPos.x + speed * Time.deltaTime, tempPos.y, tempPos.z);
-        //}
 
         dashing = true;
 

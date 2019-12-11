@@ -9,7 +9,7 @@ public class WeaponDamage : MonoBehaviour
     private PlayerController pc;
 
     private GameObject thisParent;
-    private GameObject damageBurst;
+    private GameObject bloodEffect;
 
     private const float time = 3;
     private GameObject instantiatedObj;
@@ -17,17 +17,30 @@ public class WeaponDamage : MonoBehaviour
     public float damage;
 
     public bool hitOnce = false;
-    public bool inArea = false;
-    
+    public bool hitAgain = false;
+
     // Start is called before the first frame update
     void Awake()
     {
         thisParent = transform.root.gameObject;
         pc = thisParent.GetComponent<PlayerController>();
-        damageBurst = this.gameObject.transform.GetChild(0).gameObject;
+        bloodEffect = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
+        {
+            if (hitOnce == false)
+            {
+                other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
+                hitOnce = true;
+                instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
+                Destroy(instantiatedObj, time);
+            }
+        }
+    }
+   /* Damage to spells --> private void OnTriggerStay(Collider other)
     {
         if (pc.attRoutineOn == true)
         {
@@ -42,5 +55,5 @@ public class WeaponDamage : MonoBehaviour
                 }
             }
         }
-    }
+    } */
 }

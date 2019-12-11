@@ -16,6 +16,7 @@ TagManager:
   - World1
   - SnowAngelArea
   - GraveStone
+  - SpellCollider
   layers:
   - Default
   - TransparentFX
