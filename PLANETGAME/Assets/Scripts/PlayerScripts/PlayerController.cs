@@ -381,6 +381,8 @@ public class PlayerController : MonoBehaviour
             noOfClicks = 0;
             canDash = true;
             keepPlace = false;
+            weaponDamage.hitOnce = false;
+            weaponDamage.hitAgain = false;
         }
          
         else if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackA") && noOfClicks >= 2)
@@ -397,6 +399,8 @@ public class PlayerController : MonoBehaviour
             noOfClicks = 0;
             canDash = true;
             keepPlace = false;
+            weaponDamage.hitOnce = false;
+            weaponDamage.hitAgain = false;
         }
         else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks == 1)
         {
@@ -404,6 +408,8 @@ public class PlayerController : MonoBehaviour
             canClick = true;
             noOfClicks = 0;
             canDash = true;
+            weaponDamage.hitOnce = false;
+            weaponDamage.hitAgain = false;
         }
         else if (anim.GetCurrentAnimatorStateInfo(1).IsName("AttackA") && noOfClicks >= 2)
         {
@@ -417,6 +423,8 @@ public class PlayerController : MonoBehaviour
             canClick = true;
             noOfClicks = 0;
             canDash = true;
+            weaponDamage.hitOnce = false;
+            weaponDamage.hitAgain = false;
         }
     }
 
@@ -425,6 +433,8 @@ public class PlayerController : MonoBehaviour
         anim.SetInteger("condition", 98);
         noOfClicks = 0;
         keepPlace = false;
+        weaponDamage.hitOnce = false;
+        weaponDamage.hitAgain = false;
     }
 
     public void SetChargeFalse()
@@ -474,7 +484,6 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
         canDash = true;
         noOfClicks = 0;
-        weaponDamage.hitOnce = false;
         spellHit.hitOnce = false;
     }
 
@@ -489,7 +498,6 @@ public class PlayerController : MonoBehaviour
         canAttack = true;
         canDash = true;
         noOfClicks = 0;
-        weaponDamage.hitOnce = false;
         spellHit.hitOnce = false;
     }
 }

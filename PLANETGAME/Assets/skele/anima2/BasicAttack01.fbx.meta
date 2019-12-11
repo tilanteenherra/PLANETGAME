@@ -67,7 +67,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.9821223
+      - time: 0.9681036
         functionName: ExitAnimation
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0,
