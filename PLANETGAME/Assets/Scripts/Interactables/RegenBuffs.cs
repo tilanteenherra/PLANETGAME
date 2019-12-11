@@ -28,13 +28,15 @@ namespace Interactables
 
         private CastleScript castleScript;
 
-        private float castleCounter;
+        private float castleCounter = 0;
         private float castleCounterReversed;
         public float castleCounterMax;
         public int castlesCaptured = 0;
         private bool castleCounting;
         private bool castleCapturedBool;
         public GameObject thisCastle;
+
+        private PhotonView mePlayer;
 
         public UIHealthChangeScript healthScript;
         
@@ -85,7 +87,7 @@ namespace Interactables
             
             if (ourPlayer.IsMine)
             {
-                //healthScript.stats = GetComponent<PlayerStats>();
+                mePlayer = ourPlayer;
             }
             
             //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
@@ -153,8 +155,6 @@ namespace Interactables
                 snowAngelCounterValue += Time.deltaTime;
                 if (snowAngelCounterValue >= SnowAngelMaxTime)
                 {
-                   
-                    
                     snowAngelPicked = false;
                     snowAngelCounterValue = 0;
                     SnowAngelCounter = false;
@@ -189,6 +189,7 @@ namespace Interactables
                     }
                     castleNotCaptured.SetColor("_Color",Color.white);
                     castleScript.castleCaptured = true;
+                    castleScript.capturedByUser = mePlayer.Owner.UserId;
                     castleCounting = false;
                 }
             }
@@ -248,7 +249,6 @@ namespace Interactables
 
             if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleScript.castleCaptured)
             {
-                
                 castleCounting = true;
             }
             //shroom changes user walk speed from 8 to 15
