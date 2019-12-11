@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Photon.Pun;
 using StatsScripts;
 using TMPro;
@@ -73,6 +74,7 @@ namespace Interactables
         // Start is called before the first frame update
         void Start()
         {
+            
             uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
             bodypartsDone2 = 0;
