@@ -17694,9 +17694,10 @@ GameObject:
   - component: {fileID: 4514235911122190343}
   - component: {fileID: 5953399497235460985}
   - component: {fileID: 8324889594816289461}
+  - component: {fileID: 8811222197625835595}
   m_Layer: 0
   m_Name: Igloo
-  m_TagString: Untagged
+  m_TagString: CastlePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17761,6 +17762,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8811222197625835595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750484697070093042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7f18d50b193c541a5f3335721b95ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castleCaptured: 0
+  capturedByUser: 
 --- !u!1 &4751841134424393139
 GameObject:
   m_ObjectHideFlags: 0

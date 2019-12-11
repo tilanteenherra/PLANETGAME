@@ -176,7 +176,7 @@ namespace Interactables
             {
                 castleCounter += Time.deltaTime;
                 castleCounterReversed -= Time.deltaTime * 0.2f;
-                castleNotCaptured.SetColor("_Color",(new Color(1,castleCounterReversed,1,1)));
+                //castleNotCaptured.SetColor("_Color",(new Color(1,castleCounterReversed,1,1)));
                 if (castleCounter >= castleCounterMax)
                 {
                     castleCounterReversed = 1;
@@ -188,12 +188,12 @@ namespace Interactables
                     {
                         stats.maxHp = 400;
                         stats.curHp = 400;
-
                     }
-                    castleNotCaptured.SetColor("_Color",Color.white);
+                    //castleNotCaptured.SetColor("_Color",Color.white);
                     castleScript.castleCaptured = true;
                     castleScript.capturedByUser = mePlayer.Owner.UserId;
                     castleCounting = false;
+                    
                 }
             }
             //Counter for cactus effect to last
@@ -250,7 +250,7 @@ namespace Interactables
                 //firstPersonController.walkSpeed = cactusJuiceSpeed;
             }
 
-            if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleScript.castleCaptured)
+            if (other.gameObject.CompareTag("CastlePart") && !castleCounting && !castleScript.castleCaptured && castleScript.capturedByUser != mePlayer.Owner.UserId)
             {
                 castleCounting = true;
             }
@@ -294,24 +294,26 @@ namespace Interactables
                 cactusDoDamage = false;
             }
 
-            if (castleCounting && other.gameObject.CompareTag("CastlePart") && !castleScript.castleCaptured)
+            if (castleCounting && other.gameObject.CompareTag("CastlePart") && !castleScript.castleCaptured  && castleScript.capturedByUser != mePlayer.Owner.UserId)
             {
                 castleCounter = 0;
                 castleCounting = false;
                 castleCounterReversed = 1;
-                castleNotCaptured.SetColor("_Color",Color.white);
+                //castleNotCaptured.SetColor("_Color",Color.white);
+                /*
                 foreach (var castle in castleParts)
                 {
                     castle.GetComponent<Renderer>().material = castleNotCaptured;
                 }
+                */
             }
-
+/*
             if (other.gameObject.CompareTag("CastlePart"))
             {
                 thisCastle = null;
                 castleScript = null;
             }
-
+*/
             if (other.gameObject.CompareTag("GraveStone") && other.gameObject == graveStones[nextLocation])
             {
                 notLeft = false;
@@ -343,8 +345,10 @@ namespace Interactables
 
         private void OnGUI()
         {
-            GUI.Label(new Rect(10, 10, 400, 20),
+            GUI.Label(new Rect(50, 50, 400, 20),
                 "Castles Captured: " + castlesCaptured);
+            GUI.Label(new Rect(50, 80, 400, 20),
+                "Capturing Castle: " + castleCounterReversed);
         }
     }
     
