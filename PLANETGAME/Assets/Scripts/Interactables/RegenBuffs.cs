@@ -71,6 +71,8 @@ namespace Interactables
             bodypartsDone = 0;
             bodypartsDone2 = 0;
             ourPlayer = GetComponent<PhotonView>();
+            PhotonView otherDude = GameObject.Find("PhotonPlayer(Clone)").GetComponent<PhotonView>();
+            
             Debug.Log("Photon me" + ourPlayer + " Is mine?: " +  ourPlayer.IsMine);
             
             //6 gameobjectia jolla on skinnedmeshrenderer, jos tulee lisää niin muuta valuee. 2 meshrenderer 
