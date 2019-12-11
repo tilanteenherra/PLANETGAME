@@ -3304,24 +3304,25 @@ MonoBehaviour:
   castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
   castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
   graveStones: []
-  castleCounterMax: 0
+  castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 5736440001487579359, guid: d6ce3840abd47c64482688d95922c05d,
     type: 3}
   healthScript: {fileID: 0}
-  SnowAngelMaxTime: 0
+  SnowAngelMaxTime: 5
   CharacterMaterial: {fileID: 0}
-  InvisibilityMaterial: {fileID: 0}
+  InvisibilityMaterial: {fileID: 2100000, guid: d912b37c6a7854d499dd49c66e8fb8ac,
+    type: 2}
   bodyPartsMeshRenderer: []
   bodyPartsRenderers: []
   bodypartsDone: 0
   bodypartsDone2: 0
   curSpeed: 0
   cactusJuiceSpeed: 15
-  cactusDamage: 0
+  cactusDamage: 10
   cactusPickUpMaxTime: 5
-  mushroomSpeed: 0
-  mushroomPickUpMaxTime: 0
+  mushroomSpeed: 15
+  mushroomPickUpMaxTime: 5
   healthMultiplier: 0.1
 --- !u!114 &4210321975154569251
 MonoBehaviour:
