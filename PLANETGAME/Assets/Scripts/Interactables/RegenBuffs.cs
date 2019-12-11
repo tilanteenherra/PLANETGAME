@@ -227,7 +227,9 @@ namespace Interactables
                 if (cactusDoDamage && counterForCactus <= 0)
                 {
                     mePlayer.RPC ("Damage", RpcTarget.All, cactusDamage);
-                }  
+                }
+                    
+                    
                 counterForCactus += Time.deltaTime;
                 if (counterForCactus >= cactusPickUpMaxTime)
                 {
@@ -235,6 +237,9 @@ namespace Interactables
                     cactusPicked = false;
                     counterForCactus = 0;
                 }
+                
+                
+                
             }
 
             if (keepPlace)

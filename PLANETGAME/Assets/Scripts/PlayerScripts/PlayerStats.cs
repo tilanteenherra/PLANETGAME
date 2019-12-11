@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour
             Die();
         }   
     }
-
+    
     void Die()
     {
         dieRand = Random.Range(1, 2);
