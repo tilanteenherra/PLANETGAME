@@ -260,6 +260,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLANET_ALL
       objectReference: {fileID: 0}
+    - target: {fileID: -8825104089698030780, guid: 112fed8962c1cfa44a3b13cca1802146,
+        type: 3}
+      propertyPath: m_TagString
+      value: CastlePart
+      objectReference: {fileID: 0}
     - target: {fileID: -8014993243832366149, guid: 112fed8962c1cfa44a3b13cca1802146,
         type: 3}
       propertyPath: m_TagString
@@ -654,6 +659,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3211267, y: 0.30661988, z: 0.39024207}
   m_Center: {x: 0.08158493, y: -0.07270256, z: 0.02034472}
+--- !u!1 &462547136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8825104089698030780, guid: 112fed8962c1cfa44a3b13cca1802146,
+    type: 3}
+  m_PrefabInstance: {fileID: 462547109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &462547137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462547136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.722065, y: 11.086416, z: 11.740939}
+  m_Center: {x: 0.24257207, y: 0.4723506, z: -0.16706705}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
