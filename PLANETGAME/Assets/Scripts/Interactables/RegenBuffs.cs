@@ -350,14 +350,4 @@ namespace Interactables
                 "Capturing Castle: " + castleCounterReversed);
         }
     }
-    
-   
-   
-   
-   
-   
-  
-   
-   
-   
 }
