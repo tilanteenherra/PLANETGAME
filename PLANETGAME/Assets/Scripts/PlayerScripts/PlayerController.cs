@@ -178,25 +178,25 @@ public class PlayerController : MonoBehaviour
         yInput = Input.GetAxis("Vertical");
         anim.SetFloat("VelX", xInput);
         anim.SetFloat("VelY", yInput);
-        
-        if(yInput > 0 && yInput <= 0.5)
+
+        if ((yInput > 0 && yInput <= 0.5) || (xInput > 0 && xInput <= 0.5))
         {
             anim.SetBool("walking", true);
         }
-        else if (yInput < 0 && yInput >= -0.5)
+        else if ((yInput < 0 && yInput >= -0.5) || (xInput < 0 && xInput >= -0.5))
         {
             anim.SetBool("walking", true);
-        }
+        }     
         else
         {
             anim.SetBool("walking", false);
         }
 
-        if(yInput > 0.5)
+        if (yInput > 0.5 || xInput > 0.5)
         {
             anim.SetBool("running", true);
         }
-        else if (yInput < -0.5)
+        else if (yInput < -0.5 || xInput < -0.5)
         {
             anim.SetBool("running", true);
         }
@@ -204,7 +204,8 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("running", false);
         }
-        
+
+
         // Animations end ----------------------------------------------------------------------------------------
     }
 
