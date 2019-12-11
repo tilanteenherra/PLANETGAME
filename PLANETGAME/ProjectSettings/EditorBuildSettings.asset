@@ -32,7 +32,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RolleTest2.unity
     guid: 2bcb37eb64ef4a14d8d78fdec83628bf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JoonatanTest.unity
     guid: dfea96a9b3ace2e49ba87896e20053ef
   - enabled: 1

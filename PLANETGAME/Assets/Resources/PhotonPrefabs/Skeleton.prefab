@@ -2453,6 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  dieRand: 0
   curHp: 100
   firePlace: {fileID: 0}
 --- !u!114 &5295858740679744492

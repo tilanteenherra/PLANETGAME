@@ -23,12 +23,6 @@ namespace MenuScripts
             startButton.onClick.AddListener(StartButton);
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
-
         private void StartButton()
         {
             //Please add the scene

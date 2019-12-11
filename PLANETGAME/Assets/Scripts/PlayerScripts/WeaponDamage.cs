@@ -24,7 +24,7 @@ public class WeaponDamage : MonoBehaviour
     {
         thisParent = transform.root.gameObject;
         pc = thisParent.GetComponent<PlayerController>();
-        bloodEffect = this.gameObject.transform.GetChild(0).gameObject;
+        bloodEffect = gameObject.transform.GetChild(0).gameObject;
     }
 
     private void OnTriggerStay(Collider other)
@@ -39,7 +39,6 @@ public class WeaponDamage : MonoBehaviour
                     hitOnce = true;
                     instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
                     Destroy(instantiatedObj, time);
-                    //hitAgain = false;
                 }
             }
         }
@@ -56,27 +55,9 @@ public class WeaponDamage : MonoBehaviour
                         hitAgain = true;
                         instantiatedObj = (GameObject)Instantiate(bloodEffect, other.transform.position, transform.rotation);
                         Destroy(instantiatedObj, time);
-                        //hitOnce = false;
                     }
-
                 }
             }
         }
     }
-   /* Damage to spells --> private void OnTriggerStay(Collider other)
-    {
-        if (pc.attRoutineOn == true)
-        {
-            if (other.gameObject != thisParent && other.gameObject.CompareTag("Player"))
-            {
-                if (hitOnce == false)
-                {
-                    other.gameObject.GetComponent<PlayerStats>().curHp -= damage;
-                    hitOnce = true;
-                    instantiatedObj = (GameObject)Instantiate(damageBurst, other.transform.position, transform.rotation);
-                    Destroy(instantiatedObj, time);
-                }
-            }
-        }
-    } */
 }
