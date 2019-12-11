@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -39,6 +40,9 @@ public class FirstPersonController : MonoBehaviour
 
     Animator anim;
 
+
+    PhotonView PV;
+
     //Used to hide and show weapons
     public Renderer shovel;
     public Renderer shield;
@@ -69,130 +73,136 @@ public class FirstPersonController : MonoBehaviour
         canClick = true;
         endPosition = new Vector3(0, 0, 0);
 
+        PV = GetComponent<PhotonView>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.W))
+        if (PV.IsMine)
         {
-        //    //Deprecated code
-        //    //if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
-        //    //{
-        //    //    return;
-        //    //}
-        //    //else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
-        //    //{
-            anim.SetBool("running", true);
-            //        anim.SetInteger("condition", 1);
-            //        noOfClicks = 0;
-            noOfClicks = 0;
-            canClick = true;
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                //    //Deprecated code
+                //    //if ((anim.GetBool("attackingA") == true || anim.GetBool("attackingB") == true))
+                //    //{
+                //    //    return;
+                //    //}
+                //    //else if ((anim.GetBool("attackingA") == false && anim.GetBool("attackingB") == false))
+                //    //{
+                anim.SetBool("running", true);
+                //        anim.SetInteger("condition", 1);
+                //        noOfClicks = 0;
+                noOfClicks = 0;
+                canClick = true;
+            }
+
+            //}
+            if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 44);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 44);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
+
+            if (Input.GetKey(KeyCode.R))
+            {
+                anim.SetInteger("condition", 20);
+            }
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                anim.SetBool("running", true);
+                //    anim.SetInteger("condition", 19);
+                noOfClicks = 0;
+                canClick = true;
+            }
+            if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
+            {
+                anim.SetBool("running", false);
+                //    anim.SetInteger("condition", 98);
+                noOfClicks = 0;
+                canClick = true;
+            }
+
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("Vertical");
+
+
+
+            transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
+
+
+            //Mouselook up/down - not needed
+            //verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
+            //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
+
+            //Mouselook up/down - not needed
+            //cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
+
+            Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+            Vector3 targetMoveAmount = moveDir * walkSpeed;
+            moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
+
+            Move(x, y);
+
+            GetInput();
         }
-
-        //}
-        if (Input.GetKeyUp(KeyCode.W) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 44);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.D) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.S) == false) && (Input.GetKey(KeyCode.W) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
-
-        if (Input.GetKey(KeyCode.R))
-        {
-            anim.SetInteger("condition", 20);
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            anim.SetBool("running", true);
-        //    anim.SetInteger("condition", 19);
-            noOfClicks = 0;
-            canClick = true;
-        }
-        if (Input.GetKeyUp(KeyCode.S) && (Input.GetKey(KeyCode.A) == false) && (Input.GetKey(KeyCode.W) == false) && (Input.GetKey(KeyCode.D) == false))
-        {
-            anim.SetBool("running", false);
-        //    anim.SetInteger("condition", 98);
-            noOfClicks = 0;
-            canClick = true;
-        }
-
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
-
-
-
-        transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivityX);
-
-
-        //Mouselook up/down - not needed
-        //verticalLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivityY;
-        //verticalLookRotation = Mathf.Clamp(verticalLookRotation, -60, 60);
-
-        //Mouselook up/down - not needed
-        //cameraT.localEulerAngles = Vector3.left * verticalLookRotation;
-
-        Vector3 moveDir = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        Vector3 targetMoveAmount = moveDir * walkSpeed;
-        moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVelocity, .15f);
-
-        Move(x, y);
-
-        GetInput();
-
     }
 
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
-
-        if (dashing)
+        if (PV.IsMine)
         {
-            endPosition = transform.forward * 0.3f;
-            transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
-        }
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
 
-        if(keepPlace)
-        {
-            transform.position = playerPos;
+            if (dashing)
+            {
+                endPosition = transform.forward * 0.3f;
+                transform.position = Vector3.Lerp(transform.position, transform.position + endPosition, Time.time);
+            }
+
+            if (keepPlace)
+            {
+                transform.position = playerPos;
+            }
         }
     }
 

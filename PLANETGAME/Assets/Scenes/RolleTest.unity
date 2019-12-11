@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af54cac5095330c45a18b6bb44db9332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplayerSceneIndex: 0
+  multiplayerSceneIndex: 2
   menuSceneIndex: 0
   minPlayersToStart: 0
   playerCountDisplay: {fileID: 0}
@@ -1279,7 +1279,7 @@ PrefabInstance:
     - target: {fileID: 1365955824385582794, guid: 3c62d571f9b3ea845881946e77f97792,
         type: 3}
       propertyPath: multiplayerSceneIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c62d571f9b3ea845881946e77f97792, type: 3}
