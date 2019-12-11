@@ -3141,7 +3141,7 @@ GameObject:
   - component: {fileID: 8237406932991184622}
   - component: {fileID: 8237406932991181073}
   - component: {fileID: 8237406932991181077}
-  - component: {fileID: 8237406932991181074}
+  - component: {fileID: -3812813623958961047}
   - component: {fileID: 8237406932991181075}
   - component: {fileID: 8237406932991181076}
   - component: {fileID: 8237406932991181072}
@@ -3234,7 +3234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attractor: {fileID: 0}
---- !u!114 &8237406932991181074
+--- !u!114 &-3812813623958961047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3243,17 +3243,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 8237406932991184623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b304ab765f29e046876ac49702e71ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 08926845ff9a8db46adba77cdf2190d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivityX: 750
-  walkSpeed: 7
-  canDash: 1
-  keepPlace: 0
+  weaponDamage: {fileID: 0}
+  spellHit: {fileID: 0}
+  anim: {fileID: 0}
+  shovel: {fileID: 0}
+  shield: {fileID: 0}
+  moveSpeed: 10
+  controllerRotateSpeed: 0
+  mouseRotateSpeed: 0
+  dashSpeed: 8
   noOfClicks: 0
-  shovel: {fileID: 3662248180940980250}
-  shield: {fileID: 2936786326165174954}
+  walkSpeed: 8
+  buffTimer: 0
   attRoutineOn: 0
+  canDash: 1
+  paused: 0
+  keepPlace: 0
+  interacting: 0
   dashSmoke: 0
 --- !u!114 &8237406932991181075
 MonoBehaviour:
