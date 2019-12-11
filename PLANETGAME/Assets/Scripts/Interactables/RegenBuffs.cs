@@ -74,7 +74,6 @@ namespace Interactables
         // Start is called before the first frame update
         void Awake()
         {
-            
             uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
             bodypartsDone2 = 0;
