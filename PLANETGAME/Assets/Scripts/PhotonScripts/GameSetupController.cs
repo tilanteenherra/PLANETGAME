@@ -8,7 +8,8 @@ public class GameSetupController : MonoBehaviour
 {
     public GameObject[] players;
     int i = 0;
-    // Start is called before the first frame update
+
+
     void Awake()
     {
         players = new GameObject[4];

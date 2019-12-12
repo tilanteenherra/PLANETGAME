@@ -3277,6 +3277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 10
+  dieRand: 0
   curHp: 10
   firePlace: {fileID: 0}
 --- !u!114 &8237406932991181076

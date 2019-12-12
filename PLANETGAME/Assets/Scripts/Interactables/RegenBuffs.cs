@@ -72,8 +72,9 @@ namespace Interactables
         public float mushroomSpeed;
         public int mushroomPickUpMaxTime;
         public float healthMultiplier;
-        
-        
+
+        //Rolle addas yöllä:
+        private float dmg = 10;
        
         // Start is called before the first frame update
         void Awake()
@@ -223,7 +224,7 @@ namespace Interactables
             {
                 if (cactusDoDamage && counterForCactus <= 0)
                 {
-                    mePlayer.RPC ("Damage", RpcTarget.All, cactusDamage);
+                    mePlayer.RPC ("Damage", RpcTarget.All, stats.curHp);
                 }
                     
                     
