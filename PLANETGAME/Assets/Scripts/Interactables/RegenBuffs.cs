@@ -308,7 +308,7 @@ namespace Interactables
                 //}
             }
 
-            if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
+            if (other.gameObject.CompareTag("SnowAngelArea") && playerController.interacting)
             {
                 StartCoroutine(SnowAngels());
 
