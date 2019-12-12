@@ -29,7 +29,7 @@ namespace StatsScripts
             {
                 stats.curHp -= damageMultiplier;
             }
-            transform.localScale = new Vector3( (float)stats.curHp/stats.maxHp,1,1);
+            transform.localScale = new Vector3( (float)stats.curHp/stats.maxHp* 2.65f,1,1);
             //image.transform.localScale = new Vector3(asd,1,1);
         }
 
