@@ -272,28 +272,32 @@ namespace Interactables
                 castleCounting = true;
             }
             //shroom changes user walk speed from 8 to 15
-            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.G))
+            if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && playerController.interacting)
             {
-                //StartCoroutine(EatShrooms());
+                StartCoroutine(EatShrooms());
 
 
-                //IEnumerator EatShrooms()
-                //{
+                IEnumerator EatShrooms()
+                {
                     //in theory this should work, but the eat shrooms animation bugs out. also, player stops
                     //after the effect wears out.
 
+                    playerPos = transform.position;
+                    keepPlace = true;
+
                     //store weapons
-                    //anim.SetInteger("condition", 85);
-                    //yield return new WaitForSeconds(3.0f);
+                    anim.SetInteger("condition", 85);
+                    yield return new WaitForSeconds(3.0f);
 
                     //eat shrooms
-                    //anim.SetInteger("condition", 49);
-                    //yield return new WaitForSeconds(10.7f);
+                    anim.SetInteger("condition", 9);
+                    yield return new WaitForSeconds(10.7f);
 
                     //show weapons
-                    //anim.SetInteger("condition", 86);
-                    //yield return new WaitForSeconds(3.2f);
-                    
+                    anim.SetInteger("condition", 86);
+                    yield return new WaitForSeconds(3.2f);
+
+                    keepPlace = false;
 
                     mushroomPicked = true;
                     if (firstPersonController != null)
@@ -305,10 +309,10 @@ namespace Interactables
                         playerController.moveSpeed = mushroomSpeed;
                     }
                     curSpeed = mushroomSpeed;
-                //}
+                }
             }
 
-            if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
+            if (other.gameObject.CompareTag("SnowAngelArea") && playerController.interacting)
             {
                 StartCoroutine(SnowAngels());
 

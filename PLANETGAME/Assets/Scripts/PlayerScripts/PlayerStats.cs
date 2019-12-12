@@ -10,6 +10,10 @@ public class PlayerStats : MonoBehaviour
     public float curHp;
     public GameObject firePlace;
     private PlayerController pc;
+
+    Vector3 playerPos;
+    public bool keepPlace = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,6 +24,11 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (keepPlace)
+        {
+            transform.position = playerPos;
+        }
+
         // Player health checks
         if (curHp > maxHp)
         {
@@ -28,7 +37,9 @@ public class PlayerStats : MonoBehaviour
         if (curHp <= 0)
         {
             Die();
-        }   
+        }
+
+        
     }
     
     void Die()
@@ -39,7 +50,10 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator DeathRoutine()
     {
-        if(dieRand == 1)
+        playerPos = transform.position;
+        keepPlace = true;
+
+        if (dieRand == 1)
         {
             pc.anim.SetInteger("condition", 66);
         }
