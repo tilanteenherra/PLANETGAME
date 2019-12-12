@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 954257741540520946}
   - component: {fileID: 5374620767137158046}
-  - component: {fileID: 455902449}
+  - component: {fileID: 3553023617545924729}
   m_Layer: 0
   m_Name: WeaponCollider
-  m_TagString: SpellCollider
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8798394, y: 1.5332475, z: 1.8907259}
-  m_Center: {x: -0.027932763, y: 0.8223126, z: 0.8332652}
---- !u!114 &455902449
+  m_Size: {x: 1.6390936, y: 1.5332475, z: 1.4071599}
+  m_Center: {x: -0.031734467, y: 0.8223126, z: 0.65450853}
+--- !u!114 &3553023617545924729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,11 +55,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2943616050254507413}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ff0a2eecd4dbc24e93bb080e684a667, type: 3}
+  m_Script: {fileID: 11500000, guid: 3db8f220ddfb41e468016d0e83860510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 5
   hitOnce: 0
+  hitAgain: 0
 --- !u!1001 &7109255605493496176
 PrefabInstance:
   m_ObjectHideFlags: 0
