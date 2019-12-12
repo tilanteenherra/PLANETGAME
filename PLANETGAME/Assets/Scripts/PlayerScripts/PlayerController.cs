@@ -8,7 +8,7 @@ using UnityEngine.Experimental.PlayerLoop;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
 
     // Class usage variables
