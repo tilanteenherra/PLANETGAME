@@ -25,8 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2943616050254507413}
-  m_LocalRotation: {x: 0.000000059604638, y: 0.00000008940696, z: -0.000000119209275,
-    w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.049743652, z: 0.004668474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -45,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.6390936, y: 1.5332476, z: 1.1480675}
-  m_Center: {x: -0.031734478, y: 0.8223126, z: 0.6556839}
+  m_Size: {x: 1.6390936, y: 1.5332475, z: 1.4071599}
+  m_Center: {x: -0.031734467, y: 0.8223126, z: 0.65450853}
 --- !u!114 &3553023617545924729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,12 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db8f220ddfb41e468016d0e83860510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pc: {fileID: 0}
-  thisParent: {fileID: 0}
-  damageBurst: {fileID: 0}
-  damage: 1
+  damage: 5
   hitOnce: 0
-  inArea: 0
+  hitAgain: 0
 --- !u!1001 &7109255605493496176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,11 +68,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 954257741540520946}
     m_Modifications:
-    - target: {fileID: 5247389841451107436, guid: 9f4b9a4ad240f984fbb176d9d6d27627,
-        type: 3}
-      propertyPath: m_Name
-      value: Particle System
-      objectReference: {fileID: 0}
     - target: {fileID: 5247389841451107427, guid: 9f4b9a4ad240f984fbb176d9d6d27627,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131,6 +122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5247389841451107436, guid: 9f4b9a4ad240f984fbb176d9d6d27627,
+        type: 3}
+      propertyPath: m_Name
+      value: Particle System
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f4b9a4ad240f984fbb176d9d6d27627, type: 3}
