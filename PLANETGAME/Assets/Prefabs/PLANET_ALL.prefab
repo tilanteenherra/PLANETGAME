@@ -1864,6 +1864,50 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &1035803843802339492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4625239610044051165}
+  - component: {fileID: 343361277363909319}
+  m_Layer: 0
+  m_Name: SnowArea2
+  m_TagString: SnowAngelArea
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4625239610044051165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035803843802339492}
+  m_LocalRotation: {x: -0.07769927, y: -0.21227154, z: 0.09544128, w: 0.96943}
+  m_LocalPosition: {x: -8.51, y: 12.65, z: 0.11}
+  m_LocalScale: {x: 10, y: 20, z: 10}
+  m_Children: []
+  m_Father: {fileID: 6901955522544762982}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: -6.3230004, y: -25.404001, z: 12.672001}
+--- !u!135 &343361277363909319
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035803843802339492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1142493370400649139
 GameObject:
   m_ObjectHideFlags: 0
@@ -8187,7 +8231,7 @@ GameObject:
   - component: {fileID: 1923634300821918147}
   - component: {fileID: 1923634300821918144}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SnowArea
   m_TagString: SnowAngelArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22893,6 +22937,7 @@ Transform:
   - {fileID: 4086780492416183229}
   - {fileID: 1568012847427220521}
   - {fileID: 1923634300821918145}
+  - {fileID: 4625239610044051165}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

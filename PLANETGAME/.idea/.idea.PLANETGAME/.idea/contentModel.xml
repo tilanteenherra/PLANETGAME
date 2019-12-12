@@ -358,7 +358,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="AudioManager.cs" t="Include" />
           <e p="DashSmokeScripts.cs" t="Include" />
           <e p="FauxGravityAttractor.cs" t="Include" />
           <e p="FauxGravityBody.cs" t="Include" />
@@ -387,9 +386,12 @@
             <e p="WaitingRoomController.cs" t="Include" />
           </e>
           <e p="PlayerScripts" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="AudioTrigger.cs" t="Include" />
             <e p="BackupController.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
+            <e p="SnowSteps.cs" t="Include" />
             <e p="SpellHit.cs" t="Include" />
             <e p="WeaponDamage.cs" t="Include" />
           </e>
@@ -398,7 +400,6 @@
           <e p="StatsScripts" t="Include">
             <e p="UIHealthChangeScript.cs" t="Include" />
           </e>
-          <e p="SwitchMusicTrigger.cs" t="Include" />
         </e>
         <e p="Shaders" t="Include">
           <e p="ToonShader.shader" t="Include" />
