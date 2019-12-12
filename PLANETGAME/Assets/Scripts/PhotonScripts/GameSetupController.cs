@@ -10,7 +10,7 @@ public class GameSetupController : MonoBehaviour
     int i = 0;
 
 
-    void Awake()
+    void Start()
     {
         players = new GameObject[4];
         CreatePlayer();

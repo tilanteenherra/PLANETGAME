@@ -42,6 +42,9 @@ namespace Interactables
 
         private PhotonView mePlayer;
 
+        Vector3 playerPos;
+        public bool keepPlace = false;
+
         public UIHealthChangeScript healthScript;
         
         private bool snowAngelPicked;
@@ -74,11 +77,15 @@ namespace Interactables
         public float healthMultiplier;
 
         //Rolle addas yöllä:
-        private float dmg = 10;
+        private float dmg;
        
         // Start is called before the first frame update
         void Awake()
         {
+            //ROLLE WAS HERE
+            dmg = cactusDamage;
+
+
             anim = GetComponent<Animator>();
             uiHealth = GameObject.Find("HealthBarEdit").GetComponent<UIHealthChangeScript>();
             bodypartsDone = 0;
@@ -239,6 +246,11 @@ namespace Interactables
                 
                 
             }
+
+            if (keepPlace)
+            {
+                transform.position = playerPos;
+            }
         }
 
         private void OnTriggerStay(Collider other)
@@ -262,30 +274,25 @@ namespace Interactables
             //shroom changes user walk speed from 8 to 15
             if (other.gameObject.CompareTag("Mushroom") && !mushroomPicked && Input.GetKeyDown(KeyCode.G))
             {
-                StartCoroutine(EatShrooms());
+                //StartCoroutine(EatShrooms());
 
 
-                IEnumerator EatShrooms()
-                {
+                //IEnumerator EatShrooms()
+                //{
                     //in theory this should work, but the eat shrooms animation bugs out. also, player stops
                     //after the effect wears out.
 
-                    
-
                     //store weapons
-                    anim.SetInteger("condition", 85);
-                    yield return new WaitForSeconds(3.0f);
+                    //anim.SetInteger("condition", 85);
+                    //yield return new WaitForSeconds(3.0f);
 
                     //eat shrooms
-                    anim.SetInteger("condition", 49);
-                    yield return new WaitForSeconds(10.7f);
+                    //anim.SetInteger("condition", 49);
+                    //yield return new WaitForSeconds(10.7f);
 
                     //show weapons
-                    anim.SetInteger("condition", 86);
-                    yield return new WaitForSeconds(3.2f);
-
-                    
-
+                    //anim.SetInteger("condition", 86);
+                    //yield return new WaitForSeconds(3.2f);
                     
 
                     mushroomPicked = true;
@@ -298,7 +305,7 @@ namespace Interactables
                         playerController.moveSpeed = mushroomSpeed;
                     }
                     curSpeed = mushroomSpeed;
-                }
+                //}
             }
 
             if (other.gameObject.CompareTag("SnowAngelArea") && Input.GetKeyDown(KeyCode.N))
@@ -308,6 +315,9 @@ namespace Interactables
 
                 IEnumerator SnowAngels()
                 {
+                    playerPos = transform.position;
+                    keepPlace = true;
+
                     //store weapons
                     anim.SetInteger("condition", 85);
                     yield return new WaitForSeconds(2.9f);
@@ -334,6 +344,8 @@ namespace Interactables
                     {
                         bodyPartsRenderers[s].material = InvisibilityMaterial;
                     }
+
+                    keepPlace = false;
                 }
             }
         }

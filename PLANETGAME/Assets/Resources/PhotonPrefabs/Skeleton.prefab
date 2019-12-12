@@ -1042,7 +1042,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2507072417006530349}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &2550889760285201906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2307,7 @@ GameObject:
   - component: {fileID: 5295858740679744492}
   - component: {fileID: 1249935890271565074}
   - component: {fileID: -8730451626593120007}
+  - component: {fileID: -8250168578138700628}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Player
@@ -2479,6 +2480,7 @@ MonoBehaviour:
   castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}
+  keepPlace: 0
   healthScript: {fileID: 0}
   SnowAngelMaxTime: 5
   CharacterMaterial: {fileID: 2100000, guid: d7cbda3263792a34cabbf46b7a58b1ca, type: 2}
@@ -2514,6 +2516,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: -8730451626593120007}
+  - {fileID: -8250168578138700628}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2532,6 +2535,44 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!114 &-8250168578138700628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295858740679742483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 1
+    SynchronizeType: 0
+    Name: VelX
+  - Type: 1
+    SynchronizeType: 0
+    Name: VelY
+  - Type: 3
+    SynchronizeType: 0
+    Name: condition
+  - Type: 4
+    SynchronizeType: 0
+    Name: running
+  - Type: 4
+    SynchronizeType: 0
+    Name: holdPos
+  - Type: 4
+    SynchronizeType: 0
+    Name: walking
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
 --- !u!1 &5395774678685816675
 GameObject:
   m_ObjectHideFlags: 0
