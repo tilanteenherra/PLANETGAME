@@ -1294,6 +1294,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517809, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517805, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517807, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517799, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517811, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517802, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517803, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517804, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517800, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517810, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517806, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1923634300429517808, guid: f767ea2d5483a104badc275cc6d087f4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f767ea2d5483a104badc275cc6d087f4, type: 3}
 --- !u!4 &2044063945584376173
@@ -3834,9 +3894,11 @@ MonoBehaviour:
   castleCaptured: {fileID: 2100000, guid: e15410103f6a8d54db58b16305af0a17, type: 2}
   castleNotCaptured: {fileID: 2100000, guid: 5abc5a153c4b9d84a9b6f82773a0a751, type: 2}
   graveStones: []
+  anim: {fileID: 0}
   castleCounterMax: 5
   castlesCaptured: 0
   thisCastle: {fileID: 0}
+  keepPlace: 0
   healthScript: {fileID: 0}
   SnowAngelMaxTime: 10
   CharacterMaterial: {fileID: 2100000, guid: 9663d4dac83822d4cb7458d0fc9a3862, type: 2}
@@ -3866,8 +3928,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
+  dieRand: 0
   curHp: 100
   firePlace: {fileID: 0}
+  keepPlace: 0
 --- !u!114 &7760901054993565699
 MonoBehaviour:
   m_ObjectHideFlags: 0
