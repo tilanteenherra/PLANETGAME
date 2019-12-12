@@ -218,12 +218,15 @@ namespace Interactables
                     mushroomPicked = false;
                     if (firstPersonController != null)
                     {
-                        firstPersonController.walkSpeed = origSpeed;
+                        //firstPersonController.walkSpeed = origSpeed;
+                        playerController.moveSpeed *= 1.5f;
                     } else if (playerController != null)
                     {
-                        playerController.moveSpeed = origSpeed;
+                        //playerController.moveSpeed = origSpeed;
+                        playerController.moveSpeed *= 1.5f;
+
                     }
-                    curSpeed = origSpeed;
+                    //curSpeed = origSpeed;
                 }
             }
 
@@ -308,7 +311,7 @@ namespace Interactables
                     {
                         playerController.moveSpeed = mushroomSpeed;
                     }
-                    curSpeed = mushroomSpeed;
+                    playerController.moveSpeed *= 0.66f;
                 }
             }
 
