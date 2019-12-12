@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -6,38 +7,41 @@ namespace MenuScripts
 {
     public class MainMenuButtons : MonoBehaviour
     {
-        private Button settingsButton;
-        private Button exitButton;
-        private Button startButton;   
 
+        public GameObject mainMenu;
+        public GameObject settingMenu;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Update()
         {
-            settingsButton = GameObject.Find("SettingsButton").GetComponent<Button>();
-            startButton = GameObject.Find("StartButton").GetComponent<Button>();
-            exitButton = GameObject.Find("ExitButton").GetComponent<Button>();
-            
-            settingsButton.onClick.AddListener(SettingsButton);
-            exitButton.onClick.AddListener(ExitButton);
-            startButton.onClick.AddListener(StartButton);
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                FuckGoBack();
+            }
         }
 
-        private void StartButton()
+        public void Play()
         {
-            //Please add the scene
+            // Please add the scene
             SceneManager.LoadScene("RolleTest");
         }
 
-        private void SettingsButton()
+        private void FuckGoBack()
         {
-            //Please add the scene
-            SceneManager.LoadScene("SettingsScene");
+            // Close MainMenu window and open Settings
+            if (mainMenu.activeSelf == false)
+            {
+                settingMenu.SetActive(false);
+                mainMenu.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("The fuck are you trying to do?!?!?!?!?!");
+            }
         }
 
-        private void ExitButton()
+        public void RageQuit()
         {
-            //Quit the game
+            // Quit the game
             Application.Quit();
         }
     }
