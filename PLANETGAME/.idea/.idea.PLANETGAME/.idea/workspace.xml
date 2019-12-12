@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="" />
+    <list default="true" id="5e8e7526-9906-4071-90bf-d3e723903b59" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PLANETGAME/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +75,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PhotonScripts/GameSetupController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuScripts/CharacterSelect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerStats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/SnowSteps.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/AudioManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/AudioTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StatsScripts/UIHealthChangeScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactables/RegenBuffs.cs" />
       </list>
     </option>
   </component>
@@ -169,7 +172,7 @@
       <workItem from="1575843634088" duration="607000" />
       <workItem from="1575998971478" duration="18529000" />
       <workItem from="1576090590362" duration="6374000" />
-      <workItem from="1576139245152" duration="246000" />
+      <workItem from="1576139245152" duration="1883000" />
     </task>
     <servers />
   </component>
